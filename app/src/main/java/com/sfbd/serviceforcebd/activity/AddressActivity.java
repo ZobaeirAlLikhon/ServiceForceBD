@@ -161,6 +161,7 @@ public class AddressActivity extends AppCompatActivity {
                     user = dataSnapshot.getValue(User.class);
                     Log.d(TAG, "onDataChange: User" + user.toString());
                     binding.contactET.getEditText().setText(user.getPhone());
+//                    binding.contactET.getEditText().setText(user.ge());
                 }
             }
 

@@ -34,9 +34,8 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-
     }
+
 
     private boolean validateName() {
         String name = binding.nameET.getEditText().getText().toString().trim();
@@ -179,6 +178,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     }
+
 
     public void gotoSignIn(View view) {
         startActivity(new Intent(this, SignInActivity.class));
