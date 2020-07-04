@@ -119,17 +119,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser == null){
-            sentUserToLoginActivity();
-        }else {
-            initBottomNavigation();
-            selectedFragment = new HomeFragment();
-            initFragment(selectedFragment);
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        }
+                if (currentUser == null){
+                    sentUserToLoginActivity();
+                }else {
+
+                    initBottomNavigation();
+                    selectedFragment = new HomeFragment();
+                    initFragment(selectedFragment);
+                }
+
+
+
     }
 
     private void sentUserToLoginActivity() {

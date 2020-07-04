@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sfbd.serviceforcebd.databinding.ActivitySignInBinding;
@@ -23,12 +24,24 @@ public class SignInActivity extends AppCompatActivity {
     private ActivitySignInBinding binding;
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
-
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                forgetPass();
+            }
+        });
+
+    }
+
+    private void forgetPass() {
+        Intent intent=new Intent(this,ResetPass.class);
+        startActivity(intent);
     }
 
     public void startSignUpActivity(View view) {
@@ -76,6 +89,7 @@ public class SignInActivity extends AppCompatActivity {
 
         String email = binding.emailET.getEditText().getText().toString().trim();
         String password = binding.passwordET.getEditText().getText().toString().trim();
+
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
