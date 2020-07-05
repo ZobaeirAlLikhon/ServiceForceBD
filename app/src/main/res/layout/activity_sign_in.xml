@@ -23,6 +23,11 @@
             android:padding="24dp"
             android:src="@drawable/ic_service_force_logo_final"
             tools:ignore="ContentDescription" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log in with facebook"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailET"
@@ -108,6 +113,20 @@
                 android:textColorHighlight="@color/white"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="36dp"
+                android:src="@drawable/icon_facebook"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="-2dp"
+                tools:layout_editor_absoluteY="4dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
