@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ServiceForceBD</string>
+    <string name="facebook_app_id">940639889717704</string>
+    <string name="fb_login_protocol_scheme">fb940639889717704</string>
 
     <string-array name="cleaning_services">
         <item>Around the Resident</item>
@@ -39,7 +41,13 @@
     <string-array name="medical_services">
         <item>Guide line (Local &amp; Foreign)</item>
         <item>Doctor\'s Appointment (Local &amp; Foreign)</item>
+        <item>Medical Equipment(Local &amp; Foreign)</item>
     </string-array>
+    <integer-array name="random_imgs">
+        <item>@drawable/medi_guide</item>
+        <item>@drawable/medi_appi</item>
+        <item>@drawable/medical_equip</item>
+    </integer-array>
 
     <string-array name="rent_a_car_services">
         <item>Pick up</item>

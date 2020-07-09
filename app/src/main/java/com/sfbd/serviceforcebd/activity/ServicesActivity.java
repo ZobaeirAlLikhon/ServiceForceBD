@@ -3,6 +3,7 @@ package com.sfbd.serviceforcebd.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import com.sfbd.serviceforcebd.R;
@@ -15,6 +16,8 @@ public class ServicesActivity extends AppCompatActivity {
     private ActivityServicesBinding binding;
     private String[] serviceList;
     private ServiceAdapter adapter;
+    private String service;
+    private int[] imgs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class ServicesActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
-            String service = bundle.getString("service");
+            service = bundle.getString("service");
             binding.toolbarTV.setText(service);
 
             assert service != null;
@@ -46,6 +49,7 @@ public class ServicesActivity extends AppCompatActivity {
                 initRecyclerView();
 
             }else if(service.equals("Medical")){
+                 imgs = getResources().getIntArray(R.array.random_imgs);
                 serviceList = getResources().getStringArray(R.array.medical_services);
                 initRecyclerView();
 
@@ -76,8 +80,8 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        adapter = new ServiceAdapter(this, serviceList);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.recyclerView.setAdapter(adapter);
+            adapter = new ServiceAdapter(this, serviceList);
+            binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            binding.recyclerView.setAdapter(adapter);
     }
 }
