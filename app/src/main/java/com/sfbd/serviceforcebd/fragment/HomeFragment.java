@@ -2,6 +2,7 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private int[] sampleImages = {R.drawable.imageone, R.drawable.imagetwo};
+    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,R.drawable.imagethree};
     private Context context;
 
     public HomeFragment() {
@@ -93,6 +94,23 @@ public class HomeFragment extends Fragment {
         binding.tuitionManagementCV.setOnClickListener(view -> {
             String service = "Tuition Service";
             initService(service);
+        });
+        binding.goruProjectCV.setOnClickListener(view ->{
+//            String service ="Goru";
+//            initService(service);
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse("http://www.kurbani.serviceforcebd.com/product-category/cattle-service/"));
+            startActivity(intent);
+        });
+        binding.silkProjectCV.setOnClickListener(view ->{
+
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse("http://serviceforcebd.com/product-category/clothing/silk-sharee/"));
+            startActivity(intent);
         });
 
     }

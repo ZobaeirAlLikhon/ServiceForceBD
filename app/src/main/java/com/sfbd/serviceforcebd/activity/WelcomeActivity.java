@@ -24,7 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int Splash_Screen=4000;
     Animation button_amin;
     private ImageView imageView;
-    private TextView textView;
+   // private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +37,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         lottieAnimationView = findViewById(R.id.servicesAnimLV);
         imageView=findViewById(R.id.imageView2);
-        textView=findViewById(R.id.textView3);
+        //textView=findViewById(R.id.textView3);
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         button_amin= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
-        textView.setAnimation(button_amin);
+        //textView.setAnimation(button_amin);
         imageView.setAnimation(button_amin);
 
 

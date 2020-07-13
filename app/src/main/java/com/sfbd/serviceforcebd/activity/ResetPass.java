@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,6 +20,7 @@ import com.sfbd.serviceforcebd.databinding.ActivitySignInBinding;
 public class ResetPass extends AppCompatActivity {
     private ActivityResetPassBinding binding;
     private FirebaseAuth mAuth;
+    private LottieAnimationView lottieAnimationView1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
