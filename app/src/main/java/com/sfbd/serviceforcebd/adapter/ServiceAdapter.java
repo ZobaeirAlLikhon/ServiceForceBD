@@ -48,7 +48,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.itemView.setOnClickListener(view -> {
 
         i=position;
-            Intent intent = new Intent(context, ServiceDetails.class);
+            Intent intent = new Intent(context, LocationActivity.class);
             intent.putExtra("img_p",i);
             intent.putExtra("category",serviceList[position]);
 
