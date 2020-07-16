@@ -2,10 +2,17 @@ package com.sfbd.serviceforcebd.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +20,11 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.sfbd.serviceforcebd.databinding.ActivityAddressBinding;
 import com.sfbd.serviceforcebd.model.Order;
 import com.sfbd.serviceforcebd.model.User;
@@ -29,9 +41,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class AddressActivity extends AppCompatActivity {
 
+    private static final int LOCATION_REQUEST_CODE = 1001;
     private ActivityAddressBinding binding;
     private static final String TAG = "AddressActivity";
     private FirebaseAuth firebaseAuth;
@@ -39,6 +54,8 @@ public class AddressActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private User user;
     private Bundle bundle;
+    private String address;
+    private FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +72,124 @@ public class AddressActivity extends AppCompatActivity {
         binding.backBtn.setOnClickListener(view -> {
             onBackPressed();
         });
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         bundle = getIntent().getExtras();
-        if (bundle != null) {
-            Log.d(TAG, "onCreate: " + bundle.getString("address"));
-            binding.addressET.getEditText().setText(bundle.getString("address"));
-            binding.addressET.setHelperText("You can edit your address!");
+//        if (bundle != null) {
+//            Log.d(TAG, "onCreate: " + bundle.getString("address"));
+//            binding.addressET.getEditText().setText(bundle.getString("address"));
+//            binding.addressET.setHelperText("You can edit your address!");
+//        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            getLastLocation();
+        } else {
+            askLocationPermission();
         }
-
     }
+
+
+
+    //.............................................................................................
+  private void getLastLocation() {
+      Log.d(TAG, "getLastLocation: started");
+
+      Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
+
+      locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
+          @Override
+          public void onSuccess(Location location) {
+
+              if (location != null) {
+                  Log.d(TAG, "onSuccess: Location : " + location.toString());
+                  Log.d(TAG, "onSuccess: Latitude: " + location.getLatitude());
+                  Log.d(TAG, "onSuccess: Longitude: " + location.getLongitude());
+                  Log.d(TAG, "onSuccess: Time: " + location.getTime());
+
+                  address = getCompleteAddressString(location.getLatitude(), location.getLongitude());
+                  Log.d(TAG, "onSuccess: Address : " + address);
+                  binding.addressET.getEditText().setText(address);
+
+              }
+
+          }
+      });
+
+      locationTask.addOnFailureListener(new OnFailureListener() {
+          @Override
+          public void onFailure(@NonNull Exception e) {
+              Log.d(TAG, "onFailure: " + e.getLocalizedMessage());
+          }
+      });
+
+        /*
+        // OR You can write this bellow
+        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+
+            }
+        });*/
+
+  }
+    private void askLocationPermission() {
+        Log.d(TAG, "askLocationPermission: started");
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                Toast.makeText(this, "You should give the permission!", Toast.LENGTH_SHORT).show();
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+            }
+            /* First time user use this application*/
+            else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+            }
+        }
+    }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == LOCATION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                /*Permission Granted*/
+                getLastLocation();
+            } else {
+                /*Permission Denied*/
+
+            }
+        }
+    }
+
+    private String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
+        String strAdd = "";
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+            if (addresses != null) {
+                Address returnedAddress = addresses.get(0);
+                StringBuilder strReturnedAddress = new StringBuilder("");
+
+                for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i));
+                }
+                strAdd = strReturnedAddress.toString();
+                //Log.w("My Current loction address", strReturnedAddress.toString());
+                Log.d(TAG, "getCompleteAddressString: " + strReturnedAddress.toString());
+            } else {
+                //Log.w("My Current loction address", "No Address returned!");
+                Log.d(TAG, "getCompleteAddressString: No Address returned!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d(TAG, "My Current location address Can not get Address!");
+        }
+        return strAdd;
+    }
+
+
+
+
+
+
+
+//    .................................................................................................
 
 
     private void initFireBaseOrderPlace() {
@@ -76,7 +202,7 @@ public class AddressActivity extends AppCompatActivity {
         String name = user.getName();
         String address = binding.addressET.getEditText().getText().toString();
         String contact = binding.contactET.getEditText().getText().toString();
-        String orderItem = bundle.getString("orderItem");
+        String orderItem = bundle.getString("category");
         String date = binding.dateET.getEditText().getText().toString();
         String time = binding.timeET.getEditText().getText().toString();
         String isPlaced = "Placed";

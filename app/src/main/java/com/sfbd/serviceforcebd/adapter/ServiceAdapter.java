@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.LocationActivity;
 import com.sfbd.serviceforcebd.activity.ServiceDetails;
 import com.sfbd.serviceforcebd.databinding.RvServiceItemBinding;
@@ -48,7 +49,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.itemView.setOnClickListener(view -> {
 
         i=position;
-            Intent intent = new Intent(context, LocationActivity.class);
+            Intent intent = new Intent(context, AddressActivity.class);
             intent.putExtra("img_p",i);
             intent.putExtra("category",serviceList[position]);
 
