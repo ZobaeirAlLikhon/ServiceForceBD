@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.sfbd.serviceforcebd.R;
@@ -32,6 +30,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,R.drawable.imagethree};
     private Context context;
+    private Button Call_btn;
+    private static final int REQUEST_CALL=1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,13 +46,26 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         initView();
         init();
-
+        findViewById();
         return binding.getRoot();
     }
+
+    private void findViewById() {
+        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01770455846"));
+                context.startActivity(intent);
+            }
+        });
+    }
+
 
     private void initView() {
 
