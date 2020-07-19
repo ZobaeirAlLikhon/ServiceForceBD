@@ -61,11 +61,11 @@
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:elevation="16dp"
+                    android:elevation="10dp"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="16dp"
+                    app:cardElevation="10dp"
                     tools:targetApi="lollipop">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,7 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Cleaning"
+                            android:text="Cleaning &amp;    pest control"
                             android:textAppearance="@style/monospaceSmallText"
                             app:layout_constraintEnd_toEndOf="@id/cleaningIV"
                             app:layout_constraintStart_toStartOf="@id/cleaningIV"
@@ -96,22 +96,19 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-
-
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/silkProjectCV"
+                    android:id="@+id/applianceCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:elevation="16dp"
+                    android:elevation="10dp"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
-                    app:cardElevation="16dp"
-                    tools:targetApi="LOLLIPOP">
-
+                    app:cardElevation="10dp"
+                    tools:targetApi="lollipop">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -120,82 +117,27 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/silkProjectIV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="70dp"
-                            android:src="@drawable/shari"
+                            android:id="@+id/applianceIV"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/ic_appliance"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Silk"
+                            android:text="Appliance Repair"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/silkProjectIV"
-                            app:layout_constraintStart_toStartOf="@id/silkProjectIV"
-                            app:layout_constraintTop_toBottomOf="@+id/silkProjectIV" />
+                            app:layout_constraintEnd_toEndOf="@id/applianceIV"
+                            app:layout_constraintStart_toStartOf="@id/applianceIV"
+                            app:layout_constraintTop_toBottomOf="@+id/applianceIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/goruProjectCV"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:elevation="16dp"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="16dp"
-                    tools:targetApi="LOLLIPOP">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="8dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/goruProjectIV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="70dp"
-                            android:src="@drawable/cow2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Kurbani"
-                            android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/goruProjectIV"
-                            app:layout_constraintStart_toStartOf="@id/goruProjectIV"
-                            app:layout_constraintTop_toBottomOf="@+id/goruProjectIV" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/servicesTwoLL"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                app:layout_constraintTop_toBottomOf="@id/servicesOneLL"
-
-                >
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/medicalServiceCV"
                     android:layout_width="0dp"
@@ -229,7 +171,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Medical"
+                            android:text="Health Care &amp; Medical"
                             android:textAppearance="@style/monospaceSmallText"
                             app:layout_constraintEnd_toEndOf="@id/medicalServiceIV"
                             app:layout_constraintStart_toStartOf="@id/medicalServiceIV"
@@ -237,9 +179,59 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/servicesTwoLL"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintTop_toBottomOf="@id/servicesOneLL">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/beautyServiceCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:elevation="16dp"
+                    android:focusable="true"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="16dp"
+                    tools:targetApi="lollipop">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/beautyServiceIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_beauty_services"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Beauty &amp; Salon"
+                            android:textAppearance="@style/monospaceSmallText"
+                            app:layout_constraintEnd_toEndOf="@id/beautyServiceIV"
+                            app:layout_constraintStart_toStartOf="@id/beautyServiceIV"
+                            app:layout_constraintTop_toBottomOf="@+id/beautyServiceIV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/rentACarCV"
+                    android:id="@+id/laundryCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -259,26 +251,30 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/rentACarIV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_rent_a_car"
+                            android:id="@+id/laundryIV"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/lu"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Rent A Car"
+                            android:text="Laundry Service"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/rentACarIV"
-                            app:layout_constraintStart_toStartOf="@id/rentACarIV"
-                            app:layout_constraintTop_toBottomOf="@+id/rentACarIV" />
-
+                            app:layout_constraintEnd_toEndOf="@id/laundryIV"
+                            app:layout_constraintStart_toStartOf="@id/laundryIV"
+                            app:layout_constraintTop_toBottomOf="@+id/laundryIV" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
+
+
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/eventManagementCV"
@@ -349,7 +345,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/serviceThreeLL">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/itSupportCV"
+                    android:id="@+id/shiftingCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -369,27 +365,26 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/itSupportIV"
+                            android:id="@+id/shiftingIV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/it_support"
+                            android:src="@drawable/ic_shifting"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="IT Support"
+                            android:text="Shifting"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/itSupportIV"
-                            app:layout_constraintStart_toStartOf="@id/itSupportIV"
-                            app:layout_constraintTop_toBottomOf="@+id/itSupportIV" />
+                            app:layout_constraintEnd_toEndOf="@id/shiftingIV"
+                            app:layout_constraintStart_toStartOf="@id/shiftingIV"
+                            app:layout_constraintTop_toBottomOf="@+id/shiftingIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/homeDeliveryCV"
                     android:layout_width="0dp"
@@ -484,8 +479,9 @@
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/servicesFourLL">
 
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/shiftingCV"
+                    android:id="@+id/goruProjectCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -505,29 +501,31 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/shiftingIV"
+                            android:id="@+id/goruProjectIV"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_shifting"
+                            android:layout_height="70dp"
+                            android:src="@drawable/cow2"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ContentDescription" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Shifting"
+                            android:gravity="center"
+                            android:text="Kurbani"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/shiftingIV"
-                            app:layout_constraintStart_toStartOf="@id/shiftingIV"
-                            app:layout_constraintTop_toBottomOf="@+id/shiftingIV" />
+                            app:layout_constraintEnd_toEndOf="@id/goruProjectIV"
+                            app:layout_constraintStart_toStartOf="@id/goruProjectIV"
+                            app:layout_constraintTop_toBottomOf="@+id/goruProjectIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
+
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/beautyServiceCV"
+                    android:id="@+id/silkProjectCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -535,9 +533,11 @@
                     android:clickable="true"
                     android:elevation="16dp"
                     android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="16dp"
-                    tools:targetApi="lollipop">
+                    tools:targetApi="LOLLIPOP">
+
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -546,38 +546,89 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/beautyServiceIV"
+                            android:id="@+id/silkProjectIV"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_beauty_services"
+                            android:layout_height="70dp"
+                            android:src="@drawable/shari"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ContentDescription" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Beauty"
+                            android:text="Silk"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/beautyServiceIV"
-                            app:layout_constraintStart_toStartOf="@id/beautyServiceIV"
-                            app:layout_constraintTop_toBottomOf="@+id/beautyServiceIV" />
+                            app:layout_constraintEnd_toEndOf="@id/silkProjectIV"
+                            app:layout_constraintStart_toStartOf="@id/silkProjectIV"
+                            app:layout_constraintTop_toBottomOf="@+id/silkProjectIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/servicessixLL"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="3"
+                app:layout_constraintTop_toBottomOf="@id/servicesFiveLL">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/itSupportCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:elevation="16dp"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="16dp"
+                    tools:targetApi="LOLLIPOP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/itSupportIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/it_support"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="IT Support"
+                            android:textAppearance="@style/monospaceSmallText"
+                            app:layout_constraintEnd_toEndOf="@id/itSupportIV"
+                            app:layout_constraintStart_toStartOf="@id/itSupportIV"
+                            app:layout_constraintTop_toBottomOf="@+id/itSupportIV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/servicessixLL"
+                android:id="@+id/servicessevenLL"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:background="@drawable/r3"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/servicesFiveLL">
+                app:layout_constraintTop_toBottomOf="@id/servicessixLL">
 
 
                 <RelativeLayout
@@ -595,6 +646,116 @@
                         android:hint="ask me" />
                 </RelativeLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/serviceseightLL"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/servicessevenLL">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="Our promises"
+                    android:textAppearance="@style/largeTextSansSerif"
+                    android:textSize="25dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="4"
+                    android:orientation="horizontal">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/promisesCV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:elevation="16dp"
+                        android:focusable="true"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="16dp"
+                        tools:targetApi="lollipop">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/beautyServiceeIV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_beauty_services"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Verified Professional"
+                                android:textAppearance="@style/monospaceSmallText"
+                                app:layout_constraintEnd_toEndOf="@id/beautyServiceeIV"
+                                app:layout_constraintStart_toStartOf="@id/beautyServiceeIV"
+                                app:layout_constraintTop_toBottomOf="@+id/beautyServiceeIV" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/aimCV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:elevation="16dp"
+                        android:focusable="true"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="16dp"
+                        tools:targetApi="lollipop">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/aimIV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_beauty_services"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Verified Professional"
+                                android:textAppearance="@style/monospaceSmallText"
+                                app:layout_constraintEnd_toEndOf="@id/aimIV"
+                                app:layout_constraintStart_toStartOf="@id/aimIV"
+                                app:layout_constraintTop_toBottomOf="@+id/aimIV" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+            </LinearLayout>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

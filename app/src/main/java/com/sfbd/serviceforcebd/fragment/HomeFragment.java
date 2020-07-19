@@ -28,7 +28,8 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,R.drawable.imagethree};
+    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,
+            R.drawable.a1,R.drawable.a2,R.drawable.a3,R.drawable.a4, R.drawable.imagethree,};
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:01770455846"));
+                intent.setData(Uri.parse("tel:01707071417"));
                 context.startActivity(intent);
             }
         });
@@ -73,9 +74,17 @@ public class HomeFragment extends Fragment {
             String service = "Cleaning";
             initService(service);
         });
+        binding.applianceCV.setOnClickListener(v -> {
+            String service = "Appliance";
+            initService(service);
+        });
 
         binding.beautyServiceCV.setOnClickListener(view -> {
             String service = "Beauty Services";
+            initService(service);
+        });
+        binding.laundryCV.setOnClickListener(view->{
+            String service = "Laundry";
             initService(service);
         });
 
@@ -86,11 +95,6 @@ public class HomeFragment extends Fragment {
 
         binding.medicalServiceCV.setOnClickListener(view -> {
             String service = "Medical";
-            initService(service);
-        });
-
-        binding.rentACarCV.setOnClickListener(view -> {
-            String service = "Rent-A-Car";
             initService(service);
         });
 

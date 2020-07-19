@@ -4,33 +4,51 @@
     <string name="fb_login_protocol_scheme">fb940639889717704</string>
 
     <string-array name="cleaning_services">
-        <item>Around the Resident</item>
-        <item>Gate</item>
-        <item>Stairs</item>
-        <item>Store Room</item>
-        <item>Living Room</item>
-        <item>Mats</item>
-        <item>Kitchen</item>
-        <item>Floor</item>
-        <item>Furniture</item>
-        <item>Ceiling</item>
-        <item>Electronics &amp; Electric Tools</item>
-        <item>Water Tank</item>
-        <item>Pipe Line</item>
-        <item>Car wash</item>
-        <item>Bike wash</item>
+        <item>Sofa cleaning</item>
+        <item>Full home deep Cleaning</item>
+        <item>Home Cleaning</item>
+        <item>Office Cleaning</item>
+        <item>Pest control service</item>
+        <item>Carpet/Mattress Cleaning</item>
+        <item> Disinfection Service For Virus</item>
+        <item>Hire a Female Cleaner</item>
+        <item>Hire a Male Cleaner</item>
+        <item>Water Tank Cleaning</item>
+        <item>Pipe Line cleaning</item>
+    </string-array>
+
+    <string-array name="appliance_repair_services">
+        <item>Ac Repair Services</item>
+        <item>Microwave Repair Services</item>
+        <item>Tv Repair Services</item>
+        <item>Refigerator Repair Services</item>
+        <item>Washing Machine Repair Services</item>
+        <item>IPS Repair Services</item>
+        <item> Gas stove/Burnner Repair Services</item>
     </string-array>
 
     <string-array name="beauty_services">
-        <item>Bridal Make up</item>
-        <item>Party Make up</item>
-        <item>Hair Cut</item>
-        <item>Pedicure</item>
-        <item>Many Cure</item>
+        <item>Eid Festival offer</item>
+        <item>Personal Beuty Care</item>
+        <item>Body spa &amp; Massage</item>
+        <item>Machover for women</item>
+        <item>Mehedi design</item>
         <item>Mehendi Design</item>
-        <item>Face Wash</item>
-        <item>Body Massage</item>
-        <item>Health Tips</item>
+        <item>Bridal makcup</item>
+        <item>salon service for man</item>
+        <item>Groom up package for men</item>
+    </string-array>
+
+    <string-array name="laundry_services">
+        <item>Eid Festival offer</item>
+        <item>Personal Beuty Care</item>
+        <item>Body spa &amp; Massage</item>
+        <item>Machover for women</item>
+        <item>Mehedi design</item>
+        <item>Mehendi Design</item>
+        <item>Bridal makcup</item>
+        <item>salon service for man</item>
+        <item>Groom up package for men</item>
     </string-array>
 
     <string-array name="shifting_services">
@@ -39,23 +57,15 @@
     </string-array>
 
     <string-array name="medical_services">
-        <item>Guide line (Local &amp; Foreign)</item>
-        <item>Doctor\'s Appointment (Local &amp; Foreign)</item>
-        <item>Medical Equipment(Local &amp; Foreign)</item>
+        <item>Serial for a Doctor</item>
+        <item>Consult with a Doctor</item>
+<!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
     </string-array>
     <integer-array name="random_imgs">
         <item>@drawable/medi_guide</item>
         <item>@drawable/medi_appi</item>
         <item>@drawable/medical_equip</item>
     </integer-array>
-
-    <string-array name="rent_a_car_services">
-        <item>Pick up</item>
-        <item>Micro</item>
-        <item>Bus</item>
-        <item>Truck</item>
-        <item>Mini Bus</item>
-    </string-array>
 
     <string-array name="event_management">
         <item>Birthday</item>

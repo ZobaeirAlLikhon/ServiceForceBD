@@ -37,8 +37,16 @@ public class ServicesActivity extends AppCompatActivity {
             binding.toolbarTV.setText(service);
 
             assert service != null;
-            if (service.equals("Cleaning")){
+            if (service.equals("Cleaning")) {
                 serviceList = getResources().getStringArray(R.array.cleaning_services);
+                initRecyclerView();
+
+            }else if(service.equals("Appliance")){
+                serviceList = getResources().getStringArray(R.array.appliance_repair_services);
+                initRecyclerView();
+
+            }else if(service.equals("Laundry")){
+                serviceList = getResources().getStringArray(R.array.laundry_services);
                 initRecyclerView();
             }else if(service.equals("Beauty Services")){
                 serviceList = getResources().getStringArray(R.array.beauty_services);
@@ -52,11 +60,6 @@ public class ServicesActivity extends AppCompatActivity {
                  imgs = getResources().getIntArray(R.array.random_imgs);
                 serviceList = getResources().getStringArray(R.array.medical_services);
                 initRecyclerView();
-
-            }else if(service.equals("Rent-A-Car")){
-                serviceList = getResources().getStringArray(R.array.rent_a_car_services);
-                initRecyclerView();
-
             }else if(service.equals("Event Management")){
                 serviceList = getResources().getStringArray(R.array.event_management);
                 initRecyclerView();
