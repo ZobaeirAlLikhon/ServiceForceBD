@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         binding.carouselView.setImageListener(imageListener);*/
     }
 
+
+
+
   /*  ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {

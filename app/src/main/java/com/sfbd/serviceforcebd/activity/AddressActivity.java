@@ -20,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -56,6 +57,7 @@ public class AddressActivity extends AppCompatActivity {
     private Bundle bundle;
     private String address;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private LottieAnimationView lottieAnimationView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,7 +196,7 @@ public class AddressActivity extends AppCompatActivity {
 
     private void initFireBaseOrderPlace() {
         Log.d(TAG, "initFireBaseOrderPlace: started");
-        binding.progressBarId.setVisibility(View.VISIBLE);
+        //binding.progressBarId.setVisibility(View.VISIBLE);
         String currentUserId = firebaseUser.getUid();
         DatabaseReference orderRef = databaseReference.child("orders");
 
@@ -217,7 +219,7 @@ public class AddressActivity extends AppCompatActivity {
                     if (task1.isSuccessful()){
                         Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(this,MainActivity.class));
-                        binding.progressBarId.setVisibility(View.GONE);
+                       binding.progressBarId.setVisibility(View.GONE);
                     }
 
                 });

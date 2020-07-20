@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.sfbd.serviceforcebd.R;
@@ -30,8 +28,11 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,R.drawable.imagethree};
+    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,
+            R.drawable.a1,R.drawable.a2,R.drawable.a3,R.drawable.a4, R.drawable.imagethree,};
     private Context context;
+    private Button Call_btn;
+    private static final int REQUEST_CALL=1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,13 +47,26 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         initView();
         init();
-
+        findViewById();
         return binding.getRoot();
     }
+
+    private void findViewById() {
+        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01707071417"));
+                context.startActivity(intent);
+            }
+        });
+    }
+
 
     private void initView() {
 
@@ -60,9 +74,17 @@ public class HomeFragment extends Fragment {
             String service = "Cleaning";
             initService(service);
         });
+        binding.applianceCV.setOnClickListener(v -> {
+            String service = "Appliance";
+            initService(service);
+        });
 
         binding.beautyServiceCV.setOnClickListener(view -> {
             String service = "Beauty Services";
+            initService(service);
+        });
+        binding.laundryCV.setOnClickListener(view-> {
+            String service = "Laundry";
             initService(service);
         });
 
@@ -70,14 +92,27 @@ public class HomeFragment extends Fragment {
             String service = "Shifting";
             initService(service);
         });
-
-        binding.medicalServiceCV.setOnClickListener(view -> {
-            String service = "Medical";
+        binding.plumbingServiceCV.setOnClickListener(v -> {
+            String service = "Electric & Plumbing Serviecs";
+            initService(service);
+        });
+        binding.paintingRenovationServiceCV.setOnClickListener(v -> {
+            String service = "Painting & Renovation Serviecs";
             initService(service);
         });
 
-        binding.rentACarCV.setOnClickListener(view -> {
-            String service = "Rent-A-Car";
+        binding.carcareCV.setOnClickListener(v -> {
+            String service = "Care & Bike Care";
+            initService(service);
+        });
+
+        binding.electronicsgadgetsCV.setOnClickListener(v -> {
+            String service = "Electronics & Gadgets";
+            initService(service);
+        });
+
+        binding.medicalServiceCV.setOnClickListener(view -> {
+            String service = "Medical";
             initService(service);
         });
 
@@ -91,8 +126,8 @@ public class HomeFragment extends Fragment {
             initService(service);
         });
 
-        binding.homeDeliveryCV.setOnClickListener(view -> {
-            String service = "Home Delivery";
+        binding.marketCV.setOnClickListener(view -> {
+            String service = "Market Service";
             initService(service);
         });
 
@@ -111,16 +146,16 @@ public class HomeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), Goru.class);
             context.startActivity(intent);
         });
-        binding.silkProjectCV.setOnClickListener(view ->{
+       // binding.silkProjectCV.setOnClickListener(view ->{
 
 //            Intent intent = new Intent();
 //            intent.setAction(Intent.ACTION_VIEW);
-//            intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//            intent.setData(Uri.parse("http://serviceforcebd.com/product-category/clothing/silk-sharee/"));
-//            startActivity(intent);
-            Intent intent = new Intent(getActivity(), Silk.class);
-            context.startActivity(intent);
-        });
+//           intent.addCategory(Intent.CATEGORY_BROWSABLE);
+//           intent.setData(Uri.parse("http://serviceforcebd.com/product-category/clothing/silk-sharee/"));
+//           startActivity(intent);
+//            Intent intent = new Intent(getActivity(), Silk.class);
+//            context.startActivity(intent);
+//        });
 
     }
 

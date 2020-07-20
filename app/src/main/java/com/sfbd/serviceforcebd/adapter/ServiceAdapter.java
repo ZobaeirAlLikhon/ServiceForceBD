@@ -35,11 +35,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         this.serviceList = serviceList;
         this.service=service;
     }
-//    public ServiceAdapter(Context context, String[] serviceList,int[] imgs) {
-//        this.context = context;
-//        this.serviceList = serviceList;
-//        this.imgs=imgs;
-//    }
+
 
     @NonNull
     @Override
