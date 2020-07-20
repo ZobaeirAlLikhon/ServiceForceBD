@@ -230,6 +230,8 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
+
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/laundryCV"
                     android:layout_width="0dp"
@@ -385,8 +387,9 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/homeDeliveryCV"
+                    android:id="@+id/plumbingServiceCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -406,26 +409,27 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/homeDeliveryIV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_home_delivery"
+                            android:id="@+id/plumbingServiceIV"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/lu"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Home Delivery"
+                            android:text="Electric &amp; Plumbing"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/homeDeliveryIV"
-                            app:layout_constraintStart_toStartOf="@id/homeDeliveryIV"
-                            app:layout_constraintTop_toBottomOf="@+id/homeDeliveryIV" />
+                            app:layout_constraintEnd_toEndOf="@id/plumbingServiceIV"
+                            app:layout_constraintStart_toStartOf="@id/plumbingServiceIV"
+                            app:layout_constraintTop_toBottomOf="@+id/plumbingServiceIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/tuitionManagementCV"
@@ -479,9 +483,8 @@
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/servicesFourLL">
 
-
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/goruProjectCV"
+                    android:id="@+id/marketCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -501,31 +504,29 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/goruProjectIV"
+                            android:id="@+id/marketIV"
                             android:layout_width="wrap_content"
-                            android:layout_height="70dp"
-                            android:src="@drawable/cow2"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_home_delivery"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Kurbani"
+                            android:text="Market"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/goruProjectIV"
-                            app:layout_constraintStart_toStartOf="@id/goruProjectIV"
-                            app:layout_constraintTop_toBottomOf="@+id/goruProjectIV" />
+                            app:layout_constraintEnd_toEndOf="@id/marketIV"
+                            app:layout_constraintStart_toStartOf="@id/marketIV"
+                            app:layout_constraintTop_toBottomOf="@+id/marketIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
-
-
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/silkProjectCV"
+                    android:id="@+id/painting_renovation_ServiceCV"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -538,7 +539,6 @@
                     app:cardElevation="16dp"
                     tools:targetApi="LOLLIPOP">
 
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -546,10 +546,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/silkProjectIV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="70dp"
-                            android:src="@drawable/shari"
+                            android:id="@+id/painting_renovation_ServiceIV"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/lu"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -558,15 +558,59 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Silk"
+                            android:text="Painting &amp; Renovation"
                             android:textAppearance="@style/monospaceSmallText"
-                            app:layout_constraintEnd_toEndOf="@id/silkProjectIV"
-                            app:layout_constraintStart_toStartOf="@id/silkProjectIV"
-                            app:layout_constraintTop_toBottomOf="@+id/silkProjectIV" />
+                            app:layout_constraintEnd_toEndOf="@id/painting_renovation_ServiceIV"
+                            app:layout_constraintStart_toStartOf="@id/painting_renovation_ServiceIV"
+                            app:layout_constraintTop_toBottomOf="@+id/painting_renovation_ServiceIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/carcareCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:elevation="16dp"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="16dp"
+                    tools:targetApi="LOLLIPOP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/carcareIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_home_delivery"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Care &amp; Bike Care"
+                            android:textAppearance="@style/monospaceSmallText"
+                            app:layout_constraintEnd_toEndOf="@id/carcareIV"
+                            app:layout_constraintStart_toStartOf="@id/carcareIV"
+                            app:layout_constraintTop_toBottomOf="@+id/carcareIV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/servicessixLL"
                 android:layout_width="match_parent"
@@ -614,6 +658,91 @@
                             app:layout_constraintEnd_toEndOf="@id/itSupportIV"
                             app:layout_constraintStart_toStartOf="@id/itSupportIV"
                             app:layout_constraintTop_toBottomOf="@+id/itSupportIV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/electronicsgadgetsCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:elevation="16dp"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="16dp"
+                    tools:targetApi="LOLLIPOP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/electronicsgadgetsIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/it_support"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Electronics &amp; Gadgets"
+                            android:textAppearance="@style/monospaceSmallText"
+                            app:layout_constraintEnd_toEndOf="@id/electronicsgadgetsIV"
+                            app:layout_constraintStart_toStartOf="@id/electronicsgadgetsIV"
+                            app:layout_constraintTop_toBottomOf="@+id/electronicsgadgetsIV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/goruProjectCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:elevation="16dp"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="16dp"
+                    tools:targetApi="LOLLIPOP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/goruProjectIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:src="@drawable/cow2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Kurbani"
+                            android:textAppearance="@style/monospaceSmallText"
+                            app:layout_constraintEnd_toEndOf="@id/goruProjectIV"
+                            app:layout_constraintStart_toStartOf="@id/goruProjectIV"
+                            app:layout_constraintTop_toBottomOf="@+id/goruProjectIV" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>

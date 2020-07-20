@@ -40,21 +40,56 @@
     </string-array>
 
     <string-array name="laundry_services">
-        <item>Eid Festival offer</item>
-        <item>Personal Beuty Care</item>
-        <item>Body spa &amp; Massage</item>
-        <item>Machover for women</item>
-        <item>Mehedi design</item>
-        <item>Mehendi Design</item>
-        <item>Bridal makcup</item>
-        <item>salon service for man</item>
-        <item>Groom up package for men</item>
+        <item>Monthly subscription packages</item>
+        <item>Dry cleaning</item>
+        <item>Ironing service </item>
+        <item>Wash &amp; Iron</item>
     </string-array>
 
     <string-array name="shifting_services">
-        <item>House Shifting</item>
-        <item>Office Shifting</item>
+        <item>House Shifting service</item>
+        <item>Office Shifting service</item>
+        <item>Transport for shifting</item>
+        <item>Package &amp; Moves</item>
     </string-array>
+
+    <string-array name="plumbing_services">
+        <item>Plumbing and sanitary Service</item>
+        <item>Electronics for Electrical Service</item>
+    </string-array>
+
+    <string-array name="painting_renovation_services">
+        <item>Home Interior</item>
+        <item>Office Interior</item>
+        <item>Renovation &amp;amp; Décor</item>
+        <item>Interior Design</item>
+        <item>Interior Design Consultancy Service</item>
+        <item>Thai, Glass &amp; Drill work Service</item>
+        <item>Partex work Service</item>
+        <item>Wood work Service</item>
+        <item>Carpentry Service</item>
+        <item>Painting Service</item>
+    </string-array>
+
+    <string-array name="car_care_services">
+        <item>Car wash &amp; polish</item>
+        <item>Car painting &amp;  Decoration</item>
+        <item>Car repair &amp; Servicing</item>
+        <item>Emergency Car Service</item>
+        <item>Bike wash &amp; polish</item>
+        <item>Bike painting &amp; Decoration</item>
+        <item>Bike repair &amp; Servicing</item>
+        <item>Monthly Subscription Package</item>
+    </string-array>
+
+    <string-array name="electronic_gadgets">
+        <item>Desktop service</item>
+        <item>Laptop service</item>
+        <item>CCTV camera service</item>
+        <item>Smartphone Repair</item>
+    </string-array>
+
+
 
     <string-array name="medical_services">
         <item>Serial for a Doctor</item>
@@ -79,28 +114,30 @@
     </string-array>
 
     <string-array name="it_support">
-        <item>Different types of Management Software</item>
-        <item>Business Software</item>
-        <item>Academic Software</item>
-        <item>IT Tools</item>
-        <item>CC Camera Setting</item>
         <item>Website Development</item>
+        <item>Mobile Application</item>
+        <item>Graphics Design</item>
+        <item>Software Build</item>
+        <item>Social Media Marketing</item>
+        <item>SEO</item>
+        <item>Monthly Subscription Package</item>
     </string-array>
 
-    <string-array name="home_delivery">
-        <item>Daily Bazaar</item>
-        <item>Medicine (Local &amp; Foreign)</item>
-        <item>Milk</item>
-        <item>Fruits</item>
-        <item>Favorite Foods From Different Areas</item>
-        <item>Cake</item>
-        <item>Dress</item>
-        <item>Ornaments</item>
-        <item>Home Made Food</item>
+    <string-array name="market_service">
+        <item>Groceriesa)</item>
+        <item>Fresh Bazar</item>
+        <item>Health &amp; Hygiene</item>
+        <item>Covid-19 Safety Kits</item>
+        <item>Silk</item>
+        <item>Cosmetics</item>
     </string-array>
 
     <string-array name="tuition_service">
-        <item>Tutor</item>
+        <item>Get a Tutor</item>
+        <item>Get a Tuition</item>
+        <item>Admission for Batch</item>
+        <item>Training Course IT</item>
+        <item>Internship</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

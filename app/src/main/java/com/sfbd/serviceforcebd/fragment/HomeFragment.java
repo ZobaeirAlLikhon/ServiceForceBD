@@ -83,13 +83,31 @@ public class HomeFragment extends Fragment {
             String service = "Beauty Services";
             initService(service);
         });
-        binding.laundryCV.setOnClickListener(view->{
+        binding.laundryCV.setOnClickListener(view-> {
             String service = "Laundry";
             initService(service);
         });
 
         binding.shiftingCV.setOnClickListener(view -> {
             String service = "Shifting";
+            initService(service);
+        });
+        binding.plumbingServiceCV.setOnClickListener(v -> {
+            String service = "Electric & Plumbing Serviecs";
+            initService(service);
+        });
+        binding.paintingRenovationServiceCV.setOnClickListener(v -> {
+            String service = "Painting & Renovation Serviecs";
+            initService(service);
+        });
+
+        binding.carcareCV.setOnClickListener(v -> {
+            String service = "Care & Bike Care";
+            initService(service);
+        });
+
+        binding.electronicsgadgetsCV.setOnClickListener(v -> {
+            String service = "Electronics & Gadgets";
             initService(service);
         });
 
@@ -108,8 +126,8 @@ public class HomeFragment extends Fragment {
             initService(service);
         });
 
-        binding.homeDeliveryCV.setOnClickListener(view -> {
-            String service = "Home Delivery";
+        binding.marketCV.setOnClickListener(view -> {
+            String service = "Market Service";
             initService(service);
         });
 
@@ -128,16 +146,16 @@ public class HomeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), Goru.class);
             context.startActivity(intent);
         });
-        binding.silkProjectCV.setOnClickListener(view ->{
+       // binding.silkProjectCV.setOnClickListener(view ->{
 
 //            Intent intent = new Intent();
 //            intent.setAction(Intent.ACTION_VIEW);
-//            intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//            intent.setData(Uri.parse("http://serviceforcebd.com/product-category/clothing/silk-sharee/"));
-//            startActivity(intent);
-            Intent intent = new Intent(getActivity(), Silk.class);
-            context.startActivity(intent);
-        });
+//           intent.addCategory(Intent.CATEGORY_BROWSABLE);
+//           intent.setData(Uri.parse("http://serviceforcebd.com/product-category/clothing/silk-sharee/"));
+//           startActivity(intent);
+//            Intent intent = new Intent(getActivity(), Silk.class);
+//            context.startActivity(intent);
+//        });
 
     }
 
