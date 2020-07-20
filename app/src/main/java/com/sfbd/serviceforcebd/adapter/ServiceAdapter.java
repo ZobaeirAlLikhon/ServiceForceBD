@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,18 +17,23 @@ import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.LocationActivity;
 import com.sfbd.serviceforcebd.activity.ServiceDetails;
+import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
 import com.sfbd.serviceforcebd.databinding.RvServiceItemBinding;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
 
     private Context context;
     private String[] serviceList;
+    private String service;
     private int i;
 
 
-    public ServiceAdapter(Context context, String[] serviceList) {
+    public ServiceAdapter(Context context, String[] serviceList,String service) {
         this.context = context;
         this.serviceList = serviceList;
+        this.service=service;
     }
 //    public ServiceAdapter(Context context, String[] serviceList,int[] imgs) {
 //        this.context = context;
@@ -49,9 +55,10 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.itemView.setOnClickListener(view -> {
 
         i=position;
-            Intent intent = new Intent(context, AddressActivity.class);
-            intent.putExtra("img_p",i);
+            Intent intent = new Intent(context, SubCatagoryDetails.class);
+            intent.putExtra("service_name",service);
             intent.putExtra("category",serviceList[position]);
+
 
             context.startActivity(intent);
         });

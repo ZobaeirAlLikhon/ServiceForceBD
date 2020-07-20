@@ -45,9 +45,13 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.161"
+        tools:ignore="MissingConstraints"
         tools:itemCount="6"
-        tools:listitem="@layout/rv_service_item"
-        />
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/rv_service_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

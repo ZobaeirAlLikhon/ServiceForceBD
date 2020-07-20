@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.adapter.ServiceAdapter;
@@ -18,6 +19,7 @@ public class ServicesActivity extends AppCompatActivity {
     private ServiceAdapter adapter;
     private String service;
     private int[] imgs;
+    private static final String TAG = "ServicesActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class ServicesActivity extends AppCompatActivity {
             assert service != null;
             if (service.equals("Cleaning")){
                 serviceList = getResources().getStringArray(R.array.cleaning_services);
+                Log.d(TAG, "onCreate: serviceList "+serviceList.length);
                 initRecyclerView();
             }else if(service.equals("Beauty Services")){
                 serviceList = getResources().getStringArray(R.array.beauty_services);
@@ -80,7 +83,7 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-            adapter = new ServiceAdapter(this, serviceList);
+            adapter = new ServiceAdapter(this, serviceList,service);
             binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
             binding.recyclerView.setAdapter(adapter);
     }

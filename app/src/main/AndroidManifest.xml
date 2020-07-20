@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Goru"></activity>
+        <activity android:name=".activity.SubCatagoryDetails"></activity>
+        <activity android:name=".activity.Goru" />
         <activity android:name=".activity.Silk" />
         <activity android:name=".activity.ServiceDetails" />
         <activity android:name=".activity.ResetPass" />
