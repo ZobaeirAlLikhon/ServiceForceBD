@@ -51,7 +51,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="81dp"
             android:layout_marginEnd="79dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginBottom="9dp"
             android:gravity="center"
             android:text="Booking Now" />
 
