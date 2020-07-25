@@ -9,52 +9,69 @@
     <RelativeLayout
         android:id="@+id/rela"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:outlineSpotShadowColor="@color/black"
-        >
+        android:layout_height="304dp"
+        android:outlineSpotShadowColor="@color/black">
 
         <ImageView
             android:id="@+id/proImg"
-            android:layout_width="210dp"
-            android:layout_height="200dp"
+            android:layout_width="200dp"
+            android:layout_height="124dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="257dp"
+            android:padding="15dp"
             android:src="@drawable/cow2"
-            android:paddingTop="5dp"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/price11"
-            android:layout_width="210dp"
-            android:layout_height="35dp"
+            android:layout_width="178dp"
+            android:layout_height="48dp"
             android:layout_below="@+id/proImg"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="107dp"
+            android:gravity="center"
             android:text="price: 1000$"
-            android:textSize="20dp"
             android:textColor="@color/colorPrimaryDark"
-            android:padding="5dp"
-            tools:ignore="MissingConstraints"
-            />
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/booking"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_below="@+id/price11"
+            android:layout_width="250dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="81dp"
+            android:layout_marginEnd="79dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
             android:text="Booking Now" />
 
         <TextView
             android:id="@+id/productDec"
             android:layout_width="wrap_content"
-            android:layout_height="235dp"
+            android:layout_height="142dp"
+            android:layout_above="@+id/price11"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="210dp"
-            android:layout_marginEnd="-1dp"
+            android:layout_marginStart="184dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="14dp"
             android:justificationMode="inter_word"
             android:padding="8dp"
+            android:scrollbars="vertical"
             android:textAppearance="@style/monospaceMediumText"
             android:textColor="#020202"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="211dp"
-            android:scrollbars = "vertical"
             tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley" />
 
 

@@ -18,8 +18,8 @@
 
     <ImageView
         android:id="@+id/noImage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="284dp"
+        android:layout_height="251dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/productnotfound"
         android:visibility="invisible"
