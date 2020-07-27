@@ -11,8 +11,27 @@ public class Order {
     private String orderId;
     private String isPlaced;
     private String timeStamp;
+    private String productName;
+    private String productPrice;
+    private String noOfProduct;
 
     public Order() {
+    }
+
+    public Order(String userId, String userName, String userAddress, String userContact, String orderItem,
+                 String orderDate, String orderTime, String isPlaced, String productName, String productPrice, String noOfProduct)
+    {
+        this.userId = userId;
+        this.userName = userName;
+        this.userAddress = userAddress;
+        this.userContact = userContact;
+        this.orderItem = orderItem;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.isPlaced = isPlaced;
+        this.productName=productName;
+        this.productPrice=productPrice;
+        this.noOfProduct=noOfProduct;
     }
 
     public Order(String userId, String userName, String userAddress, String userContact,
@@ -40,6 +59,7 @@ public class Order {
         this.orderId = orderId;
         this.isPlaced = isPlaced;
     }
+
 
     public String getIsPlaced() {
         return isPlaced;
@@ -130,6 +150,31 @@ public class Order {
     public void setPlaced(String placed) {
         isPlaced = placed;
     }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getNoOfProduct() {
+        return noOfProduct;
+    }
+
+    public void setNoOfProduct(String noOfProduct) {
+        this.noOfProduct = noOfProduct;
+    }
+
     @Override
     public String toString() {
         return "Order{" +

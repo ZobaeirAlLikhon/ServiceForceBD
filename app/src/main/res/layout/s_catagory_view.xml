@@ -9,8 +9,19 @@
     <RelativeLayout
         android:id="@+id/rela"
         android:layout_width="match_parent"
-        android:layout_height="304dp"
+        android:layout_height="330dp"
         android:outlineSpotShadowColor="@color/black">
+
+        <TextView
+            android:id="@+id/proName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_shape_green"
+            android:gravity="center"
+            android:text="Product Name"
+            android:textColor="#FAFAFF"
+            android:textSize="20dp" />
 
         <ImageView
             android:id="@+id/proImg"
@@ -29,7 +40,7 @@
 
         <TextView
             android:id="@+id/price11"
-            android:layout_width="178dp"
+            android:layout_width="204dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -42,18 +53,46 @@
             android:textSize="20dp"
             tools:ignore="MissingConstraints" />
 
+
+        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+            android:id="@+id/eligantbutton"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="87dp"
+            app:backGroundColor="@color/primaryLightColor"
+            app:initialNumber="1"
+            app:textColor="@color/black"
+            app:textSize="8dp" />
+
         <Button
             android:id="@+id/booking"
-            android:layout_width="250dp"
-            android:layout_height="66dp"
+            android:layout_width="121dp"
+            android:layout_height="65dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="81dp"
-            android:layout_marginEnd="79dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="14dp"
             android:gravity="center"
-            android:text="Booking Now" />
+            android:text="next" />
+
+        <Button
+            android:id="@+id/addToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="196dp"
+            android:layout_marginBottom="14dp"
+            android:drawableLeft="@drawable/cart_foreground"
+            android:gravity="center"
+            android:text="Cart"
+            android:textAllCaps="false"/>
 
         <TextView
             android:id="@+id/productDec"

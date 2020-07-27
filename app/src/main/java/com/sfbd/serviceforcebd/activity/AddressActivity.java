@@ -58,6 +58,7 @@ public class AddressActivity extends AppCompatActivity {
     private String address;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LottieAnimationView lottieAnimationView2;
+    private String productName,productPrice,noOfItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,12 @@ public class AddressActivity extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         bundle = getIntent().getExtras();
+        productName=bundle.getString("proName");
+        productPrice=bundle.getString("price");
+        noOfItem=bundle.getString("noOfItem");
+        binding.pName.setText(productName);
+        binding.pprice.setText("Price:"+productPrice);
+        binding.nOp.setText("No Of Product:"+noOfItem);
 //        if (bundle != null) {
 //            Log.d(TAG, "onCreate: " + bundle.getString("address"));
 //            binding.addressET.getEditText().setText(bundle.getString("address"));
@@ -191,7 +198,7 @@ public class AddressActivity extends AppCompatActivity {
 
 
 
-//    .................................................................................................
+//.................................................................................................
 
 
     private void initFireBaseOrderPlace() {
@@ -205,12 +212,17 @@ public class AddressActivity extends AppCompatActivity {
         String address = binding.addressET.getEditText().getText().toString();
         String contact = binding.contactET.getEditText().getText().toString();
         String orderItem = bundle.getString("category");
+        String pname=bundle.getString("proName");
+        String pprice=bundle.getString("price");
+        String nop=bundle.getString("noOfItem");
+
+
         String date = binding.dateET.getEditText().getText().toString();
         String time = binding.timeET.getEditText().getText().toString();
         String isPlaced = "Placed";
 
 
-        Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced);
+        Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,pprice,nop);
         String pushId = orderRef.push().getKey();
         order.setOrderId(pushId);
         orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {

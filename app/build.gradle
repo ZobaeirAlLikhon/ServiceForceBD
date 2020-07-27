@@ -62,7 +62,6 @@ dependencies {
     implementation 'com.github.rey5137:material:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-
     implementation 'io.paperdb:paperdb:2.7.1'
     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.google.firebase:firebase-auth:19.3.1'
@@ -70,6 +69,8 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-storage:6.2.0'
     implementation "com.google.firebase:firebase-core:17.4.4"
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
 
 
 }
