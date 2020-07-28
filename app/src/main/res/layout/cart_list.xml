@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/text_view_shape"
+        >
+
+        <TextView
+            android:id="@+id/cartProName"
+            android:layout_width="350dp"
+            android:layout_height="32dp"
+            android:gravity="center|left"
+            android:text="Product Name"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            />
+
+
+        <ImageButton
+            android:id="@+id/cartDlt"
+            android:layout_marginTop="2dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="4dp"
+           android:backgroundTint="@color/white"
+            android:src="@drawable/dlt_foreground"
+
+            />
+
+        <TextView
+            android:id="@+id/cartPrice"
+            android:layout_width="203dp"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="76dp"
+            android:gravity="center|left"
+            android:text="Price"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/cartQuanity"
+            android:layout_width="203dp"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="44dp"
+            android:gravity="center|left"
+            android:text="Quantity"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/cartId"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="11dp"
+            android:gravity="center|left"
+            android:text="ID:-MCerA7q_8IK5-4_yO9B"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

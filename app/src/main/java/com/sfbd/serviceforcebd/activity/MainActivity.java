@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.databinding.ActivityMainBinding;
+import com.sfbd.serviceforcebd.fragment.CartFragment;
+import com.sfbd.serviceforcebd.fragment.ChatFragment;
 import com.sfbd.serviceforcebd.fragment.HomeFragment;
 import com.sfbd.serviceforcebd.fragment.MoreFragment;
 import com.sfbd.serviceforcebd.fragment.OrderFragment;
@@ -99,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                         messengerIntent.setData(Uri.parse(messengerUrl));
                         startActivity(messengerIntent);
 
+                        break;
+                    case R.id.cartBN:
+                        selectedFragment = new CartFragment();
+                        initFragment(selectedFragment);
                         break;
 
                     case R.id.moreBN:

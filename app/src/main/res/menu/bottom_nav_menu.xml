@@ -14,6 +14,10 @@
         android:icon="@drawable/ic_chat"
         android:title="Chat" />
     <item
+        android:id="@+id/cartBN"
+        android:icon="@drawable/addcart"
+        android:title="Cart" />
+    <item
         android:id="@+id/moreBN"
         android:icon="@drawable/ic_more"
         android:title="More" />

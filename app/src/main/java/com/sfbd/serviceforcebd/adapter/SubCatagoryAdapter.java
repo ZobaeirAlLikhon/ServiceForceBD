@@ -1,21 +1,32 @@
 package com.sfbd.serviceforcebd.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
+import com.sfbd.serviceforcebd.model.CartModel;
 import com.sfbd.serviceforcebd.model.Sd;
 import com.squareup.picasso.Picasso;
 
@@ -25,7 +36,9 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
     Context context;
     ArrayList<Sd> sd;
     String catagory;
-    String num;
+    String num,price,name,s;
+    private FirebaseUser firebaseUser;
+    DatabaseReference dbRef;
     public SubCatagoryAdapter(Context c,ArrayList<Sd> s ,String cat)
     {
         context=c;
@@ -40,8 +53,8 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String price= sd.get(position).getPrice().toString().trim();
-        String name= sd.get(position).getName().toString().trim();
+        price= sd.get(position).getPrice().toString().trim();
+        name= sd.get(position).getName().toString().trim();
 
 
             holder.product_price.setText("Price"+sd.get(position).getPrice()+"Tk");
@@ -55,7 +68,7 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 Intent intent=new Intent(context, AddressActivity.class);
                 intent.putExtra("category",catagory);
                 intent.putExtra("proName",name);
-                intent.putExtra("price",price);
+                intent.putExtra("price",s);
                 intent.putExtra("noOfItem",num);
                 context.startActivity(intent);
             }
@@ -63,6 +76,20 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
         holder.addCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+                String currentUserId = firebaseUser.getUid();
+                Toast.makeText(context,"Add To Cart",Toast.LENGTH_LONG).show();
+                    if (num==null)
+                    {
+                        num="1";
+                    }
+
+                CartModel cartModel=new CartModel(catagory,s,name,num);
+
+                dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(currentUserId);
+                String pushId = dbRef.push().getKey();
+                dbRef.child(pushId).setValue(cartModel);
+
 
             }
         });
@@ -85,12 +112,12 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 if(newValue==0)
                 {
                     sum=1*p;
-                    String s=String.valueOf(sum);
+                    s=String.valueOf(sum);
                     holder.product_price.setText("Price:"+s+"Tk");
                 }
                 else {
                     sum=newValue*p;
-                    String s=String.valueOf(sum);
+                    s=String.valueOf(sum);
                     holder.product_price.setText("Price:"+s+"Tk");
                 }
 
