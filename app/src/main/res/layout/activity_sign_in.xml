@@ -144,7 +144,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:visibility="invisible"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/pleaseWaitLA"

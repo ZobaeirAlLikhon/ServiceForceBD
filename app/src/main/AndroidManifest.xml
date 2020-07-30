@@ -48,8 +48,8 @@
         </activity>
         <activity android:name=".activity.AddressActivity" />
         <activity android:name=".activity.LocationActivity" />
-        <activity android:name=".activity.SignInActivity" />
         <activity android:name=".activity.SignUpActivity" />
+        <activity android:name=".activity.SignInActivity" />
         <activity android:name=".activity.ServicesActivity" />
         <activity android:name=".activity.MainActivity" />
 

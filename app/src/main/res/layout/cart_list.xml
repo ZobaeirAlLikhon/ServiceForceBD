@@ -9,8 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="160dp"
         tools:ignore="MissingConstraints"
+        android:padding="10dp"
         android:background="@drawable/text_view_shape"
         >
 
@@ -63,8 +64,10 @@
             android:id="@+id/cartId"
             android:layout_width="match_parent"
             android:layout_height="32dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="11dp"
+            android:layout_marginTop="93dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center|left"
             android:text="ID:-MCerA7q_8IK5-4_yO9B"
             android:textColor="@color/colorPrimary"

@@ -42,8 +42,9 @@
     <string-array name="laundry_services">
         <item>Monthly subscription packages</item>
         <item>Dry cleaning</item>
-        <item>Ironing service </item>
+        <item>Ironing service</item>
         <item>Wash &amp; Iron</item>
+        <item>Washing service </item>
     </string-array>
 
     <string-array name="shifting_services">

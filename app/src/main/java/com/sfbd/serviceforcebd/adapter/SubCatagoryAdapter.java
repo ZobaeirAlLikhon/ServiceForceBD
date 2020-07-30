@@ -53,18 +53,20 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        price= sd.get(position).getPrice().toString().trim();
-        name= sd.get(position).getName().toString().trim();
 
 
-            holder.product_price.setText("Price"+sd.get(position).getPrice()+"Tk");
+
+
+            holder.product_price.setText("Price: "+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
         Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
 
+
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                name= sd.get(position).getName().toString().trim();
                 Intent intent=new Intent(context, AddressActivity.class);
                 intent.putExtra("category",catagory);
                 intent.putExtra("proName",name);
@@ -107,21 +109,25 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
         holder.eli_button.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
             @Override
             public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                price= sd.get(position).getPrice().toString().trim();
                 int p=Integer.parseInt(price);
                 int sum=0;
                 if(newValue==0)
                 {
                     sum=1*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price:"+s+"Tk");
+                    holder.product_price.setText("Price: "+s+"Tk");
+                    sum=0;
                 }
                 else {
                     sum=newValue*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price:"+s+"Tk");
+                    holder.product_price.setText("Price: "+s+"Tk");
+                    sum=0;
                 }
 
             }
+
         });
     }
 
