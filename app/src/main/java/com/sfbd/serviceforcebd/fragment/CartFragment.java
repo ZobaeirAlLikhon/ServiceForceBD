@@ -66,8 +66,6 @@ public class CartFragment extends Fragment {
         curentUserId=mAuth.getCurrentUser().getUid();
         dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         cartDetails();
-
-
         return cartView;
     }
 
@@ -139,9 +137,6 @@ public class CartFragment extends Fragment {
             cartPrice=itemView.findViewById(R.id.cartPrice);
             cartQuantity=itemView.findViewById(R.id.cartQuanity);
             cartId=itemView.findViewById(R.id.cartId);
-            dltImageButton=itemView.findViewById(R.id.cartDlt);
-
-
 
         }
 

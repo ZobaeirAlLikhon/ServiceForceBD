@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,10 +43,13 @@ public class SubCatagoryDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_catagory_details);
+
+
         textView=findViewById(R.id.noProductFound);
         imageView=findViewById(R.id.noImage);
         service_n=getIntent().getStringExtra("service_name");
         catagory=getIntent().getStringExtra("category");
+        getSupportActionBar().setTitle(catagory);
         recyclerView=findViewById(R.id.recyclerView1111);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         databaseReference=FirebaseDatabase.getInstance().getReference().child("product").child(service_n).child(catagory);

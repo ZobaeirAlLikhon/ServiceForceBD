@@ -57,16 +57,16 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
 
 
 
-            holder.product_price.setText("Price: "+sd.get(position).getPrice()+"Tk");
+            holder.product_price.setText("Price"+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
         Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
-
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name= sd.get(position).getName().toString().trim();
+
                 Intent intent=new Intent(context, AddressActivity.class);
                 intent.putExtra("category",catagory);
                 intent.putExtra("proName",name);
@@ -116,18 +116,15 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 {
                     sum=1*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price: "+s+"Tk");
-                    sum=0;
+                    holder.product_price.setText("Price:"+s+"Tk");
                 }
                 else {
                     sum=newValue*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price: "+s+"Tk");
-                    sum=0;
+                    holder.product_price.setText("Price:"+s+"Tk");
                 }
 
             }
-
         });
     }
 
