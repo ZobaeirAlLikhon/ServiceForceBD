@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/carouselView">
 
@@ -96,6 +97,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/applianceCV"
                     android:layout_width="0dp"
@@ -138,6 +140,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/medicalServiceCV"
                     android:layout_width="0dp"
@@ -188,6 +191,7 @@
                 android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/servicesOneLL">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/beautyServiceCV"
                     android:layout_width="0dp"
@@ -231,7 +235,6 @@
                 </androidx.cardview.widget.CardView>
 
 
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/laundryCV"
                     android:layout_width="0dp"
@@ -273,9 +276,6 @@
                             app:layout_constraintTop_toBottomOf="@+id/laundryIV" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-
-
-
 
 
                 <androidx.cardview.widget.CardView
@@ -325,9 +325,9 @@
                 android:id="@+id/serviceThreeLL"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/servicesTwoLL">
 
                 <ImageView
@@ -342,8 +342,8 @@
                 android:id="@+id/servicesFourLL"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@+id/serviceThreeLL">
 
@@ -479,8 +479,8 @@
                 android:id="@+id/servicesFiveLL"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/servicesFourLL">
 
@@ -616,8 +616,8 @@
                 android:id="@+id/servicessixLL"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
+                android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/servicesFiveLL">
 
@@ -755,36 +755,33 @@
                 android:id="@+id/servicessevenLL"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:background="@drawable/baner2"
                 android:layout_marginTop="10dp"
-                android:padding="5dp"
+                android:background="@drawable/baner2"
                 android:orientation="vertical"
+                android:padding="5dp"
                 app:layout_constraintTop_toBottomOf="@id/servicessixLL">
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    >
+                    android:layout_height="130dp">
 
                     <Button
                         android:id="@+id/call_btn"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
+                        android:layout_height="0dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="307dp"
-                        android:layout_marginTop="78dp"
-                        android:layout_marginEnd="7dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="61dp"
+                        android:layout_marginEnd="9dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/custom_btn"
                         android:hint="ask me" />
+
+
                 </RelativeLayout>
             </LinearLayout>
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activity.ResetPass">
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/forAnim"
-        android:layout_width="267dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="288dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
@@ -19,15 +21,14 @@
         app:lottie_loop="true"
         tools:ignore="MissingConstraints" />
 
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="260dp"
-        android:layout_height="32dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:text="Forgot password ?"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
         android:text="Enter the email Address Associated"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/edit_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -54,7 +55,7 @@
         android:layout_marginBottom="20dp"
         android:text="with your Account "
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/edit_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -63,8 +64,8 @@
 
     <EditText
         android:id="@+id/edit_email"
-        android:layout_width="375dp"
-        android:layout_height="48dp"
+        android:layout_width="410dp"
+        android:layout_height="44dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round_edit_tex"
@@ -74,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705"
+        app:layout_constraintVertical_bias="0.735"
         tools:ignore="MissingConstraints" />
 
     <Button
