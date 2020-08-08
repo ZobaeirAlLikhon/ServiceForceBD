@@ -3,6 +3,7 @@ package com.sfbd.serviceforcebd.model;
 public class CartModel {
     private String catagory;
     private String productPrice;
+
     private String productName;
     private String noOfProduct;
 
@@ -15,6 +16,7 @@ public class CartModel {
         this.productName = productName;
         this.noOfProduct = noOfProduct;
     }
+
 
     public String getCatagory() {
         return catagory;
@@ -47,4 +49,6 @@ public class CartModel {
     public void setNoOfProduct(String noOfProduct) {
         this.noOfProduct = noOfProduct;
     }
+
+
 }

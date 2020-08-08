@@ -31,12 +31,13 @@ import com.sfbd.serviceforcebd.model.Sd;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder> {
     Context context;
     ArrayList<Sd> sd;
     String catagory;
-    String num,price,name,s;
+    String num,price,name,s,su,des;
     private FirebaseUser firebaseUser;
     DatabaseReference dbRef;
     public SubCatagoryAdapter(Context c,ArrayList<Sd> s ,String cat)
@@ -54,25 +55,41 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-
+            name= sd.get(position).getName().toString().trim();
+            des= sd.get(position).getDes().toString().trim();
 
 
             holder.product_price.setText("Price"+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
-        Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
+            Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name= sd.get(position).getName().toString().trim();
+                price= sd.get(position).getPrice().toString().trim();
+                num = holder.eli_button.getNumber();
+                if (num==null)
+                {
+                    num="1";
+                }
+                if(s==null)
+                {
+                    s=price;
+                }
+                int n=Integer.parseInt(num);
+                int p=Integer.parseInt(price);
+                int sum=n*p;
+                su=String.valueOf(sum);
 
                 Intent intent=new Intent(context, AddressActivity.class);
                 intent.putExtra("category",catagory);
                 intent.putExtra("proName",name);
-                intent.putExtra("price",s);
+                intent.putExtra("price",su);
                 intent.putExtra("noOfItem",num);
                 context.startActivity(intent);
+                s=null;
+                num=null;
             }
         });
         holder.addCart.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +102,27 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                     {
                         num="1";
                     }
+                price= sd.get(position).getPrice().toString().trim();
+                num = holder.eli_button.getNumber();
+                if (num==null)
+                {
+                    num="1";
+                }
+                if(s==null)
+                {
+                    s=price;
+                }
+                int n=Integer.parseInt(num);
+                int p=Integer.parseInt(price);
+                int sum=n*p;
+                su=String.valueOf(sum);
 
-                CartModel cartModel=new CartModel(catagory,s,name,num);
+                CartModel cartModel=new CartModel(catagory,su,des,num);
 
                 dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(currentUserId);
                 String pushId = dbRef.push().getKey();
                 dbRef.child(pushId).setValue(cartModel);
+
 
 
             }
@@ -100,9 +132,12 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
             @Override
             public void onClick(View view)
             {
-
+                price= sd.get(position).getPrice().toString().trim();
                 num = holder.eli_button.getNumber();
-
+                if(num=="0")
+                {
+                    num="1";
+                }
 
             }
         });
@@ -112,7 +147,7 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 price= sd.get(position).getPrice().toString().trim();
                 int p=Integer.parseInt(price);
                 int sum=0;
-                if(newValue==0)
+                if(oldValue==0)
                 {
                     sum=1*p;
                     s=String.valueOf(sum);
@@ -123,9 +158,11 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                     s=String.valueOf(sum);
                     holder.product_price.setText("Price:"+s+"Tk");
                 }
-
+                newValue=0;
+                oldValue=0;
             }
         });
+
     }
 
     @Override

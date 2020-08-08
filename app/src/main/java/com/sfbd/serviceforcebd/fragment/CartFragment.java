@@ -2,6 +2,7 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class CartFragment extends Fragment {
         tottalQuantity=cartView.findViewById(R.id.tottalProduct);
         tottalPrice=cartView.findViewById(R.id.tottalPrice);
         orderBtn=cartView.findViewById(R.id.order);
+        Log.d(TAG,"cart");
 
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +82,6 @@ public class CartFragment extends Fragment {
                 dbref.child(userId).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                         quantity=quantity +Integer.parseInt(dataSnapshot.child("noOfProduct").getValue().toString());
                         price=price +Integer.parseInt(dataSnapshot.child("productPrice").getValue().toString());
 
