@@ -117,7 +117,7 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 int sum=n*p;
                 su=String.valueOf(sum);
 
-                CartModel cartModel=new CartModel(catagory,su,des,num);
+                CartModel cartModel=new CartModel(catagory,su,name,num);
 
                 dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(currentUserId);
                 String pushId = dbRef.push().getKey();

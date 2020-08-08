@@ -79,33 +79,33 @@ public class CartFragment extends Fragment {
             protected void onBindViewHolder(@NonNull CartHolder holder, int position, @NonNull CartModel model) {
 
                 String userId=getRef(position).getKey();
-                dbref.child(userId).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        quantity=quantity +Integer.parseInt(dataSnapshot.child("noOfProduct").getValue().toString());
-                        price=price +Integer.parseInt(dataSnapshot.child("productPrice").getValue().toString());
-
-                        holder.cartProName.setText("Name: "+dataSnapshot.child("productName").getValue().toString());
-                        holder.cartPrice.setText("Price: "+dataSnapshot.child("productPrice").getValue().toString());
-                        holder.cartQuantity.setText("Quantity: "+dataSnapshot.child("noOfProduct").getValue().toString());
-                        holder.cartId.setText("Id: "+userId);
-                        tottalQuantity.setText(String.valueOf("Tottal Product="+quantity));
-                        tottalPrice.setText(String.valueOf("Tottal Price="+price+" Tk"));
-                      /*  holder.dltImageButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(context,"Delete this item",Toast.LENGTH_LONG).show();
-                            }
-                        });*/
-
-                    }
-
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                holder.cartProName.setText("Name :"+model.getProductName());
+                holder.cartPrice1.setText("Price :"+model.getProductPrice());
+                holder.cartQuantity.setText("Quantity :"+model.getNoOfProduct());
+                holder.cartId.setText("Id"+userId);
+//                dbref.child(userId).addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+////                        quantity=quantity +Integer.parseInt(dataSnapshot.child("noOfProduct").getValue().toString());
+////                        price=price +Integer.parseInt(dataSnapshot.child("productPrice").getValue().toString());
+//
+////                        holder.cartProName.setText("Name: "+dataSnapshot.child("productName").getValue().toString());
+////                        holder.cartPrice1.setText("Name: "+dataSnapshot.child("productPrice").getValue().toString());
+//
+////                        holder.cartPrice1.setText("Price: "+dataSnapshot.child("productPrice").getValue().toString());
+////                        holder.cartQuantity.setText("Quantity: "+dataSnapshot.child("noOfProduct").getValue().toString());
+////                        holder.cartId.setText("Id: "+userId);
+////                        tottalQuantity.setText(String.valueOf("Tottal Product="+quantity));
+////                        tottalPrice.setText(String.valueOf("Tottal Price="+price+" Tk"));
+//
+//                    }
+//
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
 
 
 
@@ -130,12 +130,11 @@ public class CartFragment extends Fragment {
     {
         Context context;
 
-        TextView cartProName,cartPrice,cartQuantity,cartId,cartDate;
-        ImageButton dltImageButton;
+        TextView cartProName,cartPrice1,cartQuantity,cartId;
         public CartHolder(@NonNull View itemView) {
             super(itemView);
             cartProName=itemView.findViewById(R.id.cartProName);
-            cartPrice=itemView.findViewById(R.id.cartPrice);
+            cartPrice1=itemView.findViewById(R.id.cartPrice);
             cartQuantity=itemView.findViewById(R.id.cartQuanity);
             cartId=itemView.findViewById(R.id.cartId);
 
