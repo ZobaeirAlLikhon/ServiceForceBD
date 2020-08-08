@@ -39,7 +39,7 @@ public class CartFragment extends Fragment {
     private static final String TAG = "CartFragment";
     TextView tottalQuantity,tottalPrice;
     Button orderBtn;
-    private int quantity,price;
+    private int quantity,price=0;
 
 
 
@@ -68,6 +68,7 @@ public class CartFragment extends Fragment {
         curentUserId=mAuth.getCurrentUser().getUid();
         dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         cartDetails();
+
         return cartView;
     }
 
@@ -78,11 +79,38 @@ public class CartFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull CartHolder holder, int position, @NonNull CartModel model) {
 
+                dbref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        int count = 0;
+                        int count1=0;
+                        for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                            int tproduct = Integer.parseInt( ds.child("noOfProduct").getValue().toString());
+                            int tprice = Integer.parseInt( ds.child("productPrice").getValue().toString());
+
+                            count = count + tproduct;
+                            count1=count1+tprice;
+                        }
+                        tottalQuantity.setText(String.valueOf("Tottal Product="+String.valueOf(count)));
+                        tottalPrice.setText(String.valueOf("Tottal Price="+String.valueOf(count1)+" Tk"));
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 String userId=getRef(position).getKey();
                 holder.cartProName.setText("Name :"+model.getProductName());
                 holder.cartPrice1.setText("Price :"+model.getProductPrice());
                 holder.cartQuantity.setText("Quantity :"+model.getNoOfProduct());
                 holder.cartId.setText("Id"+userId);
+
+
+
 //                dbref.child(userId).addValueEventListener(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -122,6 +150,7 @@ public class CartFragment extends Fragment {
 
         recyclerView.setAdapter(ad);
         ad.startListening();
+
 
     }
 
