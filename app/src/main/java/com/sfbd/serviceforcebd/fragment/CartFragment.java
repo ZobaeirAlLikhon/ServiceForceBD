@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,20 +55,20 @@ public class CartFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         tottalQuantity=cartView.findViewById(R.id.tottalProduct);
         tottalPrice=cartView.findViewById(R.id.tottalPrice);
-        orderBtn=cartView.findViewById(R.id.order);
+        orderBtn=(Button) cartView.findViewById(R.id.order);
         Log.d(TAG,"cart");
-
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Cart Order Button code here
+                Toast.makeText(getContext(),"Comming Soon",Toast.LENGTH_LONG).show();
             }
         });
-
         mAuth=FirebaseAuth.getInstance();
         curentUserId=mAuth.getCurrentUser().getUid();
         dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         cartDetails();
+
 
         return cartView;
     }
@@ -87,14 +88,11 @@ public class CartFragment extends Fragment {
                         for(DataSnapshot ds : dataSnapshot.getChildren()) {
                             int tproduct = Integer.parseInt( ds.child("noOfProduct").getValue().toString());
                             int tprice = Integer.parseInt( ds.child("productPrice").getValue().toString());
-
                             count = count + tproduct;
                             count1=count1+tprice;
                         }
-                        tottalQuantity.setText(String.valueOf("Tottal Product="+String.valueOf(count)));
-                        tottalPrice.setText(String.valueOf("Tottal Price="+String.valueOf(count1)+" Tk"));
-
-
+                        tottalQuantity.setText(String.valueOf("Total Product="+String.valueOf(count)));
+                        tottalPrice.setText(String.valueOf("Total Price="+String.valueOf(count1)+" Tk"));
                     }
 
                     @Override
@@ -102,6 +100,7 @@ public class CartFragment extends Fragment {
 
                     }
                 });
+
 
                 String userId=getRef(position).getKey();
                 holder.cartProName.setText("Name :"+model.getProductName());
@@ -146,10 +145,30 @@ public class CartFragment extends Fragment {
                 CartHolder holder=new CartHolder(v);
                 return holder;
             }
+
+            public void deleteItem(int possition)
+            {
+                getSnapshots().getSnapshot(possition).getRef().removeValue();
+            }
         };
 
         recyclerView.setAdapter(ad);
         ad.startListening();
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+             ad.getSnapshots().getSnapshot(viewHolder.getAdapterPosition()).getRef().removeValue();
+
+            }
+        }).attachToRecyclerView(recyclerView);
+
 
 
     }
