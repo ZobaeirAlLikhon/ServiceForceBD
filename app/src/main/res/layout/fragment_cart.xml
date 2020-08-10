@@ -7,52 +7,61 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="411dp"
+        android:layout_height="656dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014"
         tools:ignore="MissingConstraints"
-        tools:listitem="@layout/cart_list"
-        />
+        android:padding="10dp"
+        tools:listitem="@layout/cart_list" />
 
     <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="65dp"
-         android:background="#18FFFF"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintTop_toTopOf="@+id/cart_recyclerview"
-         app:layout_constraintVertical_bias="1.0"
-         tools:ignore="MissingConstraints"
-         tools:layout_editor_absoluteX="0dp">
+        android:layout_width="412dp"
+        android:layout_height="77dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cart_recyclerview"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
-         <Button
-             android:id="@+id/order"
-             android:layout_width="wrap_content"
-             android:layout_height="64dp"
-             android:layout_alignParentEnd="true"
-             android:layout_marginEnd="1dp"
-             android:backgroundTint="#FFFF00"
-             android:text="Order Now"
-             android:textAllCaps="false"
-             android:textColor="@color/black"
-             android:textSize="20dp"
-             tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="1dp"
+            android:backgroundTint="#5FFBF1"
+            android:text="Order Now"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints" />
 
-         <TextView
-             android:id="@+id/tottalPrice"
-             android:layout_width="260dp"
-             android:layout_height="32dp"
-             android:text="Tottal Price="
-             android:textSize="20dp"
-             android:textColor="@color/black"
-             />
+        <TextView
+            android:id="@+id/tottalPrice"
+            android:layout_width="260dp"
+            android:layout_height="32dp"
+            android:padding="1dp"
+            android:text="Total Price="
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-         <TextView
-             android:id="@+id/tottalProduct"
-             android:layout_below="@+id/tottalPrice"
-             android:layout_width="260dp"
-             android:layout_height="32dp"
-             android:text="Tottal Product="
-             android:textColor="@color/black"
-             android:textSize="20dp" />
-     </RelativeLayout>
+        <TextView
+            android:id="@+id/tottalProduct"
+            android:layout_width="260dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/tottalPrice"
+            android:padding="1dp"
+            android:text="Total Product="
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

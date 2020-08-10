@@ -59,7 +59,7 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
             des= sd.get(position).getDes().toString().trim();
 
 
-            holder.product_price.setText("Price:"+sd.get(position).getPrice()+"Tk");
+            holder.product_price.setText("Start from:"+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
             Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
@@ -151,12 +151,12 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
                 {
                     sum=1*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price:"+s+"Tk");
+                    holder.product_price.setText("Price :"+s+"Tk");
                 }
                 else {
                     sum=newValue*p;
                     s=String.valueOf(sum);
-                    holder.product_price.setText("Price:"+s+"Tk");
+                    holder.product_price.setText("Price :"+s+"Tk");
                 }
                 newValue=0;
                 oldValue=0;

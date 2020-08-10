@@ -10,11 +10,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        tools:ignore="MissingConstraints"
-        android:padding="10dp"
+        android:layout_height="135dp"
         android:background="@drawable/text_view_shape"
-        >
+        android:padding="10dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/cartProName"
@@ -52,6 +51,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="93dp"
             android:gravity="center|left"
+            android:paddingTop="5dp"
             android:text="ID:-MCerA7q_8IK5-4_yO9B"
             android:textColor="@color/colorPrimary"
             android:textSize="15dp" />
