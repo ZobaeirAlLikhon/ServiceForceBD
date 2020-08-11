@@ -9,15 +9,17 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/servicesAnimLV"
-        android:layout_width="match_parent"
-        android:layout_height="524dp"
-        android:layout_marginTop="212dp"
+        android:layout_width="312dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="48dp"
+        android:foregroundGravity="center"
         android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="welcome.json"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:lottie_fileName="service.json"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,7 +27,7 @@
         android:layout_height="201dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="380dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

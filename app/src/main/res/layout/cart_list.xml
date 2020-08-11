@@ -21,7 +21,7 @@
             android:layout_height="32dp"
             android:gravity="center|left"
             android:text="Product Name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_below="@+id/cartProName"
             android:gravity="center|left"
             android:text="Price"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_below="@+id/cartPrice"
             android:gravity="center|left"
             android:text="Quantity"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:gravity="center|left"
             android:paddingTop="5dp"
             android:text="ID:-MCerA7q_8IK5-4_yO9B"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="15dp" />
 
     </RelativeLayout>

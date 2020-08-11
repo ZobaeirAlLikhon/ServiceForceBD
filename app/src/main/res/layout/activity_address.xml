@@ -166,6 +166,7 @@
                     android:clickable="true"
                     android:focusable="false"
                     android:hint="hh:mm:a"
+                    android:timePickerMode="spinner"
                     android:imeOptions="actionNext"
                     android:inputType="time|text"
                     android:maxLines="1"
