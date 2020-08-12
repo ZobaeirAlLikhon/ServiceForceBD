@@ -26,7 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.adapter.CartAdapter;
 import com.sfbd.serviceforcebd.model.CartModel;
+import com.sfbd.serviceforcebd.model.Sd;
 
 import java.util.ArrayList;
 
@@ -36,14 +38,13 @@ public class CartFragment extends Fragment {
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
     private String curentUserId;
-    private DatabaseReference dbref;
+    private DatabaseReference dbref,dbref1;
     private static final String TAG = "CartFragment";
     TextView tottalQuantity,tottalPrice;
     Button orderBtn;
     private int quantity,price=0;
-
-
-
+    ArrayList<CartModel> list;
+    CartAdapter adapter;
 
     public CartFragment() {
     }
@@ -57,23 +58,50 @@ public class CartFragment extends Fragment {
         tottalPrice=cartView.findViewById(R.id.tottalPrice);
         orderBtn=(Button) cartView.findViewById(R.id.order);
         Log.d(TAG,"cart");
+
+        mAuth=FirebaseAuth.getInstance();
+        curentUserId=mAuth.getCurrentUser().getUid();
+        dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
+        dbref1= FirebaseDatabase.getInstance().getReference().child("orders").child("cartOrders").child(curentUserId);
+        String key=dbref1.getKey();
+
+//        cartDetails();
+        list=new ArrayList<CartModel>();
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    CartModel cm=dataSnapshot1.getValue(CartModel.class);
+                    list.add(cm);
+                }
+                adapter= new CartAdapter(getContext(),list);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Cart Order Button code here
+//                dbref1.child(key).setValue(list);
                 Toast.makeText(getContext(),"Comming Soon",Toast.LENGTH_LONG).show();
             }
         });
-        mAuth=FirebaseAuth.getInstance();
-        curentUserId=mAuth.getCurrentUser().getUid();
-        dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
-        cartDetails();
 
 
         return cartView;
     }
 
-    private void cartDetails() {
+
+
+
+    /*private void cartDetails() {
         FirebaseRecyclerOptions<CartModel> oft=new FirebaseRecyclerOptions.Builder<CartModel>()
                 .setQuery(dbref,CartModel.class).build();
         FirebaseRecyclerAdapter<CartModel,CartHolder> ad=new FirebaseRecyclerAdapter<CartModel, CartHolder>(oft) {
@@ -171,24 +199,24 @@ public class CartFragment extends Fragment {
 
 
 
-    }
+    }*/
 
 
-    public static class CartHolder extends RecyclerView.ViewHolder
-    {
-        Context context;
-
-        TextView cartProName,cartPrice1,cartQuantity,cartId;
-        public CartHolder(@NonNull View itemView) {
-            super(itemView);
-            cartProName=itemView.findViewById(R.id.cartProName);
-            cartPrice1=itemView.findViewById(R.id.cartPrice);
-            cartQuantity=itemView.findViewById(R.id.cartQuanity);
-            cartId=itemView.findViewById(R.id.cartId);
-
-        }
-
-
-    }
+//    public static class CartHolder extends RecyclerView.ViewHolder
+//    {
+//        Context context;
+//
+//        TextView cartProName,cartPrice1,cartQuantity,cartId;
+//        public CartHolder(@NonNull View itemView) {
+//            super(itemView);
+//            cartProName=itemView.findViewById(R.id.cartProName);
+//            cartPrice1=itemView.findViewById(R.id.cartPrice);
+//            cartQuantity=itemView.findViewById(R.id.cartQuanity);
+//            cartId=itemView.findViewById(R.id.cartId);
+//
+//        }
+//
+//
+//    }
 
 }
