@@ -1,6 +1,7 @@
 package com.sfbd.serviceforcebd.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
     Context context;
     ArrayList<CartModel> list;
     DatabaseReference dref;
+   String TAG="Cart";
 
     public CartAdapter(Context context, ArrayList<CartModel> list) {
         this.context = context;
@@ -42,10 +44,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
 
     }
 
+
     @Override
     public int getItemCount() {
         return list.size();
     }
+
 
     public class MyViewHolders extends RecyclerView.ViewHolder {
         Context context;
@@ -58,5 +62,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
             cartQuantity=itemView.findViewById(R.id.cartQuanity);
             cartId=itemView.findViewById(R.id.cartId);
         }
+
+    }
+    public void deleteItem(int position)
+    {
+        list.remove(position);
+        notifyItemRemoved(position);
+
     }
 }

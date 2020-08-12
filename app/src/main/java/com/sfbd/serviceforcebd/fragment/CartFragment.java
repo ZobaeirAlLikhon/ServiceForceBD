@@ -70,13 +70,40 @@ public class CartFragment extends Fragment {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int s=0;
+                int q=0;
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
+
                     CartModel cm=dataSnapshot1.getValue(CartModel.class);
+                    String price=  dataSnapshot1.child("productPrice").getValue().toString();
+                    String quantity=  dataSnapshot1.child("noOfProduct").getValue().toString();
+                    int sumPrice=Integer.parseInt(price);
+                    int sumQuantity=Integer.parseInt(quantity);
+                    s=s+sumPrice;
+                    q=q+sumQuantity;
                     list.add(cm);
+
                 }
+                tottalPrice.setText("Total Price: "+String.valueOf(s));
+                tottalQuantity.setText("Total Quantity: "+String.valueOf(q));
                 adapter= new CartAdapter(getContext(),list);
                 recyclerView.setAdapter(adapter);
+                new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                        adapter.deleteItem(viewHolder.getAdapterPosition());
+
+
+                    }
+                }).attachToRecyclerView(recyclerView);
+
 
             }
 
