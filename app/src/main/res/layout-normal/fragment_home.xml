@@ -765,20 +765,21 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="130dp">
+                    android:layout_height="130dp"
+                    android:paddingBottom="10dp">
 
                     <Button
                         android:id="@+id/call_btn"
-                        android:layout_width="128dp"
+                        android:layout_width="130dp"
                         android:layout_height="65dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="232dp"
+                        android:layout_marginStart="235dp"
                         android:layout_marginTop="56dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_marginBottom="25dp"
+                        android:layout_marginEnd="48dp"
+                        android:layout_marginBottom="24dp"
                         android:backgroundTint="@color/white"
                         android:gravity="center"
                         android:text="ask me"

@@ -28,7 +28,7 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private int[] sampleImages = {R.drawable.imagefour, R.drawable.imagefive,
+    private int[] sampleImages = {R.drawable.imagefive,
             R.drawable.a1,R.drawable.a2,R.drawable.a3,R.drawable.a4, R.drawable.imagethree,};
     private Context context;
     private Button Call_btn;
