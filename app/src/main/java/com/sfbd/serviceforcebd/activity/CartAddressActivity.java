@@ -29,6 +29,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.sfbd.serviceforcebd.databinding.ActivityAddressBinding;
+import com.sfbd.serviceforcebd.databinding.ActivityCartAddressBinding;
 import com.sfbd.serviceforcebd.model.CartModel;
 import com.sfbd.serviceforcebd.model.Order;
 import com.sfbd.serviceforcebd.model.User;
@@ -49,10 +50,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class AddressActivity extends AppCompatActivity {
+public class CartAddressActivity extends AppCompatActivity {
 
     private static final int LOCATION_REQUEST_CODE = 1001;
-    private ActivityAddressBinding binding;
+    private ActivityCartAddressBinding binding;
     private static final String TAG = "AddressActivity";
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
@@ -68,7 +69,7 @@ public class AddressActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAddressBinding.inflate(getLayoutInflater());
+        binding = ActivityCartAddressBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -104,36 +105,36 @@ public class AddressActivity extends AppCompatActivity {
 
 
     //.............................................................................................
-  private void getLastLocation() {
-      Log.d(TAG, "getLastLocation: started");
+    private void getLastLocation() {
+        Log.d(TAG, "getLastLocation: started");
 
-      Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
+        Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
 
-      locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
-          @Override
-          public void onSuccess(Location location) {
+        locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
 
-              if (location != null) {
-                  Log.d(TAG, "onSuccess: Location : " + location.toString());
-                  Log.d(TAG, "onSuccess: Latitude: " + location.getLatitude());
-                  Log.d(TAG, "onSuccess: Longitude: " + location.getLongitude());
-                  Log.d(TAG, "onSuccess: Time: " + location.getTime());
+                if (location != null) {
+                    Log.d(TAG, "onSuccess: Location : " + location.toString());
+                    Log.d(TAG, "onSuccess: Latitude: " + location.getLatitude());
+                    Log.d(TAG, "onSuccess: Longitude: " + location.getLongitude());
+                    Log.d(TAG, "onSuccess: Time: " + location.getTime());
 
-                  address = getCompleteAddressString(location.getLatitude(), location.getLongitude());
-                  Log.d(TAG, "onSuccess: Address : " + address);
-                  binding.addressET.getEditText().setText(address);
+                    address = getCompleteAddressString(location.getLatitude(), location.getLongitude());
+                    Log.d(TAG, "onSuccess: Address : " + address);
+                    binding.addressET.getEditText().setText(address);
 
-              }
+                }
 
-          }
-      });
+            }
+        });
 
-      locationTask.addOnFailureListener(new OnFailureListener() {
-          @Override
-          public void onFailure(@NonNull Exception e) {
-              Log.d(TAG, "onFailure: " + e.getLocalizedMessage());
-          }
-      });
+        locationTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "onFailure: " + e.getLocalizedMessage());
+            }
+        });
 
         /*
         // OR You can write this bellow
@@ -144,7 +145,7 @@ public class AddressActivity extends AppCompatActivity {
             }
         });*/
 
-  }
+    }
     private void askLocationPermission() {
         Log.d(TAG, "askLocationPermission: started");
 
@@ -214,7 +215,7 @@ public class AddressActivity extends AppCompatActivity {
 //        Intent intent = null;
 //        Bundle args = intent.getBundleExtra("productList");
 //        ArrayList<CartModel> list = (ArrayList<CartModel>) args.getSerializable("ARRAYLIST");
-//        list= (ArrayList<CartModel>) bundle.getSerializable("ARRAYLIST");
+        ArrayList<CartModel> filelist =  (ArrayList<CartModel>)getIntent().getSerializableExtra("lists");
         String userId = user.getUserID();
         String name = user.getName();
         String address = binding.addressET.getEditText().getText().toString();
@@ -223,7 +224,6 @@ public class AddressActivity extends AppCompatActivity {
         String pname=bundle.getString("proName");
         String pprice=bundle.getString("price");
         String nop=bundle.getString("noOfItem");
-        String ini=bundle.getString("ini");
 
 
 
@@ -232,26 +232,28 @@ public class AddressActivity extends AppCompatActivity {
         String isPlaced = "Placed";
 
 
+        DatabaseReference databaseRef=FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(userId);
+        Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,pprice,nop,filelist);
+        String pushId = orderRef.push().getKey();
+        order.setOrderId(pushId);
+        orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                orderRef.child("orderByUser").child(userId).child(pushId).setValue(order).addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful()){
+                        databaseRef.removeValue();
+                        Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(this,MainActivity.class));
+                        binding.progressBarId.setVisibility(View.GONE);
+                    }
 
-            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,pprice,nop);
-            String pushId = orderRef.push().getKey();
-            order.setOrderId(pushId);
-            orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    orderRef.child("orderByUser").child(userId).child(pushId).setValue(order).addOnCompleteListener(task1 -> {
-                        if (task1.isSuccessful()){
-                            Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(this,MainActivity.class));
-                            binding.progressBarId.setVisibility(View.GONE);
-                        }
+                });
+            } else {
+                Toast.makeText(this, "Please order again!", Toast.LENGTH_SHORT).show();
+                binding.progressBarId.setVisibility(View.GONE);
+            }
+        });
 
-                    });
-                } else {
-                    Toast.makeText(this, "Please order again!", Toast.LENGTH_SHORT).show();
-                    binding.progressBarId.setVisibility(View.GONE);
-                }
-            });
-        }
+    }
 
 
 
@@ -370,7 +372,7 @@ public class AddressActivity extends AppCompatActivity {
         int minute = mcurrentTime.get(Calendar.MINUTE);
         int s = mcurrentTime.get(Calendar.AM_PM);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(AddressActivity.this, new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(CartAddressActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 

@@ -90,11 +90,10 @@
     </string-array>
 
 
-
     <string-array name="medical_services">
         <item>Serial for a Doctor</item>
         <item>Consult with a Doctor</item>
-<!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
+        <!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
     </string-array>
     <integer-array name="random_imgs">
         <item>@drawable/medi_guide</item>

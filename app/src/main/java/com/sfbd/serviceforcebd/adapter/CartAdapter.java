@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.common.BaseChangeEventListener;
+import com.firebase.ui.common.BaseObservableSnapshotArray;
 import com.google.firebase.database.DatabaseReference;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.model.CartModel;
@@ -36,11 +38,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
 
     @NonNull
     @Override
-    public void onBindViewHolder(@NonNull CartAdapter.MyViewHolders holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolders holder, int position) {
 
         holder.cartProName.setText("Name: "+list.get(position).getProductName());
         holder.cartPrice1.setText("Price: "+list.get(position).getProductPrice());
         holder.cartQuantity.setText("Quantity: "+list.get(position).getNoOfProduct());
+
 
     }
 
@@ -49,6 +52,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
     public int getItemCount() {
         return list.size();
     }
+
+
 
 
     public class MyViewHolders extends RecyclerView.ViewHolder {
@@ -61,13 +66,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
             cartPrice1=itemView.findViewById(R.id.cartPrice);
             cartQuantity=itemView.findViewById(R.id.cartQuanity);
             cartId=itemView.findViewById(R.id.cartId);
+
         }
-
     }
-    public void deleteItem(int position)
-    {
-        list.remove(position);
-        notifyItemRemoved(position);
 
-    }
 }

@@ -1,5 +1,8 @@
 package com.sfbd.serviceforcebd.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order {
     private String userId;
     private String userName;
@@ -14,9 +17,12 @@ public class Order {
     private String productName;
     private String productPrice;
     private String noOfProduct;
+    private List<CartModel> productlist;
+
 
     public Order() {
     }
+
 
     public Order(String userId, String userName, String userAddress, String userContact, String orderItem,
                  String orderDate, String orderTime, String isPlaced, String productName, String productPrice, String noOfProduct)
@@ -60,6 +66,23 @@ public class Order {
         this.isPlaced = isPlaced;
     }
 
+
+    public Order(String userId, String userName, String userAddress, String userContact, String orderItem, String orderDate,
+                 String orderTime, String isPlaced,String productName, String productPrice,
+                 String noOfProduct, List<CartModel> productlist) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userAddress = userAddress;
+        this.userContact = userContact;
+        this.orderItem = orderItem;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.isPlaced = isPlaced;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.noOfProduct = noOfProduct;
+        this.productlist = productlist;
+    }
 
     public String getIsPlaced() {
         return isPlaced;
@@ -173,6 +196,14 @@ public class Order {
 
     public void setNoOfProduct(String noOfProduct) {
         this.noOfProduct = noOfProduct;
+    }
+
+    public List<CartModel> getProductlist() {
+        return productlist;
+    }
+
+    public void setProductlist(List<CartModel> productlist) {
+        this.productlist = productlist;
     }
 
     @Override

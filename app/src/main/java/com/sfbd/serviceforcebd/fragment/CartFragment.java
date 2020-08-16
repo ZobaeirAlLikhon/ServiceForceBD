@@ -1,6 +1,7 @@
 package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,11 +26,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.activity.AddressActivity;
+import com.sfbd.serviceforcebd.activity.CartAddressActivity;
+import com.sfbd.serviceforcebd.activity.Goru;
 import com.sfbd.serviceforcebd.adapter.CartAdapter;
 import com.sfbd.serviceforcebd.model.CartModel;
 import com.sfbd.serviceforcebd.model.Sd;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
@@ -45,6 +51,7 @@ public class CartFragment extends Fragment {
     private int quantity,price=0;
     ArrayList<CartModel> list;
     CartAdapter adapter;
+    String proName,price1,noOfItem;
 
     public CartFragment() {
     }
@@ -87,22 +94,27 @@ public class CartFragment extends Fragment {
                 }
                 tottalPrice.setText("Total Price: "+String.valueOf(s));
                 tottalQuantity.setText("Total Quantity: "+String.valueOf(q));
+                proName="cartOrder";
+                price1=String.valueOf(s);
+                noOfItem=String.valueOf(q);
                 adapter= new CartAdapter(getContext(),list);
                 recyclerView.setAdapter(adapter);
-                new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
+
+                orderBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                        return true;
+                    public void onClick(View v) {
+                        //Cart Order Button code her
+                        String ini="1";
+                        Intent intent=new Intent(getContext(),CartAddressActivity.class);
+                        intent.putExtra("proName","Multiple_Product");
+                        intent.putExtra("price",price1);
+                        intent.putExtra("noOfItem",noOfItem);
+                        intent.putExtra("category","Cart");
+                        intent.putExtra("lists",list);
+                        startActivity(intent);
+
                     }
-
-                    @Override
-                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
-                        adapter.deleteItem(viewHolder.getAdapterPosition());
-
-
-                    }
-                }).attachToRecyclerView(recyclerView);
+                });
 
 
             }
@@ -112,14 +124,27 @@ public class CartFragment extends Fragment {
 
             }
         });
-        orderBtn.setOnClickListener(new View.OnClickListener() {
+
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP) {
+
             @Override
-            public void onClick(View v) {
-                //Cart Order Button code here
-//                dbref1.child(key).setValue(list);
-                Toast.makeText(getContext(),"Comming Soon",Toast.LENGTH_LONG).show();
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+
+                return true;
             }
-        });
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                int pos = viewHolder.getAdapterPosition();
+
+
+            }
+        };
+//        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+//        itemTouchHelper.attachToRecyclerView(recyclerView);
+
 
 
         return cartView;

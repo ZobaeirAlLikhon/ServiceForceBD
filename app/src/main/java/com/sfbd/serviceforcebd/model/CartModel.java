@@ -1,6 +1,8 @@
 package com.sfbd.serviceforcebd.model;
 
-public class CartModel {
+import java.io.Serializable;
+
+public class CartModel implements Serializable {
     private String catagory;
     private String productPrice;
 
