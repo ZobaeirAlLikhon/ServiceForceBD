@@ -10,7 +10,9 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="75dp"
+        android:background="#F8F8F8"
         tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView

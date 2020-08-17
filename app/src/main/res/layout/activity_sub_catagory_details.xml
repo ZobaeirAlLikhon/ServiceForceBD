@@ -4,7 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SubCatagoryDetails">
+    tools:context=".activity.SubCatagoryDetails"
+    android:id="@+id/ptoductlistV"
+    >
+
+    <FrameLayout
+        android:id="@+id/FragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1111"
@@ -41,5 +55,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

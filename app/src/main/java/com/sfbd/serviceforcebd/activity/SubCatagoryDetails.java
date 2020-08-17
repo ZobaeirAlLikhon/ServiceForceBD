@@ -2,12 +2,18 @@ package com.sfbd.serviceforcebd.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -27,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.adapter.SubCatagoryAdapter;
+import com.sfbd.serviceforcebd.fragment.CartFragment;
 import com.sfbd.serviceforcebd.model.Sd;
 
 import java.util.ArrayList;
@@ -39,6 +46,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
     SubCatagoryAdapter adapter;
     TextView textView;
     ImageView imageView;
+    Fragment fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +88,30 @@ public class SubCatagoryDetails extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.cartM) {
+            getSupportActionBar().setTitle("Cart");
+
+            fragment = new CartFragment();
+
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.add(R.id.ptoductlistV, fragment);
+            ft.attach(fragment);
+
+            ft.commit();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
