@@ -1,24 +1,27 @@
 package com.sfbd.serviceforcebd.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.databinding.ActivityMainBinding;
 import com.sfbd.serviceforcebd.fragment.CartFragment;
-import com.sfbd.serviceforcebd.fragment.ChatFragment;
 import com.sfbd.serviceforcebd.fragment.HomeFragment;
 import com.sfbd.serviceforcebd.fragment.MoreFragment;
 import com.sfbd.serviceforcebd.fragment.OrderFragment;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private Fragment selectedFragment;
     private FirebaseAuth mAuth;
+    View v;
 
 
     @Override
@@ -40,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        if(!ConnectionManager.connection(getBaseContext()))
+        {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("No Internet Connection!!")
+                    .setMessage("please turn on your data connection")
+                    .setCancelable(false)
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Whatever...
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    }).show();
+
+            Toast.makeText(this,"No internet",Toast.LENGTH_LONG).show();
+        }
 
 
 
@@ -128,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
 
                 mAuth = FirebaseAuth.getInstance();
                 FirebaseUser currentUser = mAuth.getCurrentUser();

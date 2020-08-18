@@ -16,6 +16,49 @@
        tools:listitem="@layout/rv_order_item"
        />
 
+   <LinearLayout
+       android:visibility="invisible"
+       android:id="@+id/noOrderAvilable"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:orientation="vertical"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/recyclerView"
+       tools:ignore="MissingConstraints">
+
+      <com.airbnb.lottie.LottieAnimationView
+          android:id="@+id/notFoundAnimLV"
+          android:visibility="invisible"
+          android:layout_width="312dp"
+          android:layout_height="310dp"
+          android:layout_marginStart="60dp"
+          android:layout_marginEnd="60dp"
+          android:foregroundGravity="center"
+          android:scaleType="centerCrop"
+          app:layout_constraintBottom_toBottomOf="@+id/bottom_lay"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:lottie_autoPlay="true"
+          app:lottie_fileName="not_found.json"
+          app:lottie_loop="true"
+          tools:ignore="MissingConstraints" />
+
+      <TextView
+          android:id="@+id/lotieText"
+          android:visibility="invisible"
+          android:layout_marginTop="100dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="NO ORDER AVILABLE"
+          android:textSize="20dp" />
+   </LinearLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

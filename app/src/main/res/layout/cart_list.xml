@@ -56,7 +56,6 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:visibility="invisible"/>
-
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

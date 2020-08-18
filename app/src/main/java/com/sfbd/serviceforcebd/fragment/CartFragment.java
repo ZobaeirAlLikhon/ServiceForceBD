@@ -1,8 +1,11 @@
 package com.sfbd.serviceforcebd.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +13,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.arch.core.internal.FastSafeIterableMap;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,7 +39,9 @@ import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.CartAddressActivity;
 import com.sfbd.serviceforcebd.activity.Goru;
+import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
 import com.sfbd.serviceforcebd.adapter.CartAdapter;
+import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.model.CartModel;
 import com.sfbd.serviceforcebd.model.Sd;
 
@@ -54,6 +62,9 @@ public class CartFragment extends Fragment {
     ArrayList<CartModel> list;
     CartAdapter adapter;
     String proName,price1,noOfItem;
+    private LottieAnimationView notFoundAnimationView;
+    RelativeLayout layout;
+    ProgressDialog progressDialog;
 
 
     public CartFragment() {
@@ -67,13 +78,36 @@ public class CartFragment extends Fragment {
         tottalQuantity=cartView.findViewById(R.id.tottalProduct);
         tottalPrice=cartView.findViewById(R.id.tottalPrice);
         orderBtn=(Button) cartView.findViewById(R.id.order);
+        notFoundAnimationView=cartView.findViewById(R.id.notFoundAnimLV);
+        layout=cartView.findViewById(R.id.bottom_lay);
         Log.d(TAG,"cart");
 
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         mAuth=FirebaseAuth.getInstance();
         curentUserId=mAuth.getCurrentUser().getUid();
         dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         dbref1= FirebaseDatabase.getInstance().getReference().child("orders").child("cartOrders").child(curentUserId);
         String key=dbref1.getKey();
+        if(!ConnectionManager.connection(getContext()))
+        {
+            progressDialog.dismiss();
+            new AlertDialog.Builder(getContext())
+                    .setTitle("No Internet Connection!!")
+                    .setMessage("please turn on your data connection")
+                    .setCancelable(false)
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Whatever...
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    }).show();
+
+            Toast.makeText(getContext(),"No internet",Toast.LENGTH_LONG).show();
+        }
 
 //        cartDetails();
         list=new ArrayList<CartModel>();
@@ -95,6 +129,7 @@ public class CartFragment extends Fragment {
                     list.add(cm);
 
                 }
+                layout.setVisibility(View.VISIBLE);
                 tottalPrice.setText("Total Price: "+String.valueOf(s));
                 tottalQuantity.setText("Total Quantity: "+String.valueOf(q));
                 proName="cartOrder";
@@ -102,6 +137,7 @@ public class CartFragment extends Fragment {
                 noOfItem=String.valueOf(q);
                 adapter= new CartAdapter(getContext(),list);
                 recyclerView.setAdapter(adapter);
+                progressDialog.dismiss();
 
                 orderBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -118,6 +154,13 @@ public class CartFragment extends Fragment {
 
                     }
                 });
+                if(!dataSnapshot.exists())
+                {
+                    notFoundAnimationView.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    layout.setVisibility(View.INVISIBLE);
+
+                }
 
 
             }

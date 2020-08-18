@@ -1,6 +1,7 @@
 package com.sfbd.serviceforcebd.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,8 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +38,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.adapter.SubCatagoryAdapter;
+import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.fragment.CartFragment;
 import com.sfbd.serviceforcebd.model.Sd;
 
@@ -47,11 +53,34 @@ public class SubCatagoryDetails extends AppCompatActivity {
     TextView textView;
     ImageView imageView;
     Fragment fragment;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_catagory_details);
 
+        //Progress dialoge
+        progressDialog=new ProgressDialog(SubCatagoryDetails.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        if(!ConnectionManager.connection(SubCatagoryDetails.this))
+        {
+            progressDialog.dismiss();
+            new AlertDialog.Builder(SubCatagoryDetails.this)
+                    .setTitle("No Internet Connection!!")
+                    .setMessage("please turn on your data connection")
+                    .setCancelable(false)
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Whatever...
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    }).show();
+
+            Toast.makeText(SubCatagoryDetails.this,"No internet",Toast.LENGTH_LONG).show();
+        }
 
         textView=findViewById(R.id.noProductFound);
         imageView=findViewById(R.id.noImage);
@@ -62,9 +91,11 @@ public class SubCatagoryDetails extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         databaseReference=FirebaseDatabase.getInstance().getReference().child("product").child(service_n).child(catagory);
         list=new ArrayList<Sd>();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     Sd ss=dataSnapshot1.getValue(Sd.class);
@@ -72,6 +103,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
                 }
                 adapter=new SubCatagoryAdapter(SubCatagoryDetails.this,list,catagory);
                 recyclerView.setAdapter(adapter);
+                progressDialog.dismiss();
                 if(!dataSnapshot.exists())
                 {
                     imageView.setVisibility(View.VISIBLE);
