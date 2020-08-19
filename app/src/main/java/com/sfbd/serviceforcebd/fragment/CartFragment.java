@@ -47,6 +47,7 @@ import com.sfbd.serviceforcebd.model.Sd;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class CartFragment extends Fragment {
     View cartView;
@@ -54,7 +55,7 @@ public class CartFragment extends Fragment {
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
     private String curentUserId;
-    private DatabaseReference dbref,dbref1;
+    private DatabaseReference dbref,dbref1,dbref2;
     private static final String TAG = "CartFragment";
     TextView tottalQuantity,tottalPrice;
     Button orderBtn;
@@ -81,7 +82,6 @@ public class CartFragment extends Fragment {
         notFoundAnimationView=cartView.findViewById(R.id.notFoundAnimLV);
         layout=cartView.findViewById(R.id.bottom_lay);
         Log.d(TAG,"cart");
-
         progressDialog=new ProgressDialog(getContext());
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
@@ -90,6 +90,7 @@ public class CartFragment extends Fragment {
         curentUserId=mAuth.getCurrentUser().getUid();
         dbref= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         dbref1= FirebaseDatabase.getInstance().getReference().child("orders").child("cartOrders").child(curentUserId);
+        dbref2= FirebaseDatabase.getInstance().getReference().child("Cart").child("UserCart").child(curentUserId);
         String key=dbref1.getKey();
         if(!ConnectionManager.connection(getContext()))
         {
@@ -161,6 +162,41 @@ public class CartFragment extends Fragment {
                     layout.setVisibility(View.INVISIBLE);
 
                 }
+                new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                                          @NonNull RecyclerView.ViewHolder target) {
+                        return true;
+                    }
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//                        list.remove(viewHolder.getAdapterPosition());
+                       String a= list.get(viewHolder.getAdapterPosition()).getPushId().toString();
+//                        Toast.makeText(getContext(),a,Toast.LENGTH_LONG).show();
+                        dbref2.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot dataSnapshot2 : snapshot.getChildren())
+                                {
+                                  if(dataSnapshot2.getKey().equals(a))
+                                  {
+                                      dbref2.child(dataSnapshot2.getKey()).removeValue();
+                                      list.clear();
+
+                                  }
+
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                    }
+                }).attachToRecyclerView(recyclerView);
 
 
             }
@@ -172,28 +208,7 @@ public class CartFragment extends Fragment {
         });
 
 
-        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT ) {
 
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-
-                return true;
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                //Remove swiped item from list and notify the RecyclerView
-                int position = viewHolder.getAdapterPosition();
-                list.remove(position);
-                adapter.notifyDataSetChanged();
-
-                
-
-
-            }
-        };
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
 
 
 

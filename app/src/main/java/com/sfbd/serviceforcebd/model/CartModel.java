@@ -8,17 +8,26 @@ public class CartModel implements Serializable {
 
     private String productName;
     private String noOfProduct;
+    private String pushId;
 
     public CartModel() {
     }
 
-    public CartModel(String catagory, String productPrice, String productName, String noOfProduct) {
+    public CartModel(String catagory, String productPrice, String productName, String noOfProduct,String pushId) {
         this.catagory = catagory;
         this.productPrice = productPrice;
         this.productName = productName;
         this.noOfProduct = noOfProduct;
+        this.pushId=pushId;
     }
 
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 
     public String getCatagory() {
         return catagory;
