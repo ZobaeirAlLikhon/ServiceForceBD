@@ -93,6 +93,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
         databaseReference=FirebaseDatabase.getInstance().getReference().child("product").child(service_n).child(catagory);
         list=new ArrayList<Sd>();
 
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

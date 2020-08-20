@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
+import com.sfbd.serviceforcebd.activity.Silk;
 import com.sfbd.serviceforcebd.model.CartModel;
 import com.sfbd.serviceforcebd.model.Sd;
 import com.squareup.picasso.Picasso;
@@ -65,6 +66,7 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
             holder.button.setVisibility(View.INVISIBLE);
             holder.button1.setVisibility(View.VISIBLE);
         }
+
 
 
 
