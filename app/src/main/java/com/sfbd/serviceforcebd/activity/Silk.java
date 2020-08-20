@@ -2,6 +2,7 @@ package com.sfbd.serviceforcebd.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,8 +21,9 @@ public class Silk extends AppCompatActivity {
 
         silkview = findViewById(R.id.silkview);
         silkview.setWebViewClient(new WebViewClient());
-        silkview.loadUrl("https://www.serviceforcebd.com/");
+        silkview.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLScdRGm7Gwor7qPaCdUny3v8v5RDA640lqYaMHtgHMbZMpyfQw/viewform");
         WebSettings webSettings = silkview.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
     }
 }

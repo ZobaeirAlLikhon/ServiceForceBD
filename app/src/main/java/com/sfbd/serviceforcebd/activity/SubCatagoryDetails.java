@@ -37,6 +37,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.adapter.CartAdapter;
 import com.sfbd.serviceforcebd.adapter.SubCatagoryAdapter;
 import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.fragment.CartFragment;
@@ -92,6 +93,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
         databaseReference=FirebaseDatabase.getInstance().getReference().child("product").child(service_n).child(catagory);
         list=new ArrayList<Sd>();
 
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -101,6 +103,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
                     Sd ss=dataSnapshot1.getValue(Sd.class);
                     list.add(ss);
                 }
+
                 adapter=new SubCatagoryAdapter(SubCatagoryDetails.this,list,catagory);
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
