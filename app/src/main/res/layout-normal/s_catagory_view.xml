@@ -68,7 +68,10 @@
             app:backGroundColor="@color/white"
             app:initialNumber="1"
             app:textColor="@color/black"
-            app:textSize="6dp" />
+            app:textSize="6dp" >
+
+
+        </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
         <TextView
             android:id="@+id/price11"
@@ -109,10 +112,35 @@
             android:gravity="center"
             android:text="next" />
 
+        <TextView
+            android:id="@+id/price21"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/addToCart"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="244dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|right"
+            android:text="Starts from: 1000$"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:visibility="invisible"
+            tools:ignore="MissingConstraints" />
 
+        <Button
+            android:visibility="invisible"
+            android:id="@+id/booking1"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price11"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="-15dp"
+            android:layout_toEndOf="@id/addToCart"
 
-
-
+            android:gravity="center"
+            android:text="next" />
 
     </RelativeLayout>
 
