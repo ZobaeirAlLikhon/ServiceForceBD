@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int progress;
     private LottieAnimationView lottieAnimationView;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private int Splash_Screen=3000;
+    private int Splash_Screen=2000;
     Animation button_amin;
     private ImageView imageView;
    // private TextView textView;

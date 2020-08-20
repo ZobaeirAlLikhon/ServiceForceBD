@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="75dp"
+        android:background="#F8F8F8"
+        tools:ignore="MissingConstraints">
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/cart_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:listitem="@layout/cart_list" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/notFoundAnimLV"
+            android:layout_width="312dp"
+            android:layout_height="310dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="258dp"
+            android:layout_marginEnd="81dp"
+            android:layout_marginRight="88dp"
+            android:layout_marginBottom="157dp"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="not_found.json"
+            app:lottie_loop="true"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:background="#F8F8F8"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:padding="10dp"
+        android:id="@+id/bottom_lay"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="#5FFBF1"
+            android:text="Order Now"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tottalPrice"
+            android:layout_width="260dp"
+            android:layout_height="32dp"
+            android:padding="1dp"
+            android:text="Total Price="
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tottalProduct"
+            android:layout_width="260dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/tottalPrice"
+            android:padding="1dp"
+            android:text="Total Product="
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

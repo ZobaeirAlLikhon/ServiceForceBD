@@ -61,7 +61,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolders>
 
 
 
-
     public class MyViewHolders extends RecyclerView.ViewHolder {
         Context context;
 

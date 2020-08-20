@@ -62,10 +62,10 @@
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:elevation="10dp"
+                    android:elevation="5dp"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="5dp"
                     app:cardElevation="5dp"
                     tools:targetApi="lollipop">
 
@@ -108,7 +108,7 @@
                     android:elevation="10dp"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="5dp"
                     app:cardElevation="5dp"
                     tools:targetApi="lollipop">
 
@@ -151,7 +151,7 @@
                     android:elevation="16dp"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="5dp"
                     app:cardElevation="5dp"
                     tools:targetApi="LOLLIPOP">
 
