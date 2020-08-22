@@ -46,11 +46,22 @@
             android:textColor="#020202"
             tools:text="Lorem printer took a galley"
             android:layout_marginLeft="91dp" />
+        <TextView
+            android:textSize="20dp"
+            android:id="@+id/MediPrice"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/medical_Dec"
+            android:layout_marginTop="16dp"
+            android:layout_alignStart="@id/medical_Name"
+            android:layout_alignEnd="@id/medical_Name"
+            android:text="Price"
+            />
         <Button
             android:id="@+id/medical_V"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medical_Dec"
+            android:layout_below="@id/MediPrice"
             android:layout_alignStart="@id/medical_Name"
             android:layout_alignEnd="@id/medical_Name"
             android:layout_marginTop="16dp"
@@ -58,6 +69,7 @@
             android:layout_alignLeft="@id/medical_Name"
             android:layout_alignRight="@id/medical_Name" />
         <Button
+            android:id="@+id/callBTn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/medical_V"

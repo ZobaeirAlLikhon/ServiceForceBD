@@ -20,11 +20,11 @@
     <string-array name="appliance_repair_services">
         <item>Ac Repair Services</item>
         <item>Microwave Repair Services</item>
-<!--        <item>Tv Repair Services</item>-->
+        <!--        <item>Tv Repair Services</item>-->
         <item>Refigerator Repair Services</item>
         <item>Washing Machine Repair Services</item>
         <item>IPS Repair Services</item>
-<!--        <item> Gas stove/Burnner Repair Services</item>-->
+        <!--        <item> Gas stove/Burnner Repair Services</item>-->
     </string-array>
 
     <string-array name="beauty_services">
@@ -41,7 +41,7 @@
 
     <string-array name="laundry_services">
         <item>Monthly subscription packages</item>
-<!--        <item>Dry cleaning</item>-->
+        <!--        <item>Dry cleaning</item>-->
         <item>Ironing service</item>
         <item>Washing Servicing</item>
         <item>Others</item>
@@ -73,12 +73,12 @@
 
     <string-array name="car_care_services">
         <item>Car wash &amp; polish</item>
-<!--        <item>Car painting &amp;  Decoration</item>-->
-<!--        <item>Car repair &amp; Servicing</item>-->
-<!--        <item>Emergency Car Service</item>-->
+        <!--        <item>Car painting &amp;  Decoration</item>-->
+        <!--        <item>Car repair &amp; Servicing</item>-->
+        <!--        <item>Emergency Car Service</item>-->
         <item>Bike wash &amp; polish</item>
-<!--        <item>Bike painting &amp; Decoration</item>-->
-<!--        <item>Bike repair &amp; Servicing</item>-->
+        <!--        <item>Bike painting &amp; Decoration</item>-->
+        <!--        <item>Bike repair &amp; Servicing</item>-->
         <item>Monthly Subscription Package</item>
     </string-array>
 

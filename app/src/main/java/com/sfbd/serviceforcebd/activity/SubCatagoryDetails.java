@@ -148,12 +148,10 @@ public class SubCatagoryDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fragment = new CartFragment();
-
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.add(R.id.ptoductlistV, fragment);
                 ft.attach(fragment);
-
                 ft.commit();
             }
         });

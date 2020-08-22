@@ -14,6 +14,11 @@ public class Sd {
         this.name=name;
     }
 
+    public Sd(String des, String price, String name) {
+        this.des = des;
+        this.price = price;
+        this.name = name;
+    }
 
     public String getDes() {
         return des;

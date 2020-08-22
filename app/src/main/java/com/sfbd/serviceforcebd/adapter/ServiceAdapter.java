@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.LocationActivity;
+import com.sfbd.serviceforcebd.activity.MedicalHealthDetails;
 import com.sfbd.serviceforcebd.activity.ServiceDetails;
 import com.sfbd.serviceforcebd.activity.Silk;
 import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
@@ -60,7 +61,15 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 Intent intent =new Intent(context, Silk.class);
                 context.startActivity(intent);
 
-
+            }
+            else if(serviceList[position].equals("Consult with a Doctor")||serviceList[position].equals("Psychiatrist/mental health")
+            ||serviceList[position].equals("Pathology test")||serviceList[position].equals("Serial for a Doctor")
+            ||serviceList[position].equals("Medicine Home Delivery")||serviceList[position].equals("Emergency Service"))
+            {
+                Intent intent =new Intent(context, MedicalHealthDetails.class);
+                intent.putExtra("service_name",service);
+                intent.putExtra("category",serviceList[position]);
+                context.startActivity(intent);
             }
             else {
             Intent intent = new Intent(context, SubCatagoryDetails.class);

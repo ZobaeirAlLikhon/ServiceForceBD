@@ -77,7 +77,6 @@ public class ServicesActivity extends AppCompatActivity {
                 initRecyclerView();
 
             }else if(service.equals("Medical")){
-                 imgs = getResources().getIntArray(R.array.random_imgs);
                 serviceList = getResources().getStringArray(R.array.medical_services);
                 initRecyclerView();
 
