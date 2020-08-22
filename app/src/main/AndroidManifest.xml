@@ -17,8 +17,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.CartAddressActivity"></activity>
         <activity
+
             android:name=".activity.SubCatagoryDetails"
-            android:theme="@style/AppThemee"></activity>
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".activity.Goru" />
         <activity android:name=".activity.Silk" />
         <activity android:name=".activity.ServiceDetails" />
