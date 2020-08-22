@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    >
+    <RelativeLayout
+        android:id="@+id/medical_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:outlineSpotShadowColor="@color/black"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/medical_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/round_shape_green"
+            android:gravity="center"
+            android:text="Product Name"
+            android:textColor="#FAFAFF"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/medical_Dec"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/medical_Name"
+            android:layout_alignStart="@+id/medical_Name"
+            android:layout_alignLeft="@+id/medical_Name"
+            android:layout_alignEnd="@+id/medical_Name"
+            android:layout_alignRight="@+id/medical_Name"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:justificationMode="inter_word"
+            android:padding="5dp"
+            android:textAppearance="@style/monospaceMediumText"
+            android:textColor="#020202"
+            tools:text="Lorem printer took a galley"
+            android:layout_marginLeft="91dp" />
+        <Button
+            android:id="@+id/medical_V"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/medical_Dec"
+            android:layout_alignStart="@id/medical_Name"
+            android:layout_alignEnd="@id/medical_Name"
+            android:layout_marginTop="16dp"
+            android:text="Booking"
+            android:layout_alignLeft="@id/medical_Name"
+            android:layout_alignRight="@id/medical_Name" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/medical_V"
+            android:layout_alignStart="@id/medical_V"
+            android:layout_alignEnd="@id/medical_V"
+            android:text="Call Now"
+            android:layout_marginTop="16dp"
+            android:layout_alignLeft="@id/medical_V"
+            android:layout_alignRight="@id/medical_V" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>
