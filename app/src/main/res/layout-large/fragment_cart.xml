@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="64dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="35dp"
             android:backgroundTint="#5FFBF1"
             android:text="Order Now"
             android:textAllCaps="false"

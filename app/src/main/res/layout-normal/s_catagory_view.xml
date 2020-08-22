@@ -48,14 +48,16 @@
             android:layout_below="@id/proName"
             android:layout_alignTop="@id/proImg"
             android:layout_alignEnd="@+id/proName"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="1dp"
             android:layout_toEndOf="@id/proImg"
             android:justificationMode="inter_word"
             android:padding="5dp"
             android:textAppearance="@style/monospaceMediumText"
             android:textColor="#020202"
-            tools:text="Lorem printer took a galley" />
+            tools:text="Lorem printer took a galley"
+            android:layout_marginRight="1dp"
+            android:layout_marginLeft="16dp" />
 
         <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
             android:id="@+id/eligantbutton"
