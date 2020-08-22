@@ -182,36 +182,22 @@ public class CartFragment extends Fragment {
                                   {
                                       dbref2.child(dataSnapshot2.getKey()).removeValue();
                                       list.clear();
-
                                   }
-
                                 }
-
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
 
                             }
                         });
-
                     }
                 }).attachToRecyclerView(recyclerView);
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-
-
-
-
         return cartView;
     }
 
