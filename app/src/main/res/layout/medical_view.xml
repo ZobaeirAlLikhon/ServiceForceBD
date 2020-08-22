@@ -23,7 +23,7 @@
             android:layout_marginEnd="40dp"
             android:background="@drawable/round_shape_green"
             android:gravity="center"
-            android:text="Product Name"
+            android:text="Doctor name"
             android:textColor="#FAFAFF"
             android:textSize="20dp" />
 
