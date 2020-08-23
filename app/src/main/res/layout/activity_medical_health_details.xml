@@ -45,7 +45,8 @@
                     android:layout_toEndOf="@+id/MbackBtn"
                     android:gravity="center_vertical"
                     android:text="Booking Information"
-                    android:textAppearance="@style/monospaceMediumBoldWhiteText" />
+                    android:textAppearance="@style/monospaceMediumBoldWhiteText"
+                    android:layout_toRightOf="@+id/MbackBtn" />
 
             </RelativeLayout>
 

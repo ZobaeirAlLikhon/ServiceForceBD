@@ -125,9 +125,9 @@ public class SubCatagoryDetails extends AppCompatActivity {
 
 
 
-        textView=findViewById(R.id.noProductFound);
+//        textView=findViewById(R.id.noProductFound);
         toolbarCart=findViewById(R.id.toolbarIVcart);
-        imageView=findViewById(R.id.noImage);
+//        imageView=findViewById(R.id.noImage);
         service_n=getIntent().getStringExtra("service_name");
         catagory=getIntent().getStringExtra("category");
         recyclerView=findViewById(R.id.recyclerView1111);
@@ -159,6 +159,12 @@ public class SubCatagoryDetails extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists())
+                {
+                    Intent intent=new Intent(SubCatagoryDetails.this,NoItemFound.class);
+                    startActivity(intent);
+                    finish();
+                }else {
 
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
@@ -169,12 +175,8 @@ public class SubCatagoryDetails extends AppCompatActivity {
                 adapter=new SubCatagoryAdapter(SubCatagoryDetails.this,list,catagory);
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
-                if(!dataSnapshot.exists())
-                {
-                    imageView.setVisibility(View.VISIBLE);
-                    textView.setVisibility(View.VISIBLE);
-                    Toast.makeText(SubCatagoryDetails.this,"No Product Found",Toast.LENGTH_LONG).show();
                 }
+
 
             }
 

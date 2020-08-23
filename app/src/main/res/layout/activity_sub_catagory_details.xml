@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SubCatagoryDetails">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -108,28 +113,6 @@
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:layout_gravity="center"
-        android:id="@+id/noImage"
-        android:layout_width="284dp"
-        android:layout_height="251dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/productnotfound"
-        android:visibility="invisible"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/noProductFound"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="212dp"
-        android:gravity="center"
-        android:text="No Product Found"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30dp"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

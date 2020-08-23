@@ -47,6 +47,65 @@ public class MedicalHealthDetails extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        checkInternetConnection();
+
+        toolTitle=findViewById(R.id.MtoolbarTV);
+        toolBackBT=findViewById(R.id.MbackBtn);
+        mediRecyclerView=findViewById(R.id.MrecyclerView1111);
+        service_n=getIntent().getStringExtra("service_name");
+        catagory=getIntent().getStringExtra("category");
+        mediRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("product").child("Medical").child(catagory);
+        mList=new ArrayList<MedicalModel>();
+
+        recyclerViewInit();
+        toolBarInit();
+
+    }
+
+
+
+    private void recyclerViewInit() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!snapshot.exists())
+                {
+                    Intent intent=new Intent(MedicalHealthDetails.this,NoItemFound.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                        MedicalModel ss = dataSnapshot1.getValue(MedicalModel.class);
+                        mList.add(ss);
+                    }
+                    adapter = new MedicalAdapter(MedicalHealthDetails.this, mList, catagory);
+                    mediRecyclerView.setAdapter(adapter);
+                    progressDialog.dismiss();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void toolBarInit() {
+        toolTitle.setText(catagory);
+        toolBackBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+    private void checkInternetConnection() {
         if(!ConnectionManager.connection(MedicalHealthDetails.this))
         {
             progressDialog.dismiss();
@@ -64,48 +123,5 @@ public class MedicalHealthDetails extends AppCompatActivity {
 
             Toast.makeText(MedicalHealthDetails.this,"No internet",Toast.LENGTH_LONG).show();
         }
-        toolTitle=findViewById(R.id.MtoolbarTV);
-        toolBackBT=findViewById(R.id.MbackBtn);
-        mediRecyclerView=findViewById(R.id.MrecyclerView1111);
-        service_n=getIntent().getStringExtra("service_name");
-        catagory=getIntent().getStringExtra("category");
-        mediRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("product").child("Medical").child(catagory);
-        mList=new ArrayList<MedicalModel>();
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot1 : snapshot.getChildren())
-                {
-                    MedicalModel ss=dataSnapshot1.getValue(MedicalModel.class);
-                    mList.add(ss);
-                }
-                adapter=new MedicalAdapter(MedicalHealthDetails.this,mList,catagory);
-                mediRecyclerView.setAdapter(adapter);
-                progressDialog.dismiss();
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        toolBarInit();
-
-
-
-    }
-
-    private void toolBarInit() {
-        toolTitle.setText(catagory);
-        toolBackBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 }

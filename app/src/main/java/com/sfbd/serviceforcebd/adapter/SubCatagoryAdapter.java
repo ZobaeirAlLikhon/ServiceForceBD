@@ -58,7 +58,6 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
 
         if(catagory.equals("Get a Tutor"))
         {
-            Toast.makeText(context,catagory,Toast.LENGTH_LONG).show();
             holder.addCart.setVisibility(View.INVISIBLE);
             holder.eli_button.setVisibility(View.INVISIBLE);
             holder.iviprice.setVisibility(View.VISIBLE);
