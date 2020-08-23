@@ -7,7 +7,7 @@
     tools:context=".activity.NotFound">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/forAnim"
+        android:id="@+id/forComing"
         android:layout_width="270dp"
         android:layout_height="160dp"
         android:layout_gravity="center"
