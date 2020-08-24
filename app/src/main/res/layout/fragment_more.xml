@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".fragment.MoreFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -53,6 +54,46 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editProfile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:elevation="8dp"
+        tools:targetApi="lollipop"
+        >
+
+
+        <ImageView
+            android:id="@+id/editp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/ic_baseline_update_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/updateInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Information"
+            android:textAppearance="@style/monospaceMediumText"
+            app:layout_constraintBottom_toBottomOf="@id/editp"
+            app:layout_constraintStart_toEndOf="@+id/editp"
+            app:layout_constraintTop_toTopOf="@+id/editp"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/viewColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logoutCL"
         android:layout_width="match_parent"
