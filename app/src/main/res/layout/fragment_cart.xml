@@ -14,7 +14,6 @@
         android:layout_marginBottom="75dp"
         android:background="#F8F8F8"
         tools:ignore="MissingConstraints">
-
         <androidx.recyclerview.widget.RecyclerView
 
             android:id="@+id/cart_recyclerview"
@@ -95,5 +94,10 @@
         app:lottie_fileName="not_found.json"
         app:lottie_loop="true"
         tools:ignore="MissingConstraints" />
+    <FrameLayout
+        android:id="@+id/cartFrameContaner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

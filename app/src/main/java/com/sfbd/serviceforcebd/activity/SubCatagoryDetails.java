@@ -150,7 +150,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
                 fragment = new CartFragment();
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ft.add(R.id.ptoductlistV, fragment);
+                ft.add(R.id.FragmentContainer, fragment);
                 ft.attach(fragment);
                 ft.commit();
             }

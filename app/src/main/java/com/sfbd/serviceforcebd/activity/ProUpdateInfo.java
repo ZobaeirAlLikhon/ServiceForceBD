@@ -5,12 +5,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,6 +33,8 @@ import com.sfbd.serviceforcebd.databinding.ActivityAddressBinding;
 import com.sfbd.serviceforcebd.databinding.ActivityProUpdateInfoBinding;
 import com.squareup.picasso.Picasso;
 
+import java.time.Year;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class ProUpdateInfo extends AppCompatActivity {
@@ -43,6 +49,8 @@ public class ProUpdateInfo extends AppCompatActivity {
     private Fragment fragment;
     private Uri imageUri,imageU;
     ProgressDialog progressDialog;
+    DatePickerDialog.OnDateSetListener setListener;
+    private String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,11 +73,48 @@ public class ProUpdateInfo extends AppCompatActivity {
                 startActivityForResult(intent,PIC_IMAGE_REQ);
             }
         });
-
+        binding.datePro.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerDiologe();
+            }
+        });
+        toolbarInit();
         initProfileUpdate();
         saveChange();
 
     }
+
+    private void toolbarInit() {
+        binding.backBtnPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        binding.toolbarTVPro.setText("Update Profile");
+    }
+
+    private void datePickerDiologe() {
+        setListener=new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month+1;
+                date=dayOfMonth+"/"+month+"/"+year;
+                binding.datePro.getEditText().setText(date);
+            }
+        };
+        Calendar calendar=Calendar.getInstance();
+        final int year=calendar.get(Calendar.YEAR);
+        final int month=calendar.get(Calendar.MONTH);
+        final int day=calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog=new DatePickerDialog(
+                ProUpdateInfo.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,setListener,year,month,day);
+        datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        datePickerDialog.show();
+
+    }
+
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -98,6 +143,7 @@ public class ProUpdateInfo extends AppCompatActivity {
                 String name=binding.upProName.getEditText().getText().toString();
                 String phone=binding.upProPhn.getEditText().getText().toString();
                 String address=binding.upAddress.getEditText().getText().toString();
+                String datePick=binding.datePro.getEditText().getText().toString();
                 if (imageUri==null)
                 {
                     Toast.makeText(ProUpdateInfo.this,"Select Image",Toast.LENGTH_LONG).show();
@@ -118,6 +164,12 @@ public class ProUpdateInfo extends AppCompatActivity {
                     binding.upAddress.setError("Enter Your Name");
                     progressDialog.dismiss();
                 }
+                else if(datePick.isEmpty())
+                {
+                    binding.datePro.setError("Enter a Date");
+                    progressDialog.dismiss();
+
+                }
                 else {
                     imageName.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -132,8 +184,10 @@ public class ProUpdateInfo extends AppCompatActivity {
                                     result.put("name", name);
                                     result.put("phone", phone);
                                     result.put("address", address);
+                                    result.put("date_Of_birth", datePick);
                                     result.put("image",String.valueOf(imageU));
                                     databaseReference.updateChildren(result);
+                                    Toast.makeText(ProUpdateInfo.this,"Save Change",Toast.LENGTH_LONG).show();
                                     progressDialog.dismiss();
                                 }
                             });
@@ -151,10 +205,11 @@ public class ProUpdateInfo extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getChildrenCount()==7) {
+                if(snapshot.getChildrenCount()==8) {
                     binding.upProPhn.getEditText().setText(snapshot.child("phone").getValue().toString());
                     binding.upProName.getEditText().setText(snapshot.child("name").getValue().toString());
                     binding.upAddress.getEditText().setText(snapshot.child("address").getValue().toString());
+                    binding.datePro.getEditText().setText(snapshot.child("date_Of_birth").getValue().toString());
                     Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.imageView4);
                     progressDialog.dismiss();
                 }

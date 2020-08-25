@@ -1,38 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ProUpdateInfo">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPro"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtnPro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/toolbarTVPro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/backBtnPro"
+                android:gravity="center_vertical"
+                android:text="Booking Information"
+                android:textAppearance="@style/monospaceMediumBoldWhiteText"
+                android:layout_toRightOf="@+id/backBtnPro" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarPro"
         android:id="@+id/imageView4"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="50dp"
         android:src="@drawable/ic_baseline_update_24"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#FF000000"
-        />
+        tools:layout_editor_absoluteY="50dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/upload"
-        android:layout_width="40dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="176dp"
+        android:layout_width="48dp"
+        android:layout_height="20dp"
         android:background="@color/black"
+        android:gravity="center"
         android:text="upload"
         android:textColor="@color/white"
-        android:textSize="10dp"
-        android:gravity="center"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.876"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +127,8 @@
             android:imeOptions="actionNext"
             android:inputType="text|textCapWords|textMultiLine"
             tools:ignore="Autofill" />
-    </com.google.android.material.textfield.TextInputLayout><com.google.android.material.textfield.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/upAddress"
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="match_parent"
@@ -104,17 +151,42 @@
         android:inputType="text|textCapWords|textMultiLine"
         tools:ignore="Autofill" />
 </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/datePro"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    app:endIconMode="clear_text"
+    app:errorEnabled="true"
+    app:hintTextColor="@color/colorPrimary"
+    app:layout_constraintTop_toBottomOf="@id/upAddress"
+        app:helperText="Select Your Date Of Birth!"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="-16dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="dd/mm/yyyy"
+        android:imeOptions="actionNext"
+        android:inputType="date"
+        tools:ignore="Autofill" />
+</com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/saveCng"
         android:layout_width="135dp"
         android:layout_height="53dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:text="Save Change"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/upAddress"
+        app:layout_constraintTop_toBottomOf="@id/datePro"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
