@@ -71,6 +71,12 @@ public class MoreFragment extends Fragment {
                 context.startActivity(intent);
             }
         });
+        binding.feedBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"FeedBack",Toast.LENGTH_SHORT).show();
+            }
+        });
         initLogout();
         initFireBase();
 

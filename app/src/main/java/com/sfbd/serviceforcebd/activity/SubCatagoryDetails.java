@@ -66,6 +66,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
     DatabaseReference countref;
     private  int count;
     private String countt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,12 +148,8 @@ public class SubCatagoryDetails extends AppCompatActivity {
         toolbarCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment = new CartFragment();
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.add(R.id.ptoductlistV, fragment);
-                ft.attach(fragment);
-                ft.commit();
+                Intent intent=new Intent(SubCatagoryDetails.this,SubCatCart.class);
+                startActivity(intent);
             }
         });
 
