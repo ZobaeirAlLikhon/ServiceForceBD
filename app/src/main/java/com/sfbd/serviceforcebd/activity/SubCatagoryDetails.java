@@ -121,11 +121,6 @@ public class SubCatagoryDetails extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
 //        textView=findViewById(R.id.noProductFound);
         toolbarCart=findViewById(R.id.toolbarIVcart);
 //        imageView=findViewById(R.id.noImage);

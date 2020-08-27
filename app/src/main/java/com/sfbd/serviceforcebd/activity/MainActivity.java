@@ -44,28 +44,38 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-//        if(!ConnectionManager.connection(getBaseContext()))
-//        {
-//            new AlertDialog.Builder(MainActivity.this)
-//                    .setTitle("No Internet Connection!!")
-//                    .setMessage("please turn on your data connection")
-//                    .setCancelable(false)
-//                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            // Whatever...
-//                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-//                        }
-//                    }).show();
-//
-//            Toast.makeText(this,"No internet",Toast.LENGTH_LONG).show();
-//        }
+
 
 
 
 
         /*binding.carouselView.setPageCount(sampleImages.length);
         binding.carouselView.setImageListener(imageListener);*/
+    }
+    public void onBackPressed() {
+
+        AlertDialog.Builder alertdialog=new AlertDialog.Builder(this);
+        alertdialog.setTitle("Warning");
+        alertdialog.setMessage("Are you sure you Want to exit this apps???");
+        alertdialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+             MainActivity.super.onBackPressed();
+            }
+        });
+
+        alertdialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+
+        });
+
+        AlertDialog alert=alertdialog.create();
+        alertdialog.show();
+
     }
 
 
