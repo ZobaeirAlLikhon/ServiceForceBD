@@ -7,18 +7,27 @@
     android:visibility="visible"
     tools:context=".fragment.HomeFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            app:layout_constraintBottom_toTopOf="@+id/carouselView"
+                    style="@style/MaterialSearchBarLight"
+                    app:mt_hint="Custom hint"
+                    app:mt_maxSuggestionsCount="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/searchBar"
+                    tools:ignore="MissingConstraints" />
 
         <com.synnapps.carouselview.CarouselView
+            app:layout_constraintTop_toBottomOf="@+id/searchBar"
             android:id="@+id/carouselView"
             android:layout_width="match_parent"
             android:layout_height="210dp"
             app:fillColor="#FFFFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+
             app:pageColor="#00000000"
             android:padding="12dp"
             app:radius="6dp"

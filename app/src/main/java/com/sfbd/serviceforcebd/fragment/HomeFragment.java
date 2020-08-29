@@ -28,8 +28,7 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private int[] sampleImages = {R.drawable.imagefive,
-            R.drawable.a1,R.drawable.a22,R.drawable.a23,R.drawable.a24, R.drawable.a21,};
+    int[] sampleImages = {R.drawable.a1,R.drawable.a2};
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
@@ -160,6 +159,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void init() {
+
         binding.carouselView.setPageCount(sampleImages.length);
         binding.carouselView.setImageListener(imageListener);
 
@@ -173,10 +173,10 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private ImageListener imageListener = new ImageListener() {
+    ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setCropToPadding(true);
+            imageView.setCropToPadding(false);
             imageView.setImageResource(sampleImages[position]);
         }
     };

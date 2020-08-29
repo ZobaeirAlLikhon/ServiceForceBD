@@ -15,7 +15,7 @@
         android:title="Chat" />
     <item
         android:id="@+id/cartBN"
-        android:icon="@drawable/addcart"
+        android:icon="@drawable/ic_baseline_add_shopping_cart_24"
         android:title="Cart" />
     <item
         android:id="@+id/moreBN"

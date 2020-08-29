@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    tools:ignore="MissingDefaultResource">
 
 
     <FrameLayout
@@ -32,9 +33,5 @@
         app:labelVisibilityMode="labeled"
 
         />
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
