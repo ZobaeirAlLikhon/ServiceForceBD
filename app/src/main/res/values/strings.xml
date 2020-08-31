@@ -3,6 +3,115 @@
     <string name="facebook_app_id">940639889717704</string>
     <string name="fb_login_protocol_scheme">fb940639889717704</string>
 
+    <string-array name="search_service">
+        <item>Sofa cleaning</item>
+        <item>Full home deep Cleaning</item>
+        <item>Home Cleaning</item>
+        <item>Office Cleaning</item>
+        <item>Pest control service</item>
+        <item>Carpet/Mattress Cleaning</item>
+        <item> Disinfection Service For Virus</item>
+        <item>Hire a Female Cleaner</item>
+        <item>Hire a Male Cleaner</item>
+        <item>Water Tank Cleaning</item>
+        <item>Pipe Line cleaning</item>
+        <!--..........appliance_repair_services ...............-->
+        <item>Ac Repair Services</item>
+        <item>Microwave Repair Services</item>
+        <item>Refigerator Repair Services</item>
+        <item>Washing Machine Repair Services</item>
+        <item>IPS Repair Services</item>
+        <!--..........laundry_services ...............-->
+        <item>Monthly subscription packages</item>
+        <item>Ironing service</item>
+        <item>Washing Servicing</item>
+        <item>Others</item>
+        <!--..........beauty_services ...............-->
+        <item>Eid Festival offer</item>
+        <item>Personal Beuty Care</item>
+        <item>Body spa &amp; Massage</item>
+        <item>Machover for women</item>
+        <item>Mehedi design</item>
+        <item>Mehendi Design</item>
+        <item>Bridal makcup</item>
+        <item>salon service for man</item>
+        <item>Groom up package for men</item>
+        <!--..........Electric & Plumbing Serviecs ...............-->
+        <item>Plumbing and sanitary Service</item>
+        <item>Electronics for Electrical Service</item>
+        <!--..........Painting & Renovation Serviecs ...............-->
+        <item>Home Interior</item>
+        <item>Office Interior</item>
+        <item>Renovation &amp;amp; Décor</item>
+        <item>Interior Design</item>
+        <item>Interior Design Consultancy Service</item>
+        <item>Thai, Glass &amp; Drill work Service</item>
+        <item>Partex work Service</item>
+        <item>Wood work Service</item>
+        <item>Carpentry Service</item>
+        <item>Painting Service</item>
+        <!--..........Care & Bike Care ...............-->
+        <item>Car wash &amp; polish</item>
+        <!--        <item>Car painting &amp;  Decoration</item>-->
+        <!--        <item>Car repair &amp; Servicing</item>-->
+        <!--        <item>Emergency Car Service</item>-->
+        <item>Bike wash &amp; polish</item>
+        <!--        <item>Bike painting &amp; Decoration</item>-->
+        <!--        <item>Bike repair &amp; Servicing</item>-->
+        <item>Monthly Subscription Package</item>
+        <!--..........Electronics & Gadgets ...............-->
+        <item>Desktop service</item>
+        <item>Laptop service</item>
+        <item>CCTV camera service</item>
+        <item>Smartphone Repair</item>
+        <!--..........Shifting ...............-->
+        <item>House Shifting service</item>
+        <item>Office Shifting service</item>
+        <item>Transport for shifting</item>
+        <!--..........medical_services ...............-->
+        <item>Consult with a Doctor</item>
+        <item>Psychiatrist/mental health</item>
+        <item>Pathology test</item>
+        <item>Serial for a Doctor</item>
+        <item>Medicine Home Delivery</item>
+        <item>Emergency Service</item>
+        <!--..........event_management ...............-->
+
+        <item>Birthday</item>
+        <item>Marriage Day</item>
+        <item>Political Function</item>
+        <item>Social Function</item>
+        <item>Get together</item>
+        <item>Photography</item>
+        <item>Interior Decoration</item>
+        <item>Painting</item>
+        <!--..........it_support ...............-->
+        <item>Website Development</item>
+        <item>Mobile Application</item>
+        <item>Graphics Design</item>
+        <item>Software Build</item>
+        <item>Social Media Marketing</item>
+        <item>SEO</item>
+        <item>Monthly Subscription Package</item>
+
+        <!--..........market_service ...............-->
+        <item>Groceriesa)</item>
+        <item>Fresh Bazar</item>
+        <item>Health &amp; Hygiene</item>
+        <item>Covid-19 Safety Kits</item>
+        <item>Silk</item>
+        <item>Cosmetics</item>
+
+        <!--..........tuition_service ...............-->
+        <item>Get a Tutor</item>
+        <item>Get a Tuition</item>
+        <item>Admission for Batch</item>
+        <item>Training Course IT</item>
+        <item>Internship</item>
+
+    </string-array>
+<!--............................................................................................................-->
+
     <string-array name="cleaning_services">
         <item>Sofa cleaning</item>
         <item>Full home deep Cleaning</item>

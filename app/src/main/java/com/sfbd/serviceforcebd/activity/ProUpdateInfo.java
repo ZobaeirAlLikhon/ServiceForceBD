@@ -135,7 +135,7 @@ public class ProUpdateInfo extends AppCompatActivity {
                 progressDialog.show();
                 progressDialog.setContentView(R.layout.progress_dialog);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                imageName=storageReference.child(imageUri.getLastPathSegment());
+
 
 
 
@@ -171,6 +171,7 @@ public class ProUpdateInfo extends AppCompatActivity {
 
                 }
                 else {
+                    imageName=storageReference.child(imageUri.getLastPathSegment());
                     imageName.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

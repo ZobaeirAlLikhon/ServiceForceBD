@@ -154,6 +154,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
                 if(!dataSnapshot.exists())
                 {
                     Intent intent=new Intent(SubCatagoryDetails.this,NoItemFound.class);
+                    intent.putExtra("catagory",catagory);
                     startActivity(intent);
                     finish();
                 }else {

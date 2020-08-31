@@ -5,7 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.NoItemFound">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarNoproduct"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/viewColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backBtnn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/toolbarNoPro"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/backBtnn"
+            android:gravity="center_vertical"
+            android:text="Booking Information"
+            android:textColor="@color/black"
+            android:textAppearance="@style/monospaceMediumBoldWhiteText"
+            android:layout_toRightOf="@+id/backBtnn" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
     <com.airbnb.lottie.LottieAnimationView
+        app:layout_constraintTop_toBottomOf="@+id/toolbarNoproduct"
         android:id="@+id/watch_animation"
         android:layout_width="match_parent"
         android:layout_height="500dp"

@@ -7,19 +7,41 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.Goru;
 import com.sfbd.serviceforcebd.activity.ServicesActivity;
 import com.sfbd.serviceforcebd.activity.Silk;
+import com.sfbd.serviceforcebd.adapter.SearchAdapter;
 import com.sfbd.serviceforcebd.databinding.FragmentHomeBinding;
+import com.sfbd.serviceforcebd.model.Sd;
+import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.ImageListener;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EventListener;
+import java.util.List;
+import java.util.Queue;
 
 
 /**
@@ -32,6 +54,10 @@ public class HomeFragment extends Fragment {
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
+    DatabaseReference dbre,dbre1;
+    private List<String> name=new ArrayList<>();
+
+    SearchAdapter adapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -49,11 +75,90 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
+        dbre1= FirebaseDatabase.getInstance().getReference().child("product");
+        name=Arrays.asList(getResources().getStringArray(R.array.search_service));
+        binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
+//        name = getResources().getStringArray(R.array.cleaning_services);
+        adapter=new SearchAdapter(context,name);
+        binding.mainRecy.setAdapter(adapter);
+        search();
         initView();
         init();
         findViewById();
         return binding.getRoot();
     }
+
+    private void search() {
+        binding.searchBar.addTextChangeListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                binding.consLayMain.setVisibility(View.INVISIBLE);
+                binding.mainRecy.setVisibility(View.VISIBLE);
+                searchConfirm(s.toString());
+                if(start==0&& count==0)
+                {
+                    binding.consLayMain.setVisibility(View.VISIBLE);
+                    binding.mainRecy.setVisibility(View.INVISIBLE);
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                binding.consLayMain.setVisibility(View.VISIBLE);
+                binding.mainRecy.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                binding.consLayMain.setVisibility(View.INVISIBLE);
+                binding.mainRecy.setVisibility(View.VISIBLE);
+                searchConfirm(text.toString());
+
+
+                Toast.makeText(context,text,Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+
+
+            }
+        });
+
+
+    }
+
+    private void searchConfirm(String s) {
+        String text=s.toLowerCase();
+        List<String> newL=new ArrayList<>();
+        for(String n:name)
+        {
+            if(n.toLowerCase().contains(text))
+            {
+                newL.add(n);
+            }
+        }
+        adapter.updateList(newL);
+
+    }
+
 
     private void findViewById() {
         binding.callBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +173,18 @@ public class HomeFragment extends Fragment {
 
 
     private void initView() {
+        dbre.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.bannerMiddle);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         binding.cleaningCV.setOnClickListener(view -> {
             String service = "Cleaning";

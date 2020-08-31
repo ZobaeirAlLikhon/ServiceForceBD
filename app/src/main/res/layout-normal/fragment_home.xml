@@ -11,18 +11,39 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
         <com.mancj.materialsearchbar.MaterialSearchBar
-            app:layout_constraintBottom_toTopOf="@+id/carouselView"
+            app:layout_constraintBottom_toTopOf="@+id/consLayMain"
                     style="@style/MaterialSearchBarLight"
-                    app:mt_hint="Custom hint"
+                    app:mt_hint="Search by catagory"
                     app:mt_maxSuggestionsCount="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:mt_backIconTint="@color/colorPrimary"
+                    app:mt_placeholder="Search here"
+                    app:mt_textColor="@color/colorPrimary"
                     android:id="@+id/searchBar"
+                    app:mt_borderlessRippleEnabled="true"
+                    app:mt_searchBarColor="#FBF9F9"
                     tools:ignore="MissingConstraints" />
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/searchBar"
+            android:id="@+id/mainRecy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/rv_service_item"
+            tools:ignore="MissingConstraints"
+            android:visibility="gone"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toBottomOf="@+id/searchBar"
+            android:id="@+id/consLayMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
 
         <com.synnapps.carouselview.CarouselView
-            app:layout_constraintTop_toBottomOf="@+id/searchBar"
+
             android:id="@+id/carouselView"
             android:layout_width="match_parent"
             android:layout_height="210dp"
@@ -341,9 +362,10 @@
                 app:layout_constraintTop_toBottomOf="@id/servicesTwoLL">
 
                 <ImageView
+                    android:id="@+id/bannerMiddle"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:src="@drawable/baner" />
+                     />
 
             </LinearLayout>
 
@@ -803,5 +825,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>
