@@ -242,6 +242,7 @@ public class AddressActivity extends AppCompatActivity {
                         if (task1.isSuccessful()){
                             Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(this,MainActivity.class));
+                            finish();
                             binding.progressBarId.setVisibility(View.GONE);
                         }
 

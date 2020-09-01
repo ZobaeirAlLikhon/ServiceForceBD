@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder alertdialog=new AlertDialog.Builder(this);
         alertdialog.setTitle("Warning");
-        alertdialog.setMessage("Are you sure you Want to exit this apps???");
+        alertdialog.setMessage("Are you sure, you Want to exit this apps???");
         alertdialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-             MainActivity.super.onBackPressed();
+             finishAffinity();
             }
         });
 
