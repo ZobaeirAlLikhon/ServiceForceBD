@@ -27,14 +27,23 @@
                     app:mt_borderlessRippleEnabled="true"
                     app:mt_searchBarColor="#FBF9F9"
                     tools:ignore="MissingConstraints" />
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
+            android:id="@+id/recyRela"
             app:layout_constraintTop_toBottomOf="@+id/searchBar"
-            android:id="@+id/mainRecy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/rv_service_item"
-            tools:ignore="MissingConstraints"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints">
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/mainRecy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/rv_service_item"
+                tools:ignore="MissingConstraints"
+                />
+        </RelativeLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             app:layout_constraintTop_toBottomOf="@+id/searchBar"
             android:id="@+id/consLayMain"
@@ -825,6 +834,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -100,12 +100,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 binding.consLayMain.setVisibility(View.INVISIBLE);
-                binding.mainRecy.setVisibility(View.VISIBLE);
+                binding.recyRela.setVisibility(View.VISIBLE);
                 searchConfirm(s.toString());
                 if(start==0&& count==0)
                 {
                     binding.consLayMain.setVisibility(View.VISIBLE);
-                    binding.mainRecy.setVisibility(View.INVISIBLE);
+                    binding.recyRela.setVisibility(View.GONE);
 
                 }
 
@@ -121,13 +121,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSearchStateChanged(boolean enabled) {
                 binding.consLayMain.setVisibility(View.VISIBLE);
-                binding.mainRecy.setVisibility(View.GONE);
+                binding.recyRela.setVisibility(View.GONE);
             }
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
                 binding.consLayMain.setVisibility(View.INVISIBLE);
-                binding.mainRecy.setVisibility(View.VISIBLE);
+                binding.recyRela.setVisibility(View.VISIBLE);
                 searchConfirm(text.toString());
 
 
