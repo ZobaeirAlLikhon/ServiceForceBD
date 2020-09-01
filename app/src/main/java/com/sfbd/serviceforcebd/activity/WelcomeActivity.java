@@ -29,13 +29,13 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_welcome);
 //       requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_welcome);
 
 
-        lottieAnimationView = findViewById(R.id.servicesAnimLV);
+
+//        lottieAnimationView = findViewById(R.id.servicesAnimLV);
         imageView=findViewById(R.id.imageView2);
         //textView=findViewById(R.id.textView3);
 

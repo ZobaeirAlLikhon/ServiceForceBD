@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
+
         dbre1= FirebaseDatabase.getInstance().getReference().child("product");
         name=Arrays.asList(getResources().getStringArray(R.array.search_service));
         binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
@@ -173,10 +173,18 @@ public class HomeFragment extends Fragment {
 
 
     private void initView() {
+        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
         dbre.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.bannerMiddle);
+                if(snapshot.exists())
+                {
+                    ImageView imageView=binding.bannerMiddle;
+                    String p=snapshot.child("image").getValue().toString();
+                    Picasso.get().load(p).into(imageView);
+
+                }
+
 
             }
 
