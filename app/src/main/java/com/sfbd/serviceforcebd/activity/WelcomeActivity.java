@@ -19,7 +19,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 public class WelcomeActivity extends AppCompatActivity {
 
     private int progress;
-    private LottieAnimationView lottieAnimationView;
+//    private LottieAnimationView lottieAnimationView;
     private FirebaseAnalytics mFirebaseAnalytics;
     private int Splash_Screen=2000;
     Animation button_amin;

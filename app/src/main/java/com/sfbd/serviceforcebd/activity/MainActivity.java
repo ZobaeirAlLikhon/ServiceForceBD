@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 MainActivity.super.onBackPressed();
+                finishAffinity();
+                onDestroy();
             }
         });
 

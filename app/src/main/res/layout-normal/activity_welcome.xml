@@ -5,24 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.WelcomeActivity">
+    tools:context=".activity.WelcomeActivity"
+    tools:ignore="MissingDefaultResource">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/servicesAnimLV"
-        android:layout_width="312dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="60dp"
-        android:foregroundGravity="center"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="service.json"
-        tools:ignore="MissingConstraints"
-        android:visibility="invisible"/>
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/servicesAnimLV"-->
+<!--        android:layout_width="312dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginStart="60dp"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:layout_marginEnd="60dp"-->
+<!--        android:foregroundGravity="center"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_fileName="service.json"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        app:lottie_enableMergePathsForKitKatAndAbove="true"-->
+<!--        android:visibility="gone"/>-->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -33,10 +35,7 @@
         android:layout_marginEnd="50dp"
         android:foregroundGravity="center"
         android:src="@drawable/logo1"
-        app:layout_constraintEnd_toEndOf="@+id/servicesAnimLV"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/servicesAnimLV"
-        app:layout_constraintTop_toBottomOf="@+id/servicesAnimLV" />
+        tools:ignore="MissingConstraints" />
 
 
     <!--    <ViewFlipper-->

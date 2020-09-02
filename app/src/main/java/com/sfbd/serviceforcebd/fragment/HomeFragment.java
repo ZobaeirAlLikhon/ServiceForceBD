@@ -2,6 +2,8 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
     private static final int REQUEST_CALL=1;
     DatabaseReference dbre,dbre1;
     private List<String> name=new ArrayList<>();
+    private String p;
 
     SearchAdapter adapter;
 
@@ -76,17 +79,49 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
+
         dbre1= FirebaseDatabase.getInstance().getReference().child("product");
         name=Arrays.asList(getResources().getStringArray(R.array.search_service));
         binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
 //        name = getResources().getStringArray(R.array.cleaning_services);
         adapter=new SearchAdapter(context,name);
         binding.mainRecy.setAdapter(adapter);
+        imageBanner();
         search();
         initView();
         init();
         findViewById();
+
         return binding.getRoot();
+    }
+
+    private void imageBanner() {
+        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
+
+        dbre.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    p=snapshot.child("image").getValue(String.class);
+                    try {
+                        Picasso.get().load(p).into(binding.bannerMiddle);
+                    }catch (NullPointerException ignored){
+
+                    }
+
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private void search() {
@@ -173,26 +208,7 @@ public class HomeFragment extends Fragment {
 
 
     private void initView() {
-        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
-        dbre.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists())
-                {
-                    ImageView imageView=binding.bannerMiddle;
-                    String p=snapshot.child("image").getValue().toString();
-                    Picasso.get().load(p).into(imageView);
 
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         binding.cleaningCV.setOnClickListener(view -> {
             String service = "Cleaning";
