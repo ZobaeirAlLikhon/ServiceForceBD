@@ -3,6 +3,7 @@ package com.sfbd.serviceforcebd.fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,7 +41,7 @@ public class MoreFragment extends Fragment {
     private FragmentMoreBinding binding;
     private Context context;
     private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,dbref;
     private FirebaseUser firebaseUser;
     Fragment fragment;
     ProgressDialog progressDialog;
@@ -79,11 +80,21 @@ public class MoreFragment extends Fragment {
         });
         initLogout();
         initFireBase();
+        SharedPreferences preferences=this.getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
+        boolean fristTime=preferences.getBoolean("fristTime",true);
+        if(fristTime)
+        {
+            rattingApps();
+        }
 
         return binding.getRoot();
     }
 
+    private void rattingApps() {
+        RatingFragment ratingFragment=new RatingFragment();
+        ratingFragment.show(getFragmentManager(),"ex");
 
+    }
 
     private void initFireBase() {
 

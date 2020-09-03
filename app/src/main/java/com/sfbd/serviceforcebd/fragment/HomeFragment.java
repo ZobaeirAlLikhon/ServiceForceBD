@@ -45,6 +45,8 @@ import java.util.EventListener;
 import java.util.List;
 import java.util.Queue;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,7 +54,7 @@ import java.util.Queue;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    int[] sampleImages = {R.drawable.a1,R.drawable.a2};
+    int[] sampleImages = {R.drawable.l1,R.drawable.l2,R.drawable.l3,R.drawable.l4,R.drawable.l5,R.drawable.l6};
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
@@ -103,12 +105,18 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists())
                 {
+
+
                     p=snapshot.child("image").getValue(String.class);
+
+
                     try {
                         Picasso.get().load(p).into(binding.bannerMiddle);
-                    }catch (NullPointerException ignored){
-
+                    }catch (Exception e){
+                        Toast.makeText(context,"sfddf",Toast.LENGTH_LONG).show();
                     }
+
+
 
 
 

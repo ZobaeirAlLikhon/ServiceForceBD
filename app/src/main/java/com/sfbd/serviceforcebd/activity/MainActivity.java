@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
                 MainActivity.super.onBackPressed();
                 finishAffinity();
-                onDestroy();
             }
         });
 
