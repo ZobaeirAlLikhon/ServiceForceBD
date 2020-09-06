@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18FFFF"
+    tools:context=".fragment.storyBord.Frist_SlideFragment">
+
+
+    <ImageView
+        android:id="@+id/secIV"
+        android:layout_width="351dp"
+        android:layout_height="278dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/sec_slider"
+        app:layout_constraintBottom_toTopOf="@+id/secFgTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/secFgTV"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/secIV"
+        android:layout_marginTop="20dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/relStory1"
+        app:layout_constraintTop_toBottomOf="@+id/secIV"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RelativeLayout
+        app:layout_constraintTop_toBottomOf="@+id/secFgTV"
+        android:id="@+id/relStory1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/Sskip"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+
+            android:text="Privious" />
+
+        <Button
+            android:id="@+id/sFinish"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+
+            android:layout_marginEnd="-1dp"
+            android:layout_marginRight="-1dp"
+            android:text="Finish" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

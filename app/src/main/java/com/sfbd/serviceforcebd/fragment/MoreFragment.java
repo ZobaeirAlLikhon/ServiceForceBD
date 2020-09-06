@@ -114,11 +114,17 @@ public class MoreFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.child("image").exists())
                     {
-                    Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.profileIV);
+                        try {
+                            Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.profileIV);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+
                     progressDialog.dismiss();}
                     progressDialog.dismiss();
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 

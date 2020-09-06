@@ -2,7 +2,9 @@ package com.sfbd.serviceforcebd.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -51,11 +53,19 @@ public class WelcomeActivity extends AppCompatActivity {
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
 
+                SharedPreferences preferences=getSharedPreferences("ppp",Context.MODE_PRIVATE);
+                boolean fristTime=preferences.getBoolean("story",true);
+                if(fristTime)
+                {
+                    Intent mainIntent = new Intent(WelcomeActivity.this, StoryBord_Screen.class);
+                    startActivity(mainIntent);
 
-                Intent mainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
+                }else {
+                    Intent mainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
 
+                }
 
-                startActivity(mainIntent);
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                 finish();
 

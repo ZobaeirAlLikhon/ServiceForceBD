@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -111,9 +112,11 @@ public class HomeFragment extends Fragment {
 
 
                     try {
-                        Picasso.get().load(p).into(binding.bannerMiddle);
+//                        Picasso.get().load(p).into(binding.bannerMiddle);
+                        Glide.with(getApplicationContext()).load(p).into(binding.bannerMiddle);
+
                     }catch (Exception e){
-                        Toast.makeText(context,"sfddf",Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
                     }
 
 
