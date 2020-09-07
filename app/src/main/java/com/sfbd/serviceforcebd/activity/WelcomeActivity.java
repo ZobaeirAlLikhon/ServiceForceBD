@@ -63,7 +63,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 }else {
                     Intent mainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
                     startActivity(mainIntent);
-
                 }
 
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
@@ -72,7 +71,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }, Splash_Screen);
     }
-
 
 
 }

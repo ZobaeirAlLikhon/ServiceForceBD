@@ -25,6 +25,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:textAlignment="center"
         android:id="@+id/fstFgTV"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -33,13 +34,17 @@
         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the"
         android:textColor="@color/black"
         android:textSize="20dp"
-
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toTopOf="@+id/relStory"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        android:gravity="center_horizontal" />
 
     <RelativeLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintTop_toBottomOf="@+id/fstFgTV"
         android:id="@+id/relStory"
         android:layout_width="match_parent"
