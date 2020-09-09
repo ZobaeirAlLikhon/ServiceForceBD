@@ -80,4 +80,5 @@ dependencies {
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
     implementation 'com.github.claudiodegio:MsvSearch:1.0.0'
     implementation 'me.zhanghai.android.materialratingbar:library:1.0.2'
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
 }

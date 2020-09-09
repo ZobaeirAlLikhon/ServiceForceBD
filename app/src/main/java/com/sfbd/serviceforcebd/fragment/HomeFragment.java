@@ -113,7 +113,7 @@ public class HomeFragment extends Fragment {
 
                     try {
 //                        Picasso.get().load(p).into(binding.bannerMiddle);
-                        Glide.with(getApplicationContext()).load(p).into(binding.bannerMiddle);
+                        Picasso.get().load(p).into(binding.bannerMiddle);
 
                     }catch (Exception e){
                         e.printStackTrace();

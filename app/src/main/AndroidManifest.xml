@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.StoryBord_Screen"></activity>
+        <activity android:name=".activity.InilName"></activity>
+        <activity android:name=".activity.StoryBord_Screen" />
         <activity android:name=".activity.SubCatCart" />
         <activity android:name=".activity.ProUpdateInfo" />
         <activity android:name=".activity.NoItemFound" />

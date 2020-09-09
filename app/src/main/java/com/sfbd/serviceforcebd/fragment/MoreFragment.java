@@ -122,7 +122,8 @@ public class MoreFragment extends Fragment {
                             e.printStackTrace();
                         }
 
-                    progressDialog.dismiss();}
+                    progressDialog.dismiss();
+                    }
                     progressDialog.dismiss();
                 }
                 @Override
