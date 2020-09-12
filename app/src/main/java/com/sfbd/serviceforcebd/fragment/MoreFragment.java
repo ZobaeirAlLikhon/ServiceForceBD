@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -115,7 +116,8 @@ public class MoreFragment extends Fragment {
                     if (snapshot.child("image").exists())
                     {
                         try {
-                            Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.profileIV);
+//                            Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.profileIV);
+                            Glide.with(context).load(snapshot.child("image").getValue().toString()).into(binding.profileIV);
                         }
                         catch (Exception e)
                         {

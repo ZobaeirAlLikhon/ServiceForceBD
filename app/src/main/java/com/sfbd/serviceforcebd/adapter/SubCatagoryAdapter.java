@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -77,8 +78,8 @@ public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.
             holder.iviprice.setText("Start from:"+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
-            Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
-
+//            Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
+        Glide.with(context).load(sd.get(position).getImage()).into(holder.pro_image);
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
