@@ -22,6 +22,8 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding binding;
@@ -145,7 +147,10 @@ public class SignUpActivity extends AppCompatActivity {
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                                         user.updateProfile(profileUpdates);
-
+                                        HashMap<String, Object> cupon = new HashMap<>();
+                                        cupon.put("cupon_ID","SFBD-2020");
+//                  cupon.put("cupon","0");
+                                        userRef.child(userId).updateChildren(cupon);
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);

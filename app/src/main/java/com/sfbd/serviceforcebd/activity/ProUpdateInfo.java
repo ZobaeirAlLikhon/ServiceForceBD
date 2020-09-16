@@ -79,6 +79,12 @@ public class ProUpdateInfo extends AppCompatActivity {
                 datePickerDiologe();
             }
         });
+        binding.backBtnPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         toolbarInit();
         initProfileUpdate();
         saveChange();

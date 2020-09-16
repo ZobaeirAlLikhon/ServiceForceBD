@@ -35,7 +35,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder> {
+public class
+SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder> {
     Context context;
     ArrayList<Sd> sd;
     String catagory;

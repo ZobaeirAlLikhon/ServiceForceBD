@@ -645,7 +645,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Care &amp; Bike Care"
+                            android:text="Car &amp; Bike Care"
                             android:textAppearance="@style/monospaceSmallText"
                             app:layout_constraintEnd_toEndOf="@id/carcareIV"
                             app:layout_constraintStart_toStartOf="@id/carcareIV"

@@ -102,11 +102,12 @@ public class AddressActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.child("cupon_ID").exists()){
                             if(voucer==snapshot.child("cupon_ID").getValue().toString()){
-                            double d = Double.parseDouble(productPrice );
-                            double p=d-(d*10)/100;
+                                int d = Integer.parseInt(productPrice );
+                                double p=d-(d*10)/100;
                            binding.tottalPrice.setText("Tottal Price :"+String.valueOf(p)+" Tk");
                            binding.discount.setText("10% off");}
                         }
+
                     }
 
                     @Override
