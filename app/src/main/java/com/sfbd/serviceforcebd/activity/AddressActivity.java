@@ -86,9 +86,10 @@ public class AddressActivity extends AppCompatActivity {
         productName=bundle.getString("proName");
         productPrice=bundle.getString("price");
         noOfItem=bundle.getString("noOfItem");
-        binding.pName.setText(productName);
-        binding.pprice.setText("Price:"+productPrice);
-        binding.nOp.setText("No Of Product:"+noOfItem);
+        binding.pName.setText("Name: "+productName);
+        binding.pprice.setText("Price: "+productPrice+" TK");
+        binding.nOp.setText("Quantity: "+noOfItem);
+        binding.tottalPrice.setText("Tottal Price: "+productPrice+"TK");
 //        if (bundle != null) {
 //            Log.d(TAG, "onCreate: " + bundle.getString("address"));
 //            binding.addressET.getEditText().setText(bundle.getString("address"));

@@ -139,7 +139,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, "123456");
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -148,7 +148,9 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(SignInActivity.this,idToken,Toast.LENGTH_LONG).show();
                             updateUIGoogle(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(SignInActivity.this,"fail",Toast.LENGTH_LONG).show();
@@ -161,6 +163,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void updateUIGoogle(FirebaseUser user) {
+
         databaseReference= FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
         pushId=databaseReference.push().getKey();
         HashMap<String, Object> send = new HashMap<>();
