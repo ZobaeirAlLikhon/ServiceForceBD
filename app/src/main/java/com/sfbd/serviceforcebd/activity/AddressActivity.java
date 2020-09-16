@@ -56,7 +56,7 @@ public class AddressActivity extends AppCompatActivity {
     private static final String TAG = "AddressActivity";
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,dbToken;
     private User user;
     private Bundle bundle;
     private String address;
@@ -64,6 +64,8 @@ public class AddressActivity extends AppCompatActivity {
     private LottieAnimationView lottieAnimationView2;
     private String productName,productPrice,noOfItem;
     ArrayList<CartModel> list;
+    String voucer;
+    private int offer =10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,7 @@ public class AddressActivity extends AppCompatActivity {
             onBackPressed();
         });
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
+        dbToken=FirebaseDatabase.getInstance().getReference().child("users").child(firebaseUser.getUid());
         bundle = getIntent().getExtras();
         productName=bundle.getString("proName");
         productPrice=bundle.getString("price");
@@ -90,6 +92,29 @@ public class AddressActivity extends AppCompatActivity {
         binding.pprice.setText("Price: "+productPrice+" TK");
         binding.nOp.setText("Quantity: "+noOfItem);
         binding.tottalPrice.setText("Tottal Price: "+productPrice+"TK");
+        voucer=binding.voucher.getText().toString();
+        binding.btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbToken.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.child("cupon_ID").exists()){
+                            double d = Double.parseDouble(productPrice );
+                            double p=d-(d*10)/100;
+                           binding.tottalPrice.setText("Tottal Price :"+String.valueOf(p)+" Tk");
+                           binding.discount.setText("10% off");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
 //        if (bundle != null) {
 //            Log.d(TAG, "onCreate: " + bundle.getString("address"));
 //            binding.addressET.getEditText().setText(bundle.getString("address"));
