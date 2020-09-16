@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp">
+    android:layout_marginBottom="2dp"
+    app:cardElevation="8dp"
+    android:layout_margin="10dp">
 
     <RelativeLayout
         android:id="@+id/rela"
@@ -23,11 +25,11 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
-            android:background="@drawable/round_shape_green"
             android:gravity="center"
             android:text="Product Name"
-            android:textColor="#FAFAFF"
-            android:textSize="20dp" />
+            android:textColor="#333"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/proImg"
@@ -54,7 +56,7 @@
             android:justificationMode="inter_word"
             android:padding="5dp"
             android:textAppearance="@style/monospaceMediumText"
-            android:textColor="#020202"
+            android:textColor="#333"
             tools:text="Lorem printer took a galley"
             android:layout_marginRight="1dp"
             android:layout_marginLeft="16dp" />
@@ -97,9 +99,8 @@
             android:layout_below="@id/eligantbutton"
             android:layout_alignStart="@id/eligantbutton"
             android:layout_marginTop="16dp"
-            android:drawableLeft="@drawable/cart_foreground"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+            android:drawableLeft="@drawable/new_cart"
+            android:text="cart" />
 
 
         <Button
@@ -112,7 +113,7 @@
             android:layout_toEndOf="@id/addToCart"
 
             android:gravity="center"
-            android:text="next" />
+            android:text="order" />
 
         <TextView
             android:id="@+id/price21"

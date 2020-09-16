@@ -54,7 +54,7 @@
             android:justificationMode="inter_word"
             android:padding="5dp"
             android:textAppearance="@style/monospaceMediumText"
-            android:textColor="#020202"
+            android:textColor="#333"
             tools:text="Lorem printer took a galley" />
 
         <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
@@ -91,8 +91,10 @@
             android:layout_height="53dp"
             android:layout_below="@id/eligantbutton"
             android:layout_alignStart="@id/eligantbutton"
+            android:layout_alignLeft="@+id/eligantbutton"
             android:layout_marginTop="16dp"
             android:drawableLeft="@drawable/cart_foreground"
+            android:text="CART"
             android:textAllCaps="false"
             android:textStyle="bold" />
 
@@ -104,16 +106,12 @@
             android:layout_height="53dp"
             android:layout_below="@id/price11"
             android:layout_toEndOf="@id/addToCart"
+            android:layout_toRightOf="@+id/addToCart"
             android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
-
             android:gravity="center"
             android:text="next" />
-
-
-
-
-
 
     </RelativeLayout>
 
