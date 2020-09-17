@@ -53,17 +53,17 @@ public class WelcomeActivity extends AppCompatActivity {
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
 
-                SharedPreferences preferences=getSharedPreferences("ppp",Context.MODE_PRIVATE);
-                boolean fristTime=preferences.getBoolean("story",true);
-                if(fristTime)
-                {
-                    Intent mainIntent = new Intent(WelcomeActivity.this, StoryBord_Screen.class);
-                    startActivity(mainIntent);
-
-                }else {
+//                SharedPreferences preferences=getSharedPreferences("ppp",Context.MODE_PRIVATE);
+//                boolean fristTime=preferences.getBoolean("story",true);
+//                if(fristTime)
+//                {
+//                    Intent mainIntent = new Intent(WelcomeActivity.this, StoryBord_Screen.class);
+//                    startActivity(mainIntent);
+//
+//                }else {
                     Intent mainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
                     startActivity(mainIntent);
-                }
+//                }
 
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
                 finish();
@@ -71,6 +71,5 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }, Splash_Screen);
     }
-
 
 }
