@@ -19,6 +19,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -64,7 +65,9 @@ public class AddressActivity extends AppCompatActivity {
     private LottieAnimationView lottieAnimationView2;
     private String productName,productPrice,noOfItem;
     ArrayList<CartModel> list;
-    String voucer;
+    String voucer,tk;
+    TextView tottalP;
+
     private int offer =10;
 
     @Override
@@ -91,8 +94,9 @@ public class AddressActivity extends AppCompatActivity {
         binding.pName.setText("Name: "+productName);
         binding.pprice.setText("Price: "+productPrice+" TK");
         binding.nOp.setText("Quantity: "+noOfItem);
-        binding.tottalPrice.setText("Tottal Price: "+productPrice+"TK");
-        voucer=binding.voucher.getText().toString();
+        tottalP=binding.tottalPrice;
+        tottalP.setText("Tottal Price: "+productPrice+"TK");
+
         binding.btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,11 +105,19 @@ public class AddressActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.child("cupon_ID").exists()){
-                            if(voucer==snapshot.child("cupon_ID").getValue().toString()){
+                            voucer=binding.voucher.getText().toString();
+//                            Toast.makeText(AddressActivity.this,voucer,Toast.LENGTH_LONG).show();
+                            if(voucer.trim().equals(snapshot.child("cupon_ID").getValue(String.class).toString().trim())){
                                 int d = Integer.parseInt(productPrice );
                                 double p=d-(d*10)/100;
-                           binding.tottalPrice.setText("Tottal Price :"+String.valueOf(p)+" Tk");
+                                tk=String.valueOf(p);
+
+                           tottalP.setText("Tottal Price : "+String.valueOf(p)+" Tk");
                            binding.discount.setText("10% off");}
+                        }
+                        else{
+                            tk=productPrice;
+                            Toast.makeText(AddressActivity.this,"Coupon already used.",Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -259,18 +271,34 @@ public class AddressActivity extends AppCompatActivity {
         String date = binding.dateET.getEditText().getText().toString();
         String time = binding.timeET.getEditText().getText().toString();
         String isPlaced = "Placed";
+        String tP=tottalP.getText().toString();
 
 
 
-            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,pprice,nop);
+            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,tk,nop);
             String pushId = orderRef.push().getKey();
             order.setOrderId(pushId);
             orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     orderRef.child("orderByUser").child(userId).child(pushId).setValue(order).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()){
+                            dbToken.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.child("cupon_ID").exists())
+                                    {
+                                        dbToken.child("cupon_ID").removeValue();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                             Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(this,MainActivity.class));
+
                             finish();
                             binding.progressBarId.setVisibility(View.GONE);
                         }
