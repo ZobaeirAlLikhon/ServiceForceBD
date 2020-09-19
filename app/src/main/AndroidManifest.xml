@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sfbd.serviceforcebd">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -73,10 +74,18 @@
         <activity android:name=".activity.SignInActivity" />
         <activity android:name=".activity.ServicesActivity" />
         <activity android:name=".activity.MainActivity" />
+        <service
+            android:name=".connection.FirebaseNotificationReciver">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
