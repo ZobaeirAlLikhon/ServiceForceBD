@@ -113,7 +113,8 @@ public class AddressActivity extends AppCompatActivity {
                                 tk=String.valueOf(p);
 
                            tottalP.setText("Tottal Price : "+String.valueOf(p)+" Tk");
-                           binding.discount.setText("10% off");}
+                           binding.discount.setText("10% off");
+                            }
                         }
                         else{
                             tk=productPrice;
