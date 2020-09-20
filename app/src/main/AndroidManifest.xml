@@ -74,17 +74,17 @@
         <activity android:name=".activity.SignInActivity" />
         <activity android:name=".activity.ServicesActivity" />
         <activity android:name=".activity.MainActivity" />
-        <service
-            android:name=".connection.FirebaseNotificationReciver">
-
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <service
+            android:name=".connection.MyFirebaseMessagingService"
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
 
