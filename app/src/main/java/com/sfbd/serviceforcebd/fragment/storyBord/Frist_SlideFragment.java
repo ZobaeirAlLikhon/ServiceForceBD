@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
-import com.sfbd.serviceforcebd.activity.StoryBord_Screen;
-import com.sfbd.serviceforcebd.activity.WelcomeActivity;
 
 public class Frist_SlideFragment extends Fragment {
     ViewPager viewPager;
@@ -33,8 +31,8 @@ public class Frist_SlideFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_frist__slide, container, false);
         viewPager=getActivity().findViewById(R.id.viewPager);
-        next=view.findViewById(R.id.fFanext);
-        skip=view.findViewById(R.id.next);
+        next=view.findViewById(R.id.Snext);
+        skip=view.findViewById(R.id.Sskip);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

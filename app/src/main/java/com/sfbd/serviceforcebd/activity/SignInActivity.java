@@ -251,7 +251,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail() {
-        String email = binding.emailET.getEditText().getText().toString().trim();
+        String email = binding.emailET.getText().toString().trim();
         if (email.isEmpty()) {
             binding.emailET.setError("Field can't be empty!");
             return false;
@@ -265,7 +265,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String password = binding.passwordET.getEditText().getText().toString().trim();
+        String password = binding.passwordET.getText().toString().trim();
         if (password.isEmpty()) {
             binding.passwordET.setError("Field can't be empty!");
             return false;
@@ -287,8 +287,8 @@ public class SignInActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        String email = binding.emailET.getEditText().getText().toString().trim();
-        String password = binding.passwordET.getEditText().getText().toString().trim();
+        String email = binding.emailET.getText().toString().trim();
+        String password = binding.passwordET.getText().toString().trim();
 
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
