@@ -17,6 +17,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.fragment.storyBord.Frist_SlideFragment;
 import com.sfbd.serviceforcebd.fragment.storyBord.Sec_SlideFragment;
+import com.sfbd.serviceforcebd.fragment.storyBord.Third_SlideFragment;
 
 public class StoryAdapter extends FragmentPagerAdapter {
 
@@ -33,6 +34,8 @@ public class StoryAdapter extends FragmentPagerAdapter {
                 return  new Frist_SlideFragment();
             case 1:
                 return new Sec_SlideFragment();
+            case 2:
+                return new Third_SlideFragment();
             default:
                 return null;
         }

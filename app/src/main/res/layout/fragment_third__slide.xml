@@ -64,7 +64,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/sb_pass"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="60dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName1"
+        android:id="@+id/sb_conpass"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -95,25 +95,25 @@
         android:singleLine="true"
         android:textColor="#4d4e5b"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/sb_pass"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/sb_pass"
+        app:layout_constraintTop_toBottomOf="@+id/sb_pass" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txf_signin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Already Have a Account? Sign In."
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName1"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+        app:layout_constraintEnd_toEndOf="@+id/sb_conpass"
+        app:layout_constraintStart_toStartOf="@+id/sb_conpass"
+        app:layout_constraintTop_toBottomOf="@+id/sb_conpass" />
 
     <TextView
-        android:id="@+id/Sskip"
+        android:id="@+id/third_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -124,11 +124,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tx_signin"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/sFinish"
+        android:id="@+id/finish_tx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
@@ -138,7 +138,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Sskip"
+        app:layout_constraintTop_toTopOf="@+id/third_skip"
         app:layout_constraintVertical_bias="0.0" />
 
 
