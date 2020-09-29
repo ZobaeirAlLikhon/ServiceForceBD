@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".fragment.storyBord.Frist_SlideFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_margin="40dp"
+        android:layout_marginTop="30dp"
+       android:backgroundTint="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="300dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/market_new"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/imgCon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Home Delivery"
+                android:textColor="#019F21"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="165dp"
+                tools:layout_editor_absoluteY="164dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgCon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/round_corner"
+        android:drawableLeft="@drawable/password_vector"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#4d4e5b"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_corner"
+        android:drawableLeft="@drawable/confirm_password"
+        android:drawablePadding="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#4d4e5b"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Already Have a Account? Sign In."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName1"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+
+    <TextView
+        android:id="@+id/Sskip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Skip"
+        android:textSize="18sp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/Snext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Next"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Sskip"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
