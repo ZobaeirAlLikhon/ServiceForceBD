@@ -11,6 +11,8 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -411,12 +413,14 @@ public class AddressActivity extends AppCompatActivity {
         };
 
         Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 0);
 
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, 1);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
         datePickerDialog.show();
     }
 
@@ -429,9 +433,10 @@ public class AddressActivity extends AppCompatActivity {
         int minute = mcurrentTime.get(Calendar.MINUTE);
         int s = mcurrentTime.get(Calendar.AM_PM);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(AddressActivity.this, new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(AddressActivity.this,android.R.style.Theme_Holo_Light_Dialog,new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+           public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute){
+
 
                 String AM_PM;
                 if (selectedHour < 1) {
@@ -449,6 +454,7 @@ public class AddressActivity extends AppCompatActivity {
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");
+        mTimePicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mTimePicker.show();
 
 

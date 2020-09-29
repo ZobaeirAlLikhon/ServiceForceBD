@@ -40,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     private boolean validateName() {
-        String name = binding.nameET.getEditText().getText().toString().trim();
+        String name = binding.nameET.getText().toString().trim();
         if (name.isEmpty()) {
             binding.nameET.setError("Field can't be empty!");
             return false;
@@ -51,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail() {
-        String email = binding.emailET.getEditText().getText().toString().trim();
+        String email = binding.emailET.getText().toString().trim();
         if (email.isEmpty()) {
             binding.emailET.setError("Field can't be empty!");
             return false;
@@ -65,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean validatePhone() {
-        String email = binding.phoneET.getEditText().getText().toString().trim();
+        String email = binding.phoneET.getText().toString().trim();
         if (email.isEmpty()) {
             binding.phoneET.setError("Field can't be empty!");
             return false;
@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String password = binding.passwordET.getEditText().getText().toString().trim();
+        String password = binding.passwordET.getText().toString().trim();
         if (password.isEmpty()) {
             binding.passwordET.setError("Field can't be empty!");
             return false;
@@ -90,8 +90,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean validateConfirmPassword() {
-        String password = binding.passwordET.getEditText().getText().toString().trim();
-        String confirmPassword = binding.confirmPasswordET.getEditText().getText().toString().trim();
+        String password = binding.passwordET.getText().toString().trim();
+        String confirmPassword = binding.confirmPasswordET.getText().toString().trim();
         if (confirmPassword.isEmpty()) {
             binding.confirmPasswordET.setError("Field can't be empty!");
             return false;
@@ -114,10 +114,10 @@ public class SignUpActivity extends AppCompatActivity {
 
         binding.pleaseWaitLA.setVisibility(View.VISIBLE);
 
-        String name = binding.nameET.getEditText().getText().toString().trim();
-        String email = binding.emailET.getEditText().getText().toString().trim();
-        String phone = binding.phoneET.getEditText().getText().toString().trim();
-        String password = binding.passwordET.getEditText().getText().toString().trim();
+        String name = binding.nameET.getText().toString().trim();
+        String email = binding.emailET.getText().toString().trim();
+        String phone = binding.phoneET.getText().toString().trim();
+        String password = binding.passwordET.getText().toString().trim();
 
         User user = new User(name, email, phone);
 

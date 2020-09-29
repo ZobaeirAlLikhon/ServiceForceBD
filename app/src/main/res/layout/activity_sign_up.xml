@@ -1,112 +1,141 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <com.google.android.material.card.MaterialCardView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="7dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="10dp"
+            app:cardCornerRadius="7dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Enter Your Full Name"
-                android:inputType="textPersonName"
-                android:background="@drawable/round_corner"
-                android:drawableLeft="@drawable/person_vector"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Enter Your Email"
-                android:layout_marginTop="10dp"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/round_corner"
-                android:drawableLeft="@drawable/email_vector"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Enter Your Contact"
-                android:background="@drawable/round_corner"
-                android:layout_marginTop="10dp"
-                android:inputType="phone"
-                android:drawableLeft="@drawable/phone_contact"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:background="@drawable/round_corner"
-                android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/password_vector"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
-                android:background="@drawable/round_corner"
-                android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/confirm_password"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp" />
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up"
-                android:layout_marginTop="15dp"/>
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
-            <TextView
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_corner"
+                    android:drawableLeft="@drawable/person_vector"
+                    android:drawablePadding="10dp"
+                    android:hint="Enter Your Full Name"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#4d4e5b"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_corner"
+                    android:drawableLeft="@drawable/email_vector"
+                    android:drawablePadding="10dp"
+                    android:hint="Enter Your Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#4d4e5b"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_corner"
+                    android:drawableLeft="@drawable/phone_contact"
+                    android:drawablePadding="10dp"
+                    android:hint="Enter Your Contact"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#4d4e5b"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_corner"
+                    android:drawableLeft="@drawable/password_vector"
+                    android:drawablePadding="10dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#4d4e5b"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPasswordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_corner"
+                    android:drawableLeft="@drawable/confirm_password"
+                    android:drawablePadding="10dp"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#4d4e5b"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/signInBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/round_edit_tex"
+                    android:text="Sign Up" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Already a Member? Sign In."
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/pleaseWaitLA"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="Already a Member? Sign In."
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_height="200dp"
+                android:background="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="please_wait_anim_two.json"
+                app:lottie_loop="true" />
 
+        </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
