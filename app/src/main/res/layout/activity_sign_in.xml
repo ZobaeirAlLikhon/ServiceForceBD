@@ -33,24 +33,31 @@
             <EditText
                 android:id="@+id/emailET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:hint="Email"
                 android:layout_marginTop="50dp"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
+                android:background="@drawable/round_edit_tex"
                 android:lines="1"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:drawableLeft="@drawable/email_vector"
+                android:drawablePadding="10dp"
+                android:padding="10dp"/>
 
             <EditText
                 android:id="@+id/passwordET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:hint="Password"
+                android:background="@drawable/round_edit_tex"
                 android:layout_below="@id/emailET"
                 android:layout_marginTop="25dp"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
-                />
+                android:drawableLeft="@drawable/password_vector"
+                android:drawablePadding="10dp"
+                android:padding="10dp"/>
 
 
         </RelativeLayout>
