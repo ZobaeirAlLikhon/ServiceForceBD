@@ -37,27 +37,27 @@ public class Sec_SlideFragment extends Fragment {
         viewPager=getActivity().findViewById(R.id.viewPager);
         next=view.findViewById(R.id.sFinish);
         skip=view.findViewById(R.id.Sskip);
-        fname = view.findViewById(R.id.sb_pass);
-        email = view.findViewById(R.id.sb_conpass);
+        fname = view.findViewById(R.id.sb_fname);
+        email = view.findViewById(R.id.sb_email);
         tx_s_signin = view.findViewById(R.id.tx_signin);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 String name = fname.getText().toString();
-                String uemail = email.getText().toString();
+                String mail = email.getText().toString();
                 if (name.length()==0){
                     fname.setError("Please Enter Your Name!");
                 }
-                else if(!Patterns.EMAIL_ADDRESS.matcher(uemail).matches()){
+                else if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
                     email.setError("Please Enter Valid Email Address!");
                 }
-                else if(uemail.length()==0){
+                else if(mail.length()==0){
                     email.setError("Please Enter Your Email Address!");
                 }
                 else{
                     b.putString("name",name);
-                    b.putString("email",uemail);
+                    b.putString("email",mail);
                     viewPager.setCurrentItem(2);
                 }
 
