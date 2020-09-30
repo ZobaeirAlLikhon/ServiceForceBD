@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
         binding.carBikePV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String service = "Care & Bike Care";
+                String service = "Car & Bike Care";
                 initService(service);
             }
         });binding.beutyPV.setOnClickListener(new View.OnClickListener() {
