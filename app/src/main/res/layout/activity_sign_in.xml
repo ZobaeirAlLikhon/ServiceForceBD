@@ -24,44 +24,39 @@
             android:src="@drawable/ic_service_force_logo_final"
             tools:ignore="ContentDescription" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailET"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true">
+            android:padding="15dp">
 
             <EditText
+                android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:layout_marginTop="50dp"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:lines="1"
                 android:maxLines="1" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordET"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:errorEnabled="true"
-            app:passwordToggleEnabled="true">
-
             <EditText
+                android:id="@+id/passwordET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:layout_below="@id/emailET"
+                android:layout_marginTop="25dp"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
-
                 />
-        </com.google.android.material.textfield.TextInputLayout>
+
+
+        </RelativeLayout>
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
