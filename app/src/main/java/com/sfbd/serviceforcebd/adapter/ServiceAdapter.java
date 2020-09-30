@@ -8,12 +8,20 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.LocationActivity;
@@ -29,8 +37,10 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
     private Context context;
     private String[] serviceList;
-    private String service;
-    private int i;
+    private String service,count;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    DatabaseReference dbre;
 
 
 
@@ -51,10 +61,74 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.itemTV.setText(serviceList[position]);
+        dbre= FirebaseDatabase.getInstance().getReference().child("Likes").child(serviceList[position]);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        String userId = currentUser.getUid();
+        holder.binding.likeIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int p=position;
+                try{
+                if (holder.binding.likeIV.getTag().equals("Disikes"))
+                {
+                    Toast.makeText(context,"Like", LENGTH_LONG).show();
+                    FirebaseDatabase.getInstance().getReference().child("Likes").child(serviceList[p]).child(userId).setValue(true);
+
+                }
+                else {
+                    FirebaseDatabase.getInstance().getReference().child("Likes").child(serviceList[p]).child(userId).removeValue();
+
+                }
+                }catch (Exception e)
+                {
+
+                }
+
+            }
+        });
+        dbre.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                count= String.valueOf(snapshot.getChildrenCount());
+                holder.binding.countLike.setText(count);
+                if(snapshot.child(userId).exists())
+                {
+                    try{
+                        holder.binding.likeIV.setImageResource(R.drawable.like_foreground);
+                        holder.binding.likeIV.setTag("Likes");
+                    }catch(Exception e){
+
+                        }
+
+
+                }
+                else {
+                    try{
+                        holder.binding.likeIV.setImageResource(R.drawable.dislike_foreground);
+                        holder.binding.likeIV.setTag("Disikes");
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
 
         holder.itemView.setOnClickListener(view -> {
 
-        i=position;
+
             if (serviceList[position].equals("Get a Tuition"))
             {
 

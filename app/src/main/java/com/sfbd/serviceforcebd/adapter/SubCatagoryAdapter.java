@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,15 +59,15 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        if(catagory.equals("Get a Tutor"))
-        {
-            holder.addCart.setVisibility(View.INVISIBLE);
-            holder.eli_button.setVisibility(View.INVISIBLE);
-            holder.iviprice.setVisibility(View.VISIBLE);
-            holder.product_price.setVisibility(View.INVISIBLE);
-            holder.button.setVisibility(View.INVISIBLE);
-            holder.button1.setVisibility(View.VISIBLE);
-        }
+//        if(catagory.equals("Get a Tutor"))
+//        {
+//            holder.addCart.setVisibility(View.INVISIBLE);
+//            holder.eli_button.setVisibility(View.INVISIBLE);
+//            holder.iviprice.setVisibility(View.VISIBLE);
+//            holder.product_price.setVisibility(View.INVISIBLE);
+//            holder.button.setVisibility(View.INVISIBLE);
+//            holder.button1.setVisibility(View.VISIBLE);
+//        }
 
 
 
@@ -76,7 +77,7 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
 
 
             holder.product_price.setText("Start from:"+sd.get(position).getPrice()+"Tk");
-            holder.iviprice.setText("Start from:"+sd.get(position).getPrice()+"Tk");
+//            holder.iviprice.setText("Start from:"+sd.get(position).getPrice()+"Tk");
             holder.pro_des.setText(sd.get(position).getDes());
             holder.proNam.setText(sd.get(position).getName());
 //            Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
@@ -111,35 +112,35 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
                 num=null;
             }
         });
-        holder.button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                price= sd.get(position).getPrice().toString().trim();
-                num = holder.eli_button.getNumber();
-                String name1= sd.get(position).getName().toString().trim();
-                if (num==null)
-                {
-                    num="1";
-                }
-                if(s==null)
-                {
-                    s=price;
-                }
-                int n=Integer.parseInt(num);
-                int p=Integer.parseInt(price);
-                int sum=n*p;
-                su=String.valueOf(sum);
-
-                Intent intent=new Intent(context, AddressActivity.class);
-                intent.putExtra("category",catagory);
-                intent.putExtra("proName",name1);
-                intent.putExtra("price",su);
-                intent.putExtra("noOfItem",num);
-                context.startActivity(intent);
-                s=null;
-                num=null;
-            }
-        });
+//        holder.button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                price= sd.get(position).getPrice().toString().trim();
+//                num = holder.eli_button.getNumber();
+//                String name1= sd.get(position).getName().toString().trim();
+//                if (num==null)
+//                {
+//                    num="1";
+//                }
+//                if(s==null)
+//                {
+//                    s=price;
+//                }
+//                int n=Integer.parseInt(num);
+//                int p=Integer.parseInt(price);
+//                int sum=n*p;
+//                su=String.valueOf(sum);
+//
+//                Intent intent=new Intent(context, AddressActivity.class);
+//                intent.putExtra("category",catagory);
+//                intent.putExtra("proName",name1);
+//                intent.putExtra("price",su);
+//                intent.putExtra("noOfItem",num);
+//                context.startActivity(intent);
+//                s=null;
+//                num=null;
+//            }
+//        });
         holder.addCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,9 +222,9 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
 
     public class  MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView product_price,pro_des,proNam,iviprice;
+        TextView product_price,pro_des,proNam;
         ImageView pro_image;
-        Button button,addCart,button1;
+        ImageButton button,addCart;
         ElegantNumberButton eli_button;
         public MyViewHolder(@NonNull View itemView)
         {
@@ -236,8 +237,7 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
             pro_des.setMovementMethod(new ScrollingMovementMethod());
             proNam=itemView.findViewById(R.id.proName);
             addCart=itemView.findViewById(R.id.addToCart);
-            iviprice=itemView.findViewById(R.id.price21);
-            button1=itemView.findViewById(R.id.booking1);
+
 
         }
     }

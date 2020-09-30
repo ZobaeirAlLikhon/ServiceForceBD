@@ -100,8 +100,62 @@ public class HomeFragment extends Fragment {
         initView();
         init();
         findViewById();
+        popularItem();
 
         return binding.getRoot();
+    }
+
+    private void popularItem() {
+        binding.carBikePV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Care & Bike Care";
+                initService(service);
+            }
+        });binding.beutyPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Beauty Services";
+                initService(service);
+
+            }
+        });binding.itPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "IT Support";
+                initService(service);
+            }
+        });binding.cleaningPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Cleaning";
+                initService(service);
+            }
+        });binding.mediPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Medical";
+                initService(service);
+            }
+        });binding.homePV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"Service not avalible",Toast.LENGTH_SHORT).show();
+            }
+        });binding.shiftingPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Shifting";
+                initService(service);
+
+            }
+        });binding.repairPV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String service = "Appliance";
+                initService(service);
+            }
+        });
     }
 
     private void imageBanner() {

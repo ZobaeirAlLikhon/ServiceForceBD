@@ -1,150 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
-    app:cardElevation="8dp"
-    android:layout_margin="10dp">
+
+    tools:ignore="MissingDefaultResource">
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_margin="10dp"
+            android:outlineSpotShadowColor="#FFFF00"
+            app:cardElevation="20dp"
+            tools:ignore="MissingConstraints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relativeTop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/proImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/baner" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/proNameCV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="132dp"
+                    android:backgroundTint="#EDEDED"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="@+id/proImg"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/proName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:textColor="#006F77"
+                        android:text="Car And Bike Wash"
+                        android:textAppearance="@style/monospaceSmallText"
+                        android:textSize="20dp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/productDec"
+                    android:layout_width="297dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="start"
+                    android:padding="2dp"
+                    android:text="Car and bike wash,Car Exterior Premium Foam Wash,
+                Wheel Undercarriage Wash,Wheel Undercarriage Wash,
+                    Wheel Undercarriage Wash Wheel  Undercarriage Wash"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/monospaceSmallText"
+
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/proNameCV"
+                    tools:ignore="NotSibling" />
+
+                <TextView
+                    android:id="@+id/price11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="40dp"
+                    android:textStyle="italic"
+                    android:gravity="end"
+                    android:text="price: 1000 Tk"
+                    android:textAlignment="textEnd"
+                    android:textColor="#006F77"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="160dp"
+                    android:background="@drawable/outline_shado"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
+                        android:background="@drawable/round_shape"
+                        android:elevation="2dp"
+                        android:gravity="center"
+                        android:text="Details"
+                        android:textColor="#006F77"
+                        android:textSize="10sp" />
+
+
+                </RelativeLayout>
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/eligantbutton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginTop="222dp"
+                    android:background="@drawable/ractangel_shape"
+                    android:scaleX="1"
+                    android:scaleY=".5"
+                    app:backGroundColor="@color/white"
+                    app:initialNumber="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textColor="@color/black"
+                    app:textSize="8dp"
+                    tools:ignore="MissingConstraints">
+
+                </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
-        android:id="@+id/rela"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:outlineSpotShadowColor="@color/black"
-        android:padding="10dp">
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/outline_shado"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
-
-        <TextView
-            android:id="@+id/proName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center"
-            android:text="Product Name"
-            android:textColor="#333"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-
-        <ImageView
-            android:id="@+id/proImg"
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:layout_below="@id/proName"
-            android:layout_alignStart="@id/proName"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/text_view_shape"
-            android:padding="15dp"
-            android:src="@drawable/cow2"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/productDec"
-            android:layout_width="200dp"
-            android:layout_height="95dp"
-            android:layout_below="@id/proName"
-            android:layout_alignTop="@id/proImg"
-            android:layout_alignEnd="@+id/proName"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="1dp"
-            android:layout_toEndOf="@id/proImg"
-            android:justificationMode="inter_word"
-            android:padding="5dp"
-            android:textAppearance="@style/monospaceMediumText"
-            android:textColor="#333"
-            tools:text="Lorem printer took a galley"
-            android:layout_marginRight="1dp"
-            android:layout_marginLeft="16dp" />
-
-        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-            android:id="@+id/eligantbutton"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_below="@id/proImg"
-            android:textAlignment="center"
-            android:layout_marginTop="16dp"
-            android:layout_alignStart="@id/proImg"
-            app:backGroundColor="@color/white"
-            app:initialNumber="1"
-            app:textColor="@color/black"
-            app:textSize="6dp" >
-
-
-        </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
-
-        <TextView
-            android:id="@+id/price11"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_below="@id/productDec"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/eligantbutton"
-            android:gravity="center|right"
-            android:text="Starts from: 1000$"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            android:textStyle="normal"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/addToCart"
-            android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_below="@id/eligantbutton"
-            android:layout_alignStart="@id/eligantbutton"
-            android:layout_marginTop="16dp"
-            android:drawableLeft="@drawable/new_cart"
-            android:text="cart" />
-
-
-        <Button
+        <ImageButton
             android:id="@+id/booking"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/price11"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/addToCart"
-
-            android:gravity="center"
-            android:text="order" />
-
-        <TextView
-            android:id="@+id/price21"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_below="@+id/proImg"
-            android:layout_alignStart="@id/proImg"
-            android:layout_marginTop="51dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toStartOf="@+id/booking1"
-            android:gravity="center|right"
-            android:text="Starts from: 1000$"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            android:textStyle="normal"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:visibility="invisible"
-            android:id="@+id/booking1"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/price11"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="-15dp"
-            android:layout_toEndOf="@id/addToCart"
-
-            android:gravity="center"
-            android:text="next" />
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@drawable/round_shape"
+            android:elevation="2dp"
+            android:src="@drawable/arrow_forward_24" />
 
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/outline_shado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/addToCart"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:background="@drawable/round_shape"
+            android:elevation="2dp"
+            android:src="@drawable/cart_sfbd" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

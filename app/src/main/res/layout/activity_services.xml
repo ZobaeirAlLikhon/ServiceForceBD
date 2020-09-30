@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.ServicesActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.ServicesActivity"
@@ -23,21 +20,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/toolbar"
         android:layout_above="@+id/recyclerView"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
             <ImageView
                 android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="32dp"
                 android:layout_height="match_parent"
-                android:padding="8dp"
-                android:src="@drawable/ic_arrow_back_black_24dp"
-                />
+
+
+                android:src="@drawable/left_arrow" />
 
             <TextView
+                android:layout_marginLeft="15dp"
                 android:id="@+id/toolbarTV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -55,7 +54,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
 
