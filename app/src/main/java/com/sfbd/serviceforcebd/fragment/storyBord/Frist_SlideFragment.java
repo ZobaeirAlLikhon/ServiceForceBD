@@ -49,7 +49,7 @@ public class Frist_SlideFragment extends Fragment {
                 if (phone.length()==0){
                     sb_phone.setError("Please Enter Your Phone Number!");
                 }
-                else if(phone.length()!=11){
+                else if(phone.length()<11){
                     sb_phone.setError("Please Enter Valid Phone Number!");
                 }
                 else
