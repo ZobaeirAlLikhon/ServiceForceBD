@@ -12,15 +12,20 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="280dp"
+
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:layout_margin="10dp"
+
+            android:layout_marginTop="2dp"
             android:outlineSpotShadowColor="#FFFF00"
             app:cardElevation="20dp"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/relativeTop"
@@ -53,11 +58,11 @@
                         android:id="@+id/proName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textStyle="bold"
-                        android:textColor="#006F77"
                         android:text="Car And Bike Wash"
                         android:textAppearance="@style/monospaceSmallText"
-                        android:textSize="20dp" />
+                        android:textColor="#006F77"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -87,11 +92,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginRight="40dp"
-                    android:textStyle="italic"
                     android:gravity="end"
                     android:text="price: 1000 Tk"
                     android:textAlignment="textEnd"
                     android:textColor="#006F77"
+                    android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
