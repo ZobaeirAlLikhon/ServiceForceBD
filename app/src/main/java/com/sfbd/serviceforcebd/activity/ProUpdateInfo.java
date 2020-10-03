@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,6 +83,7 @@ public class ProUpdateInfo extends AppCompatActivity {
         binding.backBtnPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onBackPressed();
 
             }
         });
@@ -212,27 +214,29 @@ public class ProUpdateInfo extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getChildrenCount()==8) {
 
-                    try {
-                        binding.upProPhn.getEditText().setText(snapshot.child("phone").getValue().toString());
-                        binding.upProName.getEditText().setText(snapshot.child("name").getValue().toString());
-                        binding.upAddress.getEditText().setText(snapshot.child("address").getValue().toString());
-                        binding.datePro.getEditText().setText(snapshot.child("date_Of_birth").getValue().toString());
-                        Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.imageView4);
-                        progressDialog.dismiss();
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-                }
-                else{
-                    binding.upProPhn.getEditText().setText(snapshot.child("phone").getValue().toString());
+                if(snapshot.child("name").exists())
+                {
                     binding.upProName.getEditText().setText(snapshot.child("name").getValue().toString());
-                    progressDialog.dismiss();
+                }
+                if(snapshot.child("image").exists())
+                {
+                    Glide.with(getApplicationContext()).load(snapshot.child("image").getValue().toString()).into(binding.imageView4);
+                }
+                if(snapshot.child("address").exists())
+                {
+                    binding.upAddress.getEditText().setText(snapshot.child("address").getValue().toString());
+                }
+                if(snapshot.child("date_Of_birth").exists())
+                {
+                    binding.datePro.getEditText().setText(snapshot.child("date_Of_birth").getValue().toString());
+                }
+                if(snapshot.child("phone").exists())
+                {
+                    binding.upProPhn.getEditText().setText(snapshot.child("phone").getValue().toString());
                 }
 
+                progressDialog.dismiss();
             }
 
             @Override

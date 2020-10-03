@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
+import com.sfbd.serviceforcebd.activity.PorfileInfo;
 import com.sfbd.serviceforcebd.activity.ProUpdateInfo;
 import com.sfbd.serviceforcebd.activity.SignInActivity;
 import com.sfbd.serviceforcebd.activity.Silk;
@@ -69,7 +70,7 @@ public class MoreFragment extends Fragment {
         binding.editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, ProUpdateInfo.class);
+                Intent intent=new Intent(context, PorfileInfo.class);
                 context.startActivity(intent);
             }
         });
