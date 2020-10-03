@@ -188,4 +188,9 @@ public class SignUpActivity extends AppCompatActivity {
     public void gotoSignIn(View view) {
         startActivity(new Intent(this, SignInActivity.class));
     }
+
+    public void changeAct(View view){
+        startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+        finish();
+    }
 }

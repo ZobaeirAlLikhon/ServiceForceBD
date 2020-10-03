@@ -3,10 +3,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <ImageView
+            android:id="@+id/img_logo_su"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_service_force_logo_final"
+            android:layout_marginTop="10dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/img_logo_su">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,11 +37,20 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up Form"
+                    android:layout_marginTop="10dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameET"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/round_corner"
                     android:drawableLeft="@drawable/person_vector"
                     android:drawablePadding="10dp"
@@ -106,15 +128,17 @@
                     android:layout_marginTop="15dp"
                     android:onClick="confirmSignUp"
                     android:background="@drawable/round_edit_tex"
+                    android:onClick="confirmSignUp"
                     android:text="Sign Up" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/btn_sign_tx"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
+                    android:onClick="changeAct"
                     android:text="Already a Member? Sign In."
                     android:textSize="18sp" />
 
@@ -138,5 +162,6 @@
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </ScrollView>

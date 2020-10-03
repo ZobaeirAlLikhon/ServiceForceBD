@@ -433,7 +433,7 @@ public class AddressActivity extends AppCompatActivity {
         int minute = mcurrentTime.get(Calendar.MINUTE);
         int s = mcurrentTime.get(Calendar.AM_PM);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(AddressActivity.this,android.R.style.Theme_Holo_Light_Dialog,new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(AddressActivity.this,android.R.style.Theme_Holo_Light_Dialog_NoActionBar,new TimePickerDialog.OnTimeSetListener() {
             @Override
            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute){
 
@@ -454,7 +454,7 @@ public class AddressActivity extends AppCompatActivity {
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");
-        mTimePicker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mTimePicker.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         mTimePicker.show();
 
 
