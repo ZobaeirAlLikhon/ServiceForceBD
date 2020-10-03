@@ -128,7 +128,6 @@
                     android:layout_marginTop="15dp"
                     android:onClick="confirmSignUp"
                     android:background="@drawable/round_edit_tex"
-                    android:onClick="confirmSignUp"
                     android:text="Sign Up" />
 
                 <TextView
