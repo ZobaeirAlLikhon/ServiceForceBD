@@ -25,6 +25,7 @@ public class Sec_SlideFragment extends Fragment {
     Context context;
     EditText fname,email;
     TextView tx_s_signin;
+    String name,mail;
 
     public Sec_SlideFragment() {
 
@@ -44,8 +45,9 @@ public class Sec_SlideFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle b = new Bundle();
-                String name = fname.getText().toString();
-                String mail = email.getText().toString();
+                Third_SlideFragment tfs = new Third_SlideFragment();
+                 name = fname.getText().toString();
+                 mail = email.getText().toString().trim();
                 if (name.length()==0){
                     fname.setError("Please Enter Your Name!");
                 }
@@ -56,8 +58,9 @@ public class Sec_SlideFragment extends Fragment {
                     email.setError("Please Enter Your Email Address!");
                 }
                 else{
-                    b.putString("name",name);
-                    b.putString("email",mail);
+                    b.putString("u_name",name);
+                    b.putString("u_email",mail);
+                    tfs.setArguments(b);
                     viewPager.setCurrentItem(2);
                 }
 

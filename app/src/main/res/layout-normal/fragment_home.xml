@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <com.mancj.materialsearchbar.MaterialSearchBar
             app:layout_constraintBottom_toTopOf="@+id/consLayMain"
                     style="@style/MaterialSearchBarLight"
@@ -25,7 +23,9 @@
                     app:mt_backIconTint="@color/colorPrimary"
                     app:mt_placeholder="Search here"
                     app:mt_textColor="@color/colorPrimary"
+                     app:mt_roundedSearchBarEnabled="true"
                     android:id="@+id/searchBar"
+                    android:paddingTop="5dp"
                     app:mt_borderlessRippleEnabled="true"
                     app:mt_searchBarColor="#FBF9F9"
                     tools:ignore="MissingConstraints" />
@@ -59,13 +59,12 @@
             android:layout_width="match_parent"
             android:layout_height="210dp"
             app:fillColor="#FFFFFFFF"
-
             app:pageColor="#00000000"
             android:padding="12dp"
-            app:radius="6dp"
+            app:radius="4dp"
             app:slideInterval="3000"
             app:strokeColor="#FF777777"
-            app:strokeWidth="1dp" />
+            app:strokeWidth="0dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -107,4 +107,6 @@ public class ServicesActivity extends AppCompatActivity {
             binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
             binding.recyclerView.setAdapter(adapter);
     }
+
+    //method to populate event managment sub catagory
 }

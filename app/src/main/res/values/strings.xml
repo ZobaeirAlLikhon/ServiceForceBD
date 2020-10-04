@@ -123,7 +123,9 @@
         <item>Hire a Female Cleaner</item>
         <item>Hire a Male Cleaner</item>
         <item>Water Tank Cleaning</item>
-        <item>Pipe Line cleaning</item>
+        <item>Pipe Line Cleaning</item>
+        <item>Garden Cleaning</item>
+        <item>Window Cleaning</item>
     </string-array>
 
     <string-array name="appliance_repair_services">
@@ -215,6 +217,7 @@
     </integer-array>
 
     <string-array name="event_management">
+        <item>Wedding Managment</item>
         <item>Birthday</item>
         <item>Marriage Day</item>
         <item>Political Function</item>

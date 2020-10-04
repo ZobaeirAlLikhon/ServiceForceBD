@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rey.material.widget.SnackBar;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
 import com.sfbd.serviceforcebd.activity.SignInActivity;
@@ -34,6 +36,8 @@ import com.sfbd.serviceforcebd.model.User;
 
 import java.util.HashMap;
 
+import static android.content.ContentValues.TAG;
+
 public class Third_SlideFragment extends Fragment {
     ViewPager viewPager;
     TextView next,skip,tx_signin;
@@ -41,6 +45,7 @@ public class Third_SlideFragment extends Fragment {
     EditText con_pass,pass;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
+    private String phone,name,email;
 
     public Third_SlideFragment() {
         //require empty constructor
@@ -55,6 +60,7 @@ public class Third_SlideFragment extends Fragment {
         con_pass = view.findViewById(R.id.sb_conpass);
         pass = view.findViewById(R.id.sb_pass);
         tx_signin = view.findViewById(R.id.txf_signin);
+
 
         tx_signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,12 +79,12 @@ public class Third_SlideFragment extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences=getActivity().getSharedPreferences("ppp", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor=preferences.edit();
-                editor.putBoolean("story",false);
-                editor.apply();
                 //Implements methods for data insertion and other things..
-                Bundle b = getArguments();
+                Bundle bundle = getArguments();
+                name = bundle.getString("u_name");
+                phone = bundle.getString("u_phone");
+                email = bundle.getString("u_email");
+
                 String password = pass.getText().toString();
                 String conpass = con_pass.getText().toString();
                 if (password.length()==0){
@@ -91,11 +97,8 @@ public class Third_SlideFragment extends Fragment {
                     Toast.makeText(getContext(),"Password Does not Match",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    String phone = b.getString("phone");
-                    String name = b.getString("name");
-                    String email = b.getString("email");
-                    User user = new User(name, email, phone);
 
+                    User user = new User(name, email, phone);
                     DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users");
                     final String pushId = userRef.push().getKey();
                     user.setPushID(pushId);

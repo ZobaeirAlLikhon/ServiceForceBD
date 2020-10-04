@@ -1,12 +1,7 @@
 package com.sfbd.serviceforcebd.adapter;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
-import com.sfbd.serviceforcebd.activity.AddressActivity;
-import com.sfbd.serviceforcebd.activity.LocationActivity;
 import com.sfbd.serviceforcebd.activity.MedicalHealthDetails;
-import com.sfbd.serviceforcebd.activity.ServiceDetails;
 import com.sfbd.serviceforcebd.activity.Silk;
 import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
 import com.sfbd.serviceforcebd.databinding.RvServiceItemBinding;
