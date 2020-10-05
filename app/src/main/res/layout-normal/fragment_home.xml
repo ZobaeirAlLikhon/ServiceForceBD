@@ -11,24 +11,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
         <com.mancj.materialsearchbar.MaterialSearchBar
             app:layout_constraintBottom_toTopOf="@+id/consLayMain"
-                    style="@style/MaterialSearchBarLight"
-                    app:mt_hint="Search by catagory"
-                    app:mt_maxSuggestionsCount="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:mt_backIconTint="@color/colorPrimary"
-                    app:mt_placeholder="Search here"
-                    app:mt_textColor="@color/colorPrimary"
-                     app:mt_roundedSearchBarEnabled="true"
-                    android:id="@+id/searchBar"
-                    android:paddingTop="5dp"
-                    app:mt_borderlessRippleEnabled="true"
-                    app:mt_searchBarColor="#FBF9F9"
-                    tools:ignore="MissingConstraints" />
+            style="@style/MaterialSearchBarLight"
+            app:mt_hint="Search by catagory"
+            app:mt_maxSuggestionsCount="10"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mt_backIconTint="@color/colorPrimary"
+            app:mt_placeholder="Search Here"
+            app:mt_textColor="@color/colorPrimary"
+            android:id="@+id/searchBar"
+            android:paddingTop="5dp"
+            app:mt_borderlessRippleEnabled="true"
+            app:mt_searchBarColor="#FBF9F9"
+            tools:ignore="MissingConstraints" />
         <RelativeLayout
             android:id="@+id/recyRela"
             app:layout_constraintTop_toBottomOf="@+id/searchBar"
@@ -51,10 +53,10 @@
             android:id="@+id/consLayMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="20dp">
 
         <com.synnapps.carouselview.CarouselView
-
             android:id="@+id/carouselView"
             android:layout_width="match_parent"
             android:layout_height="210dp"
@@ -80,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="Services"
+                android:gravity="center"
                 android:textAppearance="@style/largeTextSansSerif"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
