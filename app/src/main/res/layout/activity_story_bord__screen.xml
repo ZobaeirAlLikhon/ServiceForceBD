@@ -5,15 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.StoryBord_Screen">
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
-
-    </androidx.viewpager.widget.ViewPager>
+<FrameLayout
+    android:id="@+id/test_frag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

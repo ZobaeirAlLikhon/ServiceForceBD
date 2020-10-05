@@ -24,11 +24,10 @@ import com.sfbd.serviceforcebd.activity.StoryBord_Screen;
 import com.sfbd.serviceforcebd.activity.WelcomeActivity;
 
 public class Frist_SlideFragment extends Fragment {
-    ViewPager viewPager;
+    //ViewPager viewPager;
     TextView next,skip,sb_signup;
     Context context;
     EditText sb_phone;
-    String phone;
 
     public Frist_SlideFragment() {
         // Required empty public constructor
@@ -40,39 +39,32 @@ public class Frist_SlideFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_frist__slide, container, false);
-        viewPager=getActivity().findViewById(R.id.viewPager);
+        //viewPager=getActivity().findViewById(R.id.viewPager);
         next=view.findViewById(R.id.sb_next);
         skip=view.findViewById(R.id.sb_skip);
         sb_phone = view.findViewById(R.id.sb_phone);
         sb_signup = view.findViewById(R.id.sb_signup);
 
-//        SharedPreferences preferences=getActivity().getSharedPreferences("ppp", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor=preferences.edit();
-//        editor.putBoolean("story",false);
-//        editor.apply();
+        SharedPreferences preferences=getActivity().getSharedPreferences("ppp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putBoolean("story",false);
+        editor.apply();
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
+                Bundle bundle = new Bundle();
                 Sec_SlideFragment sf = new Sec_SlideFragment();
-                phone = sb_phone.getText().toString().trim();
-//                Toast.makeText(getContext(),"phone "+phone,Toast.LENGTH_SHORT).show();
-//                if (phone.length()==0){
-//                    sb_phone.setError("Please Enter Your Phone Number!");
-//                }
-//                else if(phone.length()<11){
-//                    sb_phone.setError("Please Enter Valid Phone Number!");
-//                }
-//                else
-//                    {
-                b.putString("u_phone",phone);
-                sf.setArguments(b);
-//                getFragmentManager().beginTransaction()
-                viewPager.setCurrentItem(1);
-//                }
+                String contact = sb_phone.getText().toString().trim();
+                if (contact.length()==0 || contact.length()<11){ sb_phone.setError("Please Enter Phone Number");}
+                else {
+                    bundle.putString("phone",contact);
+                    sf.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.test_frag,sf).commit();
+                }
             }
         });
+
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

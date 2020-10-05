@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.adapter.StoryAdapter;
+import com.sfbd.serviceforcebd.fragment.storyBord.Frist_SlideFragment;
 
 public class StoryBord_Screen extends AppCompatActivity {
     private ViewPager viewPager;
@@ -20,12 +21,13 @@ public class StoryBord_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story_bord__screen);
-        viewPager=findViewById(R.id.viewPager);
+//        viewPager=findViewById(R.id.viewPager);
         //dot=findViewById(R.id.linear);
-        storyAdapter=new StoryAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(storyAdapter);
+//        storyAdapter=new StoryAdapter(getSupportFragmentManager());
+//        viewPager.setAdapter(storyAdapter);
         //StoryDot(0);
        // viewPager.addOnPageChangeListener(v );
+        getSupportFragmentManager().beginTransaction().add(R.id.test_frag,new Frist_SlideFragment()).commit();
 
     }
 
