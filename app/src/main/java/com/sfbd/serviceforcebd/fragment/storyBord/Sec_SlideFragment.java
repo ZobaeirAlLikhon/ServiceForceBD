@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.SignInActivity;
@@ -25,7 +26,7 @@ public class Sec_SlideFragment extends Fragment {
     Context context;
     EditText fname,email;
     TextView tx_s_signin;
-    String name,mail;
+    String name,mail,contact;
 
     public Sec_SlideFragment() {
 
@@ -41,10 +42,16 @@ public class Sec_SlideFragment extends Fragment {
         fname = view.findViewById(R.id.sb_fname);
         email = view.findViewById(R.id.sb_email);
         tx_s_signin = view.findViewById(R.id.tx_signin);
+        Bundle b = new Bundle();
+        try {
+            contact = getArguments().getString("u_phone").toString();
+        }
+        catch (Exception e){}
+        Toast.makeText(getContext(),"phone "+contact,Toast.LENGTH_SHORT).show();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
+
                 Third_SlideFragment tfs = new Third_SlideFragment();
                  name = fname.getText().toString();
                  mail = email.getText().toString().trim();
@@ -60,6 +67,7 @@ public class Sec_SlideFragment extends Fragment {
                 else{
                     b.putString("u_name",name);
                     b.putString("u_email",mail);
+                    b.putString("u_contact",contact);
                     tfs.setArguments(b);
                     viewPager.setCurrentItem(2);
                 }

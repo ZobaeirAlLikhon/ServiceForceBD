@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.sfbd.serviceforcebd.R;
@@ -45,29 +46,31 @@ public class Frist_SlideFragment extends Fragment {
         sb_phone = view.findViewById(R.id.sb_phone);
         sb_signup = view.findViewById(R.id.sb_signup);
 
-        SharedPreferences preferences=getActivity().getSharedPreferences("ppp", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
-        editor.putBoolean("story",false);
-        editor.apply();
+//        SharedPreferences preferences=getActivity().getSharedPreferences("ppp", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor=preferences.edit();
+//        editor.putBoolean("story",false);
+//        editor.apply();
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b = new Bundle();
-                Third_SlideFragment tf = new Third_SlideFragment();
+                Sec_SlideFragment sf = new Sec_SlideFragment();
                 phone = sb_phone.getText().toString().trim();
-                if (phone.length()==0){
-                    sb_phone.setError("Please Enter Your Phone Number!");
-                }
-                else if(phone.length()<11){
-                    sb_phone.setError("Please Enter Valid Phone Number!");
-                }
-                else
-                    {
+//                Toast.makeText(getContext(),"phone "+phone,Toast.LENGTH_SHORT).show();
+//                if (phone.length()==0){
+//                    sb_phone.setError("Please Enter Your Phone Number!");
+//                }
+//                else if(phone.length()<11){
+//                    sb_phone.setError("Please Enter Valid Phone Number!");
+//                }
+//                else
+//                    {
                 b.putString("u_phone",phone);
-                tf.setArguments(b);
+                sf.setArguments(b);
+//                getFragmentManager().beginTransaction()
                 viewPager.setCurrentItem(1);
-                }
+//                }
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {

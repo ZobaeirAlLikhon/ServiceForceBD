@@ -81,67 +81,70 @@ public class Third_SlideFragment extends Fragment {
             public void onClick(View view) {
                 //Implements methods for data insertion and other things..
                 Bundle bundle = getArguments();
-                name = bundle.getString("u_name");
-                phone = bundle.getString("u_phone");
-                email = bundle.getString("u_email");
+                try {
+                    name = bundle.getString("u_name").toString();
+                    phone = bundle.getString("u_contact").toString();
+                    email = bundle.getString("u_email").toString();
+                } catch (Exception e) {
+
+                }
+
+                Toast.makeText(getContext(), name + " " + phone + " " + email, Toast.LENGTH_SHORT).show();
 
                 String password = pass.getText().toString();
                 String conpass = con_pass.getText().toString();
-                if (password.length()==0){
+                if (password.length() == 0) {
                     pass.setError("Please Enter Your Password!");
-                }
-                else if(conpass.length()==0){
+                } else if (conpass.length() == 0) {
                     con_pass.setError("Please Enter Your Password Again!");
-                }
-                else if (!conpass.equals(password)){
-                    Toast.makeText(getContext(),"Password Does not Match",Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-                    User user = new User(name, email, phone);
-                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users");
-                    final String pushId = userRef.push().getKey();
-                    user.setPushID(pushId);
-                    mAuth = FirebaseAuth.getInstance();
-                    mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                currentUser = mAuth.getCurrentUser();
-                                String userId = currentUser.getUid();
-                                user.setUserID(userId);
-                                userRef.child(userId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-                                            Toast.makeText(getContext(), "Successful!", Toast.LENGTH_SHORT).show();
-                                            FirebaseUser user = mAuth.getCurrentUser();
-                                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
-                                            user.updateProfile(profileUpdates);
-                                            HashMap<String, Object> cupon = new HashMap<>();
-                                            cupon.put("cupon_ID","SFBD-2020");
-                                            userRef.child(userId).updateChildren(cupon);
-                                            Intent intent = new Intent(getContext(), MainActivity.class);
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(intent);
-                                        }
-
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                            }
-                            else {
-                                if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                                    Toast.makeText(getContext(), "This Email have already an account!", Toast.LENGTH_SHORT).show();
-                                }
-
-                        }
-                        }
-                    });
+                } else if (!conpass.equals(password)) {
+                    Toast.makeText(getContext(), "Password Does not Match", Toast.LENGTH_SHORT).show();
+                } else {
+//
+//                    User user = new User(name, email, phone);
+//                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users");
+//                    final String pushId = userRef.push().getKey();
+//                    user.setPushID(pushId);
+//                    mAuth = FirebaseAuth.getInstance();
+//                    mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if (task.isSuccessful()){
+//                                currentUser = mAuth.getCurrentUser();
+//                                String userId = currentUser.getUid();
+//                                user.setUserID(userId);
+//                                userRef.child(userId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<Void> task) {
+//                                        if (task.isSuccessful()){
+//                                            Toast.makeText(getContext(), "Successful!", Toast.LENGTH_SHORT).show();
+//                                            FirebaseUser user = mAuth.getCurrentUser();
+//                                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
+//                                            user.updateProfile(profileUpdates);
+//                                            HashMap<String, Object> cupon = new HashMap<>();
+//                                            cupon.put("cupon_ID","SFBD-2020");
+//                                            userRef.child(userId).updateChildren(cupon);
+//                                            Intent intent = new Intent(getContext(), MainActivity.class);
+//                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                            startActivity(intent);
+//                                        }
+//
+//                                    }
+//                                }).addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull Exception e) {
+//                                        Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                            }
+//                            else {
+//                                if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+//                                    Toast.makeText(getContext(), "This Email have already an account!", Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                        }
+//                        }
+//                    });
 
 
                 }
@@ -149,6 +152,6 @@ public class Third_SlideFragment extends Fragment {
             }
         });
 
-        return view;
-    }
-}
+                    return view;
+                }
+            }
