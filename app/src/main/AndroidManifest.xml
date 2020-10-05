@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.PorfileInfo"></activity>
+        <activity android:name=".activity.About_sfbd"></activity>
+        <activity android:name=".activity.PorfileInfo" />
         <activity android:name=".activity.InilName" />
         <activity android:name=".activity.StoryBord_Screen" />
         <activity android:name=".activity.SubCatCart" />

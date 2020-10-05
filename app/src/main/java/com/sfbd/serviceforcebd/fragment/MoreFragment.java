@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.activity.About_sfbd;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
 import com.sfbd.serviceforcebd.activity.PorfileInfo;
 import com.sfbd.serviceforcebd.activity.ProUpdateInfo;
@@ -78,6 +79,13 @@ public class MoreFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(),"FeedBack",Toast.LENGTH_SHORT).show();
+            }
+        });
+        binding.about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, About_sfbd.class);
+                startActivity(intent);
             }
         });
         initLogout();
