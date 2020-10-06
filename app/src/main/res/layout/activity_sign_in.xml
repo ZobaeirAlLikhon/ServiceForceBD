@@ -38,14 +38,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login"
+                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/basic"
+                        android:text="Login"
                         android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/emailET"
@@ -55,6 +57,7 @@
                         android:background="@drawable/round_edit_tex"
                         android:drawableLeft="@drawable/email_vector"
                         android:drawablePadding="10dp"
+                        android:fontFamily="@font/amaranth"
                         android:hint="Enter Your Email"
                         android:inputType="textEmailAddress"
                         android:padding="10dp"
@@ -71,19 +74,22 @@
                         android:background="@drawable/round_edit_tex"
                         android:drawableLeft="@drawable/password_vector"
                         android:drawablePadding="10dp"
+                        android:fontFamily="@font/amaranth"
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="#4d4e5b"
                         android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/forget_pass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Forget Password"
                         android:layout_gravity="end"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/amaranth"
+                        android:text="Forget Password"
                         android:textColor="#4CAF50" />
 
                     <androidx.cardview.widget.CardView
@@ -102,6 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/amaranth"
                             android:padding="10dp"
                             android:text="Sign In"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -117,21 +124,25 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_gravity="center">
+
                         <TextView
                             android:id="@+id/btn_sign_tx"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/amaranth"
                             android:onClick="changeAct"
                             android:text="Not a Member ?"
                             android:textSize="18sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sign Up."
-                            android:textSize="18sp"
-                            android:textColor="@color/colorPrimary"
                             android:layout_marginLeft="5dp"
-                            android:onClick="startSignUpActivity"/>
+                            android:fontFamily="@font/amaranth"
+                            android:onClick="startSignUpActivity"
+                            android:text="Sign Up."
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
