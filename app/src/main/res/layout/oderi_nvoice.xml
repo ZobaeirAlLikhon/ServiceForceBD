@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -8,87 +9,93 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        tools:layout_editor_absoluteX="-116dp"
+        tools:layout_editor_absoluteY="182dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="8dp"
                 android:text="Customer Order"
                 android:textColor="#008060"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:paddingTop="8dp"/>
+                android:textSize="30sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Your Oder is placed"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textColor="#008060"/>
+                android:textColor="#008060"
+                android:textSize="15sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-----------------------------------------------------------------------------------------"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="-----------------------------------------------------------------------------------------" />
 
             <LinearLayout
                 android:id="@+id/personal_Information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/n_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Name: Zobir Al Likhon"
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    />
+                    android:text="Name: Zobir Al Likhon"
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/e_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email: Zobir Al Likhon"
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Email: Zobir Al Likhon"
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/p_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone: Zobir Al Likhon"
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Phone: Zobir Al Likhon"
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/a_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Address: Zobir Al Likhon"
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Address: Zobir Al Likhon"
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/o_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Oder id: SFBD_123456"
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Oder id: SFBD_123456"
+                    android:textSize="15sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-----------------------------------------------------------------------------------------"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:text="-----------------------------------------------------------------------------------------" />
             </LinearLayout>
 
             <LinearLayout
@@ -97,44 +104,49 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="15dp">
+
                 <TextView
                     android:id="@+id/s_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Service Name: "
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    />
+                    android:text="Service Name: "
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/q_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Quatity: "
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Quatity: "
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/pri_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Price: "
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Price: "
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/pay_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Payment: "
                     android:paddingLeft="25dp"
-                    android:textSize="15sp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                    android:text="Payment: "
+                    android:textSize="15sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-----------------------------------------------------------------------------------------"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:text="-----------------------------------------------------------------------------------------" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/time_information"
                 android:layout_width="match_parent"
@@ -142,28 +154,27 @@
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingRight="25dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="10dp">
+
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Date of Purchase"
-                        android:textSize="10sp"/>
+                        android:textSize="10sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="        10-Oct-2020"
                         android:gravity="center"
                         android:paddingRight="30dp"
-                        />
+                        android:text="        10-Oct-2020" />
 
                 </LinearLayout>
-
-
-
 
 
             </LinearLayout>

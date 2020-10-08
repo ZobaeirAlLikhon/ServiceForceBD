@@ -62,7 +62,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="1dp"
                         android:padding="8dp"
-                        android:src="@drawable/ccc" />
+                        android:src="@drawable/new_cart" />
 
                     <TextView
                         android:id="@+id/countTV"

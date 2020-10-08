@@ -254,6 +254,13 @@
         <item>Training Course IT</item>
         <item>Internship</item>
     </string-array>
+    <string-array name="Birthday">
+        <item>test case 1</item>
+        <item>test case 1</item>
+        <item>test case 1</item>
+        <item>test case 1</item>
+        <item>test case 1</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
