@@ -151,7 +151,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             }
             else {
                 //Toast.makeText(context,holder.binding.itemTV.getText().toString(),Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context, ServicesActivity.class);
+            Intent intent = new Intent(context, SubCatagoryDetails.class);
             intent.putExtra("service_name",service);
             intent.putExtra("category",serviceList[position]);
 
