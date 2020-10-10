@@ -208,7 +208,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="2dp"
-                        android:background="#6D8398"
+                        android:background="@color/primaryColor"
                         android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="Product Summary"
@@ -269,15 +269,14 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cuponCode"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardCornerRadius="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/nOp">
+                app:layout_constraintTop_toBottomOf="@+id/nOp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -286,23 +285,24 @@
 
                     <EditText
                         android:id="@+id/voucher"
-                        android:layout_width="250dp"
+                        android:layout_width="240dp"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/amaranth"
                         android:hint="Enter Voucher Code"
-                        android:paddingLeft="5dp" />
+                        android:padding="5dp"/>
 
                     <Button
                         android:id="@+id/btn_apply"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:backgroundTint="#6D8398"
                         android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="Apply"
                         android:textAllCaps="false"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:padding="5dp"
+                        android:background="@color/primaryColor"/>
 
                 </LinearLayout>
 
@@ -359,7 +359,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="#6D8398"
+                app:cardBackgroundColor="@color/primaryColor"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
