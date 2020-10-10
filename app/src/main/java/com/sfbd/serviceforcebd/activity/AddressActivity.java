@@ -49,6 +49,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -98,7 +99,20 @@ public class AddressActivity extends AppCompatActivity {
         binding.nOp.setText("Quantity: "+noOfItem);
         tottalP=binding.tottalPrice;
         tottalP.setText("Tottal Price: "+productPrice+"TK");
+dbToken.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snapshot) {
+        if(!snapshot.child("cupon_ID").exists())
+        {
+            tk=productPrice;
+        }
+    }
 
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
+
+    }
+});
         binding.btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +120,7 @@ public class AddressActivity extends AppCompatActivity {
                 dbToken.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                         if(snapshot.child("cupon_ID").exists()){
                             voucer=binding.voucher.getText().toString();
 //                            Toast.makeText(AddressActivity.this,voucer,Toast.LENGTH_LONG).show();
@@ -268,7 +283,9 @@ public class AddressActivity extends AppCompatActivity {
         String pprice=bundle.getString("price");
         String nop=bundle.getString("noOfItem");
         String ini=bundle.getString("ini");
-
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MMM.yyyy");
+        String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()).toString();
+        String currentDate = sdf.format(new Date());
 
 
         String date = binding.dateET.getEditText().getText().toString();
@@ -278,7 +295,7 @@ public class AddressActivity extends AppCompatActivity {
 
 
 
-            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,tk,nop);
+            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,tk,nop,currentDate,currentTime);
             String pushId = orderRef.push().getKey();
             order.setOrderId(pushId);
             orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
@@ -300,16 +317,18 @@ public class AddressActivity extends AppCompatActivity {
                                 }
                             });
                             Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(this,Customer_Order.class));
-                            Intent intent=new Intent(AddressActivity.this,Customer_Order.class);
+                            Intent intent=new Intent(AddressActivity.this,OrderDetails.class);
                             intent.putExtra("address",address);
-                            intent.putExtra("contact",address);
-                            intent.putExtra("name",address);
+                            intent.putExtra("contact",contact);
+                            intent.putExtra("name",name);
                             intent.putExtra("deliver_Date",date);
                             intent.putExtra("deliver_Time",time);
                             intent.putExtra("price",pprice);
+                            intent.putExtra("pname",pname);
                             intent.putExtra("quantity",nop);
                             intent.putExtra("orderId",pushId);
+                            intent.putExtra("currentTime",currentTime);
+                            intent.putExtra("currentDate",currentDate);
                             startActivity(intent);
 
                             finish();

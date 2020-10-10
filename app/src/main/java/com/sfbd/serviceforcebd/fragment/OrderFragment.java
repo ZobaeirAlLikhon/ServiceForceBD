@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
+import com.sfbd.serviceforcebd.activity.OrderDetails;
 import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
 import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.model.Order;
@@ -131,11 +132,39 @@ public class OrderFragment extends Fragment {
                             linearLayout.setVisibility(View.INVISIBLE);
                             notFoundAnimationV.setVisibility(View.INVISIBLE);
                             t.setVisibility(View.INVISIBLE);
-
+                            String cT,cD;
                             holder.product_name.setText(dataSnapshot.child(userId).child("orderItem").getValue().toString());
                             holder.order_date.setText(dataSnapshot.child(userId).child("orderDate").getValue().toString());
                             holder.product_status.setText("Product Status");
                             holder.order_place.setText("Order " + dataSnapshot.child(userId).child("placed").getValue().toString());
+                            if(!dataSnapshot.child(userId).child("curreDate").exists()&&!dataSnapshot.child(userId).child("curreTime").exists())
+                            {
+                                cT="null";
+                                cD="null";
+                            }
+                            else {
+                                cT=dataSnapshot.child(userId).child("curreTime").getValue().toString();
+                                cD=dataSnapshot.child(userId).child("curreDate").getValue().toString();
+                            }
+                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent=new Intent(getContext(), OrderDetails.class);
+                                    intent.putExtra("name",dataSnapshot.child(userId).child("userName").getValue().toString());
+                                    intent.putExtra("address",dataSnapshot.child(userId).child("userAddress").getValue().toString());
+                                    intent.putExtra("contact",dataSnapshot.child(userId).child("userContact").getValue().toString());
+                                    intent.putExtra("deliver_Date",dataSnapshot.child(userId).child("orderDate").getValue().toString());
+                                    intent.putExtra("deliver_Time",dataSnapshot.child(userId).child("orderTime").getValue().toString());
+                                    intent.putExtra("price",dataSnapshot.child(userId).child("productPrice").getValue().toString());
+                                    intent.putExtra("quantity",dataSnapshot.child(userId).child("noOfProduct").getValue().toString());
+                                    intent.putExtra("orderId",dataSnapshot.child(userId).child("orderId").getValue().toString());
+                                    intent.putExtra("pname",dataSnapshot.child(userId).child("productName").getValue().toString());
+                                    intent.putExtra("currentDate",cD);
+                                    intent.putExtra("currentTime",cT);
+                                    startActivity(intent);
+//                                    Toast.makeText(getContext(),holder.product_name.getText().toString(),Toast.LENGTH_SHORT).show();
+                                }
+                            });
                             progressDialog.dismiss();
 
 

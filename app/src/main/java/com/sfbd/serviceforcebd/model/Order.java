@@ -11,18 +11,37 @@ public class Order {
     private String orderItem;
     private String orderDate;
     private String orderTime;
-    private String orderId;
     private String isPlaced;
-    private String timeStamp;
     private String productName;
     private String productPrice;
     private String noOfProduct;
+    private String curreDate;
+    private String curreTime;
+    private String orderId;
+
+    private String timeStamp;
+
     private List<CartModel> productlist;
 
 
     public Order() {
     }
 
+    public Order(String userId, String userName, String userAddress, String userContact, String orderItem, String orderDate, String orderTime, String isPlaced, String productName, String productPrice, String noOfProduct, String curreDate, String curreTime) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userAddress = userAddress;
+        this.userContact = userContact;
+        this.orderItem = orderItem;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.isPlaced = isPlaced;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.noOfProduct = noOfProduct;
+        this.curreDate = curreDate;
+        this.curreTime = curreTime;
+    }
 
     public Order(String userId, String userName, String userAddress, String userContact, String orderItem,
                  String orderDate, String orderTime, String isPlaced, String productName, String productPrice, String noOfProduct)
@@ -82,6 +101,22 @@ public class Order {
         this.productPrice = productPrice;
         this.noOfProduct = noOfProduct;
         this.productlist = productlist;
+    }
+
+    public String getCurreDate() {
+        return curreDate;
+    }
+
+    public void setCurreDate(String curreDate) {
+        this.curreDate = curreDate;
+    }
+
+    public String getCurreTime() {
+        return curreTime;
+    }
+
+    public void setCurreTime(String curreTime) {
+        this.curreTime = curreTime;
     }
 
     public String getIsPlaced() {
