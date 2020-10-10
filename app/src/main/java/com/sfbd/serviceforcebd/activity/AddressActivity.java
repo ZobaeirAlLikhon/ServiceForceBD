@@ -462,7 +462,7 @@ dbToken.addValueEventListener(new ValueEventListener() {
         int minute = mcurrentTime.get(Calendar.MINUTE);
         int s = mcurrentTime.get(Calendar.AM_PM);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(AddressActivity.this,android.R.style.Theme_Holo_Light_Dialog_NoActionBar,new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(AddressActivity.this,android.R.style.Theme_Holo_Light_Dialog,new TimePickerDialog.OnTimeSetListener() {
             @Override
            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute){
 
