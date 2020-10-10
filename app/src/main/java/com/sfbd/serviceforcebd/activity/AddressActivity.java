@@ -300,7 +300,17 @@ public class AddressActivity extends AppCompatActivity {
                                 }
                             });
                             Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(this,MainActivity.class));
+//                            startActivity(new Intent(this,Customer_Order.class));
+                            Intent intent=new Intent(AddressActivity.this,Customer_Order.class);
+                            intent.putExtra("address",address);
+                            intent.putExtra("contact",address);
+                            intent.putExtra("name",address);
+                            intent.putExtra("deliver_Date",date);
+                            intent.putExtra("deliver_Time",time);
+                            intent.putExtra("price",pprice);
+                            intent.putExtra("quantity",nop);
+                            intent.putExtra("orderId",pushId);
+                            startActivity(intent);
 
                             finish();
                             binding.progressBarId.setVisibility(View.GONE);

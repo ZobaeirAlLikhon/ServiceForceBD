@@ -9,10 +9,26 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="10dp"
-        tools:layout_editor_absoluteX="-116dp"
-        tools:layout_editor_absoluteY="182dp">
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#FBFBFB"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="189dp">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <TextView
+        android:gravity="center"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:background="@drawable/bash_shape"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,163 +40,296 @@
                 android:gravity="center"
                 android:paddingTop="8dp"
                 android:text="Customer Order"
-                android:textColor="#008060"
-                android:textSize="30sp" />
+                android:textColor="@color/nevi_blue"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Your Oder is placed"
-                android:textColor="#008060"
+                android:textColor="@color/nevi_blue"
                 android:textSize="15sp" />
 
-            <TextView
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="-----------------------------------------------------------------------------------------" />
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/viewColor" />
 
             <LinearLayout
                 android:id="@+id/personal_Information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/n_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
                     android:text="Name: Zobir Al Likhon"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/e_TV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
-                    android:text="Email: Zobir Al Likhon"
-                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/p_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
                     android:text="Phone: Zobir Al Likhon"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/a_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
                     android:text="Address: Zobir Al Likhon"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/o_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
                     android:text="Oder id: SFBD_123456"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
-                <TextView
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="-----------------------------------------------------------------------------------------" />
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/viewColor" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/service_Information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="15dp">
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/s_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:text="Service Name: "
+                    android:text="Service Name:Car Bike Wash"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/q_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
-                    android:text="Quatity: "
+                    android:text="Quatity:1"
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/pri_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
-                    android:text="Price: "
+                    android:text="Price:10000$ "
+                    android:textColor="@color/nevi_blue"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/pay_TV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="10dp"
-                    android:text="Payment: "
-                    android:textSize="15sp" />
+                    android:text="Payment:Cash On delivary"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="-----------------------------------------------------------------------------------------" />
+
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/time_information"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/viewColor" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/date_information"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="10dp"
-                android:paddingRight="25dp">
+                android:gravity="center"
+                >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date of Purchase"
-                        android:textSize="10sp" />
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:ignore="MissingConstraints">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="30dp"
+                        android:elevation="2dp"
+                        app:cardCornerRadius="15dp">
+
+                        <TextView
+                            android:textColor="#02177E"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Date of purchase"
+                            android:textSize="15sp" />
+
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:textColor="@color/nevi_blue"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:paddingRight="30dp"
-                        android:text="        10-Oct-2020" />
+                        android:text="10-Oct-2020" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="30dp"
+                        android:elevation="2dp"
+                        app:cardCornerRadius="15dp">
+
+                        <TextView
+                            android:textColor="#02177E"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Date of purchase"
+                            android:textSize="15sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:textColor="@color/nevi_blue"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="10-Oct-2020" />
 
                 </LinearLayout>
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/time_information"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:ignore="MissingConstraints">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="30dp"
+                        android:elevation="2dp"
+                        app:cardCornerRadius="15dp">
+
+                        <TextView
+                            android:textColor="#02177E"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Time of purchase"
+                            android:textSize="15sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:textColor="@color/nevi_blue"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="10-Oct-2020" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="30dp"
+                        android:elevation="2dp"
+                        app:cardCornerRadius="15dp">
+
+                        <TextView
+                            android:textColor="#02177E"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Time of purchase"
+                            android:textSize="15sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:textColor="@color/nevi_blue"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="10-Oct-2020" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
