@@ -217,12 +217,12 @@
     </integer-array>
 
     <string-array name="event_management">
-        <item>Wedding Managment</item>
+        <item>Wedding Management</item>
         <item>Birthday</item>
         <item>Marriage Day</item>
         <item>Political Function</item>
         <item>Social Function</item>
-        <item>Get together</item>
+        <item>Get Together</item>
         <item>Photography</item>
         <item>Interior Decoration</item>
         <item>Painting</item>
@@ -254,6 +254,8 @@
         <item>Training Course IT</item>
         <item>Internship</item>
     </string-array>
+
+    <!-- test string for Event Management -->
     <string-array name="Birthday">
         <item>test case B1</item>
         <item>test case B2</item>
@@ -262,15 +264,63 @@
         <item>test case B4</item>
     </string-array>
 
-    <!-- test string for birthday -->
 
-    <string-array name="Wedding">
+    <string-array name="Wedding_Management">
         <item>test case W1</item>
         <item>test case W2</item>
         <item>test case W3</item>
         <item>test case W3</item>
         <item>test case W4</item>
     </string-array>
+
+    <string-array name="Marriage_Day">
+        <item>test case M1</item>
+        <item>test case M2</item>
+        <item>test case M3</item>
+        <item>test case M3</item>
+        <item>test case M4</item>
+    </string-array>
+
+    <string-array name="Social_Function">
+        <item>test case SF1</item>
+        <item>test case SF2</item>
+        <item>test case SF3</item>
+        <item>test case SF3</item>
+        <item>test case SF4</item>
+    </string-array>
+
+    <string-array name="Get_together">
+        <item>test case GT1</item>
+        <item>test case GT2</item>
+        <item>test case GT3</item>
+        <item>test case GT3</item>
+        <item>test case GT4</item>
+    </string-array>
+    <string-array name="Photography">
+        <item>test case P1</item>
+        <item>test case P2</item>
+        <item>test case P3</item>
+        <item>test case P3</item>
+        <item>test case P4</item>
+    </string-array>
+
+    <string-array name="Interior_Decoration">
+        <item>test case ID1</item>
+        <item>test case ID2</item>
+        <item>test case ID3</item>
+        <item>test case ID3</item>
+        <item>test case ID4</item>
+    </string-array>
+
+    <string-array name="Painting">
+        <item>test case Paint1</item>
+        <item>test case Paint2</item>
+        <item>test case Paint3</item>
+        <item>test case Paint3</item>
+        <item>test case Paint4</item>
+    </string-array>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

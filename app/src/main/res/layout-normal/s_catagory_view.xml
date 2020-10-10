@@ -41,7 +41,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/proNameCV"
                     android:layout_width="wrap_content"
-                    android:layout_height="30sp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
@@ -61,6 +61,7 @@
                         android:textAppearance="@style/monospaceSmallText"
                         android:textColor="#006F77"
                         android:textSize="20dp"
+                        android:padding="6dp"
                         android:textStyle="bold" />
 
 

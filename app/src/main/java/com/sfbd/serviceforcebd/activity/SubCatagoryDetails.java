@@ -72,6 +72,8 @@ public class SubCatagoryDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_catagory_details);
 
+
+
         //Progress dialoge
         progressDialog=new ProgressDialog(SubCatagoryDetails.this);
         progressDialog.show();

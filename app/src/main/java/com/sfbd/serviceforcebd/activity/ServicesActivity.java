@@ -103,6 +103,36 @@ public class ServicesActivity extends AppCompatActivity {
                     initRecyclerView();
 
             }
+            else if (service.equals("Marriage Day")){
+                serviceList = getResources().getStringArray(R.array.Marriage_Day);
+                initRecyclerView();
+            }
+            else if (service.equals("Wedding Management")){
+                serviceList = getResources().getStringArray(R.array.Wedding_Management);
+                initRecyclerView();
+            }
+            else if (service.equals("Social Function")){
+                serviceList = getResources().getStringArray(R.array.Social_Function);
+                initRecyclerView();
+            }
+            else if ((service.equals("Get Together"))){
+                serviceList = getResources().getStringArray(R.array.Get_together);
+                initRecyclerView();
+            }
+            else if (service.equals("Photography")){
+                serviceList = getResources().getStringArray(R.array.Photography);
+                initRecyclerView();
+            }
+            else if (service.equals("Interior Decoration")){
+                serviceList = getResources().getStringArray(R.array.Interior_Decoration);
+                initRecyclerView();
+            }
+            else if (service.equals("Painting")){
+                serviceList = getResources().getStringArray(R.array.Painting);
+                initRecyclerView();
+            }
+
+
         }
 
 
