@@ -40,10 +40,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/backBtn"
+                    android:layout_toRightOf="@+id/backBtn"
+                    android:fontFamily="@font/amaranth"
                     android:gravity="center_vertical"
                     android:text="Booking Information"
-                    android:textAppearance="@style/monospaceMediumBoldWhiteText"
-                    android:layout_toRightOf="@+id/backBtn" />
+                    android:textAppearance="@style/monospaceMediumBoldWhiteText" />
 
             </RelativeLayout>
 
@@ -71,53 +72,66 @@
                 app:lottie_loop="true"
                 tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addressET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressET"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperText="You can change your address!"
+            app:hintTextColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:helperText="You can change your address!"
-                app:hintTextColor="@color/colorPrimary">
+                android:hint="Address"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapWords|textMultiLine"
+                tools:ignore="Autofill"
+                android:fontFamily="@font/amaranth"/>
 
-                <EditText
+        </com.google.android.material.textfield.TextInputLayout>
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Address"
-                    android:imeOptions="actionNext"
-                    android:inputType="text|textCapWords|textMultiLine"
-                    tools:ignore="Autofill" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/contactET"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperText="You can change contact number!"
+            app:hintTextColor="@color/colorPrimary">
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/contactET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:helperText="You can change contact number!"
-                app:hintTextColor="@color/colorPrimary">
+                android:hint="Contact"
+                android:imeOptions="actionNext"
+                android:inputType="text|phone"
+                android:maxLines="1"
+                tools:ignore="Autofill"
+                android:fontFamily="@font/amaranth"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contact"
-                    android:imeOptions="actionNext"
-                    android:inputType="text|phone"
-                    android:maxLines="1"
-                    tools:ignore="Autofill" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -140,7 +154,8 @@
                     android:hint="dd/mm/yyyy"
                     android:imeOptions="actionNext"
                     android:inputType="date"
-                    tools:ignore="Autofill" />
+                    tools:ignore="Autofill"
+                    android:fontFamily="@font/amaranth"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -167,73 +182,89 @@
                     android:inputType="time|text"
                     android:maxLines="1"
                     android:timePickerMode="spinner"
-                    tools:ignore="Autofill" />
+                    tools:ignore="Autofill"
+                    android:fontFamily="@font/amaranth"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
-            <TextView
+</androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="2dp"
-                android:background="#6D8398"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="Product Summary"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp" />
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/pName"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="start|center"
-                android:maxLines="10"
-                android:paddingLeft="10dp"
-                android:text="Product Name"
-                android:textColor="#f123"
-                android:textSize="16dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="#6D8398"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="Product Summary"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/nOp"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="start|center"
-                android:paddingLeft="10dp"
-                android:text="No Of Product"
-                android:textColor="#f123"
-                android:textSize="16dp"
+                    <TextView
+                        android:id="@+id/pName"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:maxLines="10"
+                        android:paddingLeft="10dp"
+                        android:text="Product Name"
+                        android:textColor="#f123"
+                        android:textSize="16dp" />
 
-                />
+                    <TextView
+                        android:id="@+id/nOp"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:paddingLeft="10dp"
+                        android:text="No Of Product"
+                        android:textColor="#f123"
 
-            <TextView
-                android:id="@+id/pprice"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="start|center"
-                android:paddingLeft="10dp"
-                android:text="Price"
-                android:textColor="#f123"
-                android:textSize="16dp"
+                        android:textSize="16dp" />
 
-                />
+                    <TextView
+                        android:id="@+id/pprice"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:paddingLeft="10dp"
+                        android:text="Price"
+                        android:textColor="#f123"
+
+                        android:textSize="16dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cuponCode"
@@ -257,6 +288,7 @@
                         android:id="@+id/voucher"
                         android:layout_width="250dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/amaranth"
                         android:hint="Enter Voucher Code"
                         android:paddingLeft="5dp" />
 
@@ -266,6 +298,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:backgroundTint="#6D8398"
+                        android:fontFamily="@font/amaranth"
                         android:gravity="center"
                         android:text="Apply"
                         android:textAllCaps="false"
@@ -292,6 +325,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/amaranth"
                     android:gravity="start|center"
                     android:paddingLeft="10dp"
                     android:text="Tottal Price: "
@@ -306,12 +340,14 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/amaranth"
                     android:gravity="end|center"
                     android:text="0% off"
                     android:textColor="#f123"
                     android:textSize="16dp" />
             </LinearLayout>
-
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/orderBtn"
                 android:layout_width="match_parent"
@@ -327,12 +363,14 @@
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuponCode">
+                app:layout_constraintTop_toBottomOf="@+id/cuponCode"
+                app:cardElevation="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/amaranth"
                     android:padding="8dp"
                     android:text="Order"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"

@@ -126,7 +126,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 intent.putExtra("category", serviceList[position]);
                 context.startActivity(intent);
             }
-            // todo modified code to generate managment sub catagory..
+            // new sub catagory view for event management
 
             else if (serviceList[position].equals("Birthday") || serviceList[position].equals("Wedding Management")
                     || serviceList[position].equals("Marriage Day") || serviceList[position].equals("Social Function")
