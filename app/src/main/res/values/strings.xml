@@ -255,11 +255,21 @@
         <item>Internship</item>
     </string-array>
     <string-array name="Birthday">
-        <item>test case 1</item>
-        <item>test case 1</item>
-        <item>test case 1</item>
-        <item>test case 1</item>
-        <item>test case 1</item>
+        <item>test case B1</item>
+        <item>test case B2</item>
+        <item>test case B3</item>
+        <item>test case B3</item>
+        <item>test case B4</item>
+    </string-array>
+
+    <!-- test string for birthday -->
+
+    <string-array name="Wedding">
+        <item>test case W1</item>
+        <item>test case W2</item>
+        <item>test case W3</item>
+        <item>test case W3</item>
+        <item>test case W4</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

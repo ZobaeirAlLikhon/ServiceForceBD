@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MedicalHealthDetails;
+import com.sfbd.serviceforcebd.activity.ServicesActivity;
 import com.sfbd.serviceforcebd.activity.Silk;
 import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
 import com.sfbd.serviceforcebd.databinding.RvServiceItemBinding;
@@ -33,6 +34,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     DatabaseReference dbre;
+    String myString;
 
 
 
@@ -137,11 +139,21 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 intent.putExtra("category",serviceList[position]);
                 context.startActivity(intent);
             }
+            // todo modified code to generate managment sub catagory..
+
+            else if (serviceList[position].equals("Birthday")){
+                myString = holder.binding.itemTV.getText().toString();
+                Intent intent = new Intent(context, ServicesActivity.class);
+                intent.putExtra("service",myString);
+                context.startActivity(intent);
+
+
+            }
             else {
+                //Toast.makeText(context,holder.binding.itemTV.getText().toString(),Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(context, SubCatagoryDetails.class);
             intent.putExtra("service_name",service);
             intent.putExtra("category",serviceList[position]);
-
 
             context.startActivity(intent);}
         });
