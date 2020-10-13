@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/toolbar"
         android:layout_above="@+id/recyclerView"
-        android:background="@color/colorAccent"
+        android:background="@color/primaryColor"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,9 +31,7 @@
                 android:id="@+id/backBtn"
                 android:layout_width="32dp"
                 android:layout_height="match_parent"
-
-
-                android:src="@drawable/left_arrow" />
+                android:src="@drawable/ic_arrow_back_black_24dp" />
 
             <TextView
                 android:layout_marginLeft="15dp"

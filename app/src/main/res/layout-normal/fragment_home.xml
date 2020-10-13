@@ -66,8 +66,8 @@
             <com.synnapps.carouselview.CarouselView
                 android:id="@+id/carouselView"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginTop="6dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="2dp"
                 android:padding="10dp"
                 app:fillColor="#FFFFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"

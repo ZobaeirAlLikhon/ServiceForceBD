@@ -131,6 +131,12 @@ public class ServicesActivity extends AppCompatActivity {
                 serviceList = getResources().getStringArray(R.array.Painting);
                 initRecyclerView();
             }
+            //todo modified code to generate subcatagory.to MediCAL
+            else if (service.equals("Serial for a Doctor")){
+                serviceList=getResources().getStringArray(R.array.serial_for_a_Doctor);
+                initRecyclerView();
+            }
+
 
 
         }

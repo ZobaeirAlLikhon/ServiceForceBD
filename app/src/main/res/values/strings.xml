@@ -263,8 +263,6 @@
         <item>test case B3</item>
         <item>test case B4</item>
     </string-array>
-
-
     <string-array name="Wedding_Management">
         <item>test case W1</item>
         <item>test case W2</item>
@@ -319,6 +317,12 @@
         <item>test case Paint3</item>
         <item>test case Paint4</item>
     </string-array>
+
+    <!--Medical starts-->
+    <string-array name="serial_for_a_Doctor">
+        <item>Heart</item>
+    </string-array>
+
 
 
 

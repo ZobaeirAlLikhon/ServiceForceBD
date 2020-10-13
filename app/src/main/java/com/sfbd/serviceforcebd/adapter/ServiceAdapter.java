@@ -119,7 +119,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 context.startActivity(intent);
 
             } else if (serviceList[position].equals("Consult with a Doctor") || serviceList[position].equals("Psychiatrist/mental health")
-                    || serviceList[position].equals("Pathology test") || serviceList[position].equals("Serial for a Doctor")
+                    || serviceList[position].equals("Pathology test")   ||(serviceList[position].equals("Serial for a Doctor"))
                     || serviceList[position].equals("Medicine Home Delivery") || serviceList[position].equals("Emergency Service")) {
                 Intent intent = new Intent(context, MedicalHealthDetails.class);
                 intent.putExtra("service_name", service);
@@ -136,9 +136,15 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 myString = holder.binding.itemTV.getText().toString();
                 Intent intent = new Intent(context, ServicesActivity.class);
                 intent.putExtra("service", myString);
+
                 context.startActivity(intent);
 
-            } else {
+            }
+
+
+
+
+            else {
                 //Toast.makeText(context,holder.binding.itemTV.getText().toString(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SubCatagoryDetails.class);
                 intent.putExtra("service_name", service);
@@ -146,6 +152,11 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
                 context.startActivity(intent);
             }
+
+
+
+
+
         });
     }
 
