@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.adapter.SerialD;
 import com.sfbd.serviceforcebd.adapter.ServiceAdapter;
 import com.sfbd.serviceforcebd.databinding.ActivityServicesBinding;
 
@@ -104,7 +105,7 @@ public class ServicesActivity extends AppCompatActivity {
             //todo modified code to generate subcatagory...
             else if (service.equals("Birthday")){
                     serviceList = getResources().getStringArray(R.array.Birthday);
-                    initRecyclerView();
+
 
             }
             else if (service.equals("Marriage Day")){
@@ -154,10 +155,10 @@ public class ServicesActivity extends AppCompatActivity {
             binding.recyclerView.setAdapter(adapter);
     }
     private void initRecyclerViewImg() {
-            adapter = new ServiceAdapter(this, serviceList,service,img);
-            binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            binding.recyclerView.setAdapter(adapter);
-    }
+        adapter = new ServiceAdapter(this, serviceList,service,img);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setAdapter(adapter);
+        }
 
     //method to populate event managment sub catagory
 }
