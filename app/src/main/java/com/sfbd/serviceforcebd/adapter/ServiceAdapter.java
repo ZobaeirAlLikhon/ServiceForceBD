@@ -2,6 +2,7 @@ package com.sfbd.serviceforcebd.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     private FirebaseUser currentUser;
     DatabaseReference dbre;
     String myString;
+    private TypedArray img;
 
 
     public ServiceAdapter(Context context, String[] serviceList, String service) {
@@ -43,6 +45,12 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         this.service = service;
     }
 
+    public ServiceAdapter(Context context, String[] serviceList, String service, TypedArray img) {
+        this.context = context;
+        this.serviceList = serviceList;
+        this.service = service;
+        this.img = img;
+    }
 
     @NonNull
     @Override
@@ -54,6 +62,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.itemTV.setText(serviceList[position]);
+        holder.binding.iconeIV.setImageResource(img.getResourceId(position,1));
         dbre = FirebaseDatabase.getInstance().getReference().child("Likes").child(serviceList[position]);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -172,6 +181,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         public ViewHolder(@NonNull RvServiceItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+
         }
     }
 }

@@ -127,6 +127,21 @@
         <item>Garden Cleaning</item>
         <item>Window Cleaning</item>
     </string-array>
+    <integer-array name="cleaning_servicesIMG">
+        <item>@drawable/sofa_cleaning</item>
+        <item>@drawable/deep_home_cleaning</item>
+        <item>@drawable/home_cleaning</item>
+        <item>@drawable/office_cleanning</item>
+        <item>@drawable/pest_control</item>
+        <item>@drawable/mattress_cleaning</item>
+        <item>@drawable/sofa_cleaning</item>
+        <item>@drawable/deep_home_cleaning</item>
+        <item>@drawable/home_cleaning</item>
+        <item>@drawable/office_cleanning</item>
+        <item>@drawable/pest_control</item>
+        <item>@drawable/mattress_cleaning</item>
+        <item>@drawable/mattress_cleaning</item>
+    </integer-array>
 
     <string-array name="appliance_repair_services">
         <item>Ac Repair Services</item>

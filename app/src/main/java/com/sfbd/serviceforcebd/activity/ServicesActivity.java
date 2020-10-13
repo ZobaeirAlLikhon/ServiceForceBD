@@ -16,6 +16,7 @@ public class ServicesActivity extends AppCompatActivity {
 
     private ActivityServicesBinding binding;
     private String[] serviceList;
+    private TypedArray img;
     private ServiceAdapter adapter;
     private String service;
     private int[] imgs;
@@ -41,8 +42,10 @@ public class ServicesActivity extends AppCompatActivity {
             assert service != null;
             if (service.equals("Cleaning")) {
                 serviceList = getResources().getStringArray(R.array.cleaning_services);
-                Log.d(TAG, "onCreate: serviceList "+serviceList.length);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.cleaning_servicesIMG);
+
+//                Log.d(TAG, "onCreate: serviceList "+serviceList.length);
+                initRecyclerViewImg();
 
             }else if(service.equals("Appliance")){
                 serviceList = getResources().getStringArray(R.array.appliance_repair_services);
@@ -146,6 +149,11 @@ public class ServicesActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
             adapter = new ServiceAdapter(this, serviceList,service);
+            binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            binding.recyclerView.setAdapter(adapter);
+    }
+    private void initRecyclerViewImg() {
+            adapter = new ServiceAdapter(this, serviceList,service,img);
             binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
             binding.recyclerView.setAdapter(adapter);
     }
