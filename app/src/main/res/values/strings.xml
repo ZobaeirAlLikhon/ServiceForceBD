@@ -140,7 +140,8 @@
         <item>@drawable/office_cleanning</item>
         <item>@drawable/pest_control</item>
         <item>@drawable/mattress_cleaning</item>
-        <item>@drawable/mattress_cleaning</item>
+
+        <item>@drawable/sofa_cleaning</item>akash
     </integer-array>
 
     <string-array name="appliance_repair_services">

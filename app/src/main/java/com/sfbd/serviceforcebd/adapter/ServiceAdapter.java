@@ -62,7 +62,14 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.itemTV.setText(serviceList[position]);
-        holder.binding.iconeIV.setImageResource(img.getResourceId(position,1));
+        try
+        {
+            holder.binding.iconeIV.setImageResource(img.getResourceId(position,1));
+        }
+        catch (Exception e)
+        {}
+
+
         dbre = FirebaseDatabase.getInstance().getReference().child("Likes").child(serviceList[position]);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
