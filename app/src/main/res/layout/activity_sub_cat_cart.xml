@@ -40,6 +40,7 @@
                 android:layout_toEndOf="@+id/backBtncart"
                 android:gravity="center_vertical"
                 android:text="Booking Information"
+                android:fontFamily="@font/amaranth"
                 android:textAppearance="@style/monospaceMediumBoldWhiteText"
                 android:layout_toRightOf="@+id/backBtnPro" />
 

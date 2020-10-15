@@ -104,9 +104,8 @@ public class ServicesActivity extends AppCompatActivity {
             }
             //todo modified code to generate subcatagory...
             else if (service.equals("Birthday")){
-                    serviceList = getResources().getStringArray(R.array.Birthday);
-
-
+                serviceList = getResources().getStringArray(R.array.Birthday);
+                initRecyclerView();
             }
             else if (service.equals("Marriage Day")){
                 serviceList = getResources().getStringArray(R.array.Marriage_Day);

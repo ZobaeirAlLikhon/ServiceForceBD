@@ -38,7 +38,8 @@
             android:layout_height="100dp"
             android:inputType="textMultiLine"
             android:maxLines="10"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill"
+            android:fontFamily="@font/amaranth"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

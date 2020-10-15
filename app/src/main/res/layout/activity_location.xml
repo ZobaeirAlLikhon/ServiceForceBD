@@ -35,8 +35,9 @@
                 android:textAppearance="@style/monospaceMediumBoldWhiteText"
                 tools:text="@string/app_name"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/amaranth"
                 android:layout_toEndOf="@+id/backBtn"
-                />
+                android:layout_toRightOf="@+id/backBtn" />
 
         </RelativeLayout>
 
@@ -55,7 +56,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:text="@tools:sample/cities" />
+        tools:text="@tools:sample/cities"
+        android:fontFamily="@font/amaranth"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -74,7 +76,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-       android:text="Custom Address" />
+       android:text="Custom Address"
+        android:fontFamily="@font/amaranth"
+        android:drawableRight="@drawable/ic_chevron_right_black_24dp" />
 
     <View
         android:layout_width="match_parent"

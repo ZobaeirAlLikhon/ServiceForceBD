@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,6 +40,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/backBtn"
+                    android:layout_toRightOf="@+id/backBtn"
+                    android:fontFamily="@font/amaranth"
                     android:gravity="center_vertical"
                     android:text="Booking Information"
                     android:textAppearance="@style/monospaceMediumBoldWhiteText" />
@@ -48,13 +51,12 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:ignore="MissingConstraints">
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/forAnim"
@@ -70,159 +72,201 @@
                 app:lottie_loop="true"
                 tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addressET"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:helperText="You can change your address!"
-                app:hintTextColor="@color/colorPrimary"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Address"
-                    android:imeOptions="actionNext"
-                    android:inputType="text|textCapWords|textMultiLine"
-                    tools:ignore="Autofill" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/addressET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:helperText="You can change your address!"
+                        app:hintTextColor="@color/colorPrimary">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/contactET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Address"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|textCapWords|textMultiLine"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/contactET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:helperText="You can change contact number!"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|phone"
+                            android:maxLines="1"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/dateET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:hint="dd/mm/yyy"
+                            android:imeOptions="actionNext"
+                            android:inputType="date"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/timeET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:hint="hh:mm:aa"
+                            android:imeOptions="actionNext"
+                            android:inputType="time|text"
+                            android:maxLines="1"
+                            android:timePickerMode="spinner"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:helperText="You can change contact number!"
-                app:hintTextColor="@color/colorPrimary"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contact"
-                    android:imeOptions="actionNext"
-                    android:inputType="text|phone"
-                    android:maxLines="1"
-                    tools:ignore="Autofill" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@color/primaryColor"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="center"
+                        android:text="Product Summary"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
 
+                    <TextView
+                        android:id="@+id/pName"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:maxLines="10"
+                        android:paddingLeft="10dp"
+                        android:text="Product Name"
+                        android:textColor="#f123"
+                        android:textSize="16dp" />
 
+                    <TextView
+                        android:id="@+id/nOp"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:paddingLeft="10dp"
+                        android:text="No Of Product"
+                        android:textColor="#f123"
 
+                        android:textSize="16dp" />
 
+                    <TextView
+                        android:id="@+id/pprice"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/amaranth"
+                        android:gravity="start|center"
+                        android:paddingLeft="10dp"
+                        android:text="Price"
+                        android:textColor="#f123"
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dateET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:hint="dd/mm/yyyy"
-                    android:imeOptions="actionNext"
-                    android:inputType="date"
-                    tools:ignore="Autofill" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/timeET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:hint="hh:mm:a"
-                    android:timePickerMode="spinner"
-                    android:imeOptions="actionNext"
-                    android:inputType="time|text"
-                    android:maxLines="1"
-                    tools:ignore="Autofill" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/pName"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:text="Product Name"
-                android:gravity="start|center"
-                android:maxLines="10"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/text_view_shape"
-                android:textColor="#f123"
-                android:textSize="16dp"
-                android:layout_marginBottom="18dp"
-                />
-            <TextView
-
-                android:id="@+id/pprice"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:text="Price"
-                android:gravity="start|center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/text_view_shape"
-                android:textColor="#f123"
-                android:textSize="16dp"
-                android:layout_marginBottom="18dp"
-
-                />
-            <TextView
-                android:id="@+id/nOp"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:text="No Of Product"
-                android:gravity="start|center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/text_view_shape"
-                android:textColor="#f123"
-                android:textSize="16dp"
-                android:layout_marginBottom="18dp"
-
-                />
-
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/orderBtn"
                 android:layout_width="match_parent"
@@ -234,16 +278,18 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="@color/primaryColor"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordET">
+                app:layout_constraintTop_toBottomOf="@+id/cuponCode"
+                app:cardElevation="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/amaranth"
                     android:padding="8dp"
                     android:text="Order"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -259,14 +305,12 @@
             android:id="@+id/progressBarId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone"
-            tools:visibility="visible"
-            />
-
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

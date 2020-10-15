@@ -22,7 +22,8 @@
             android:gravity="center|left"
             android:text="Product Name"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"/>
 
         <TextView
             android:id="@+id/cartPrice"
@@ -32,7 +33,8 @@
             android:gravity="center|left"
             android:text="Price"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"/>
 
         <TextView
             android:id="@+id/cartQuanity"
@@ -42,7 +44,8 @@
             android:gravity="center|left"
             android:text="Quantity"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"/>
 
         <TextView
             android:id="@+id/cartId"

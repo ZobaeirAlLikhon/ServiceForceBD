@@ -31,7 +31,6 @@
         app:menu="@menu/bottom_nav_menu"
         android:id="@+id/bottomNavigation"
         app:labelVisibilityMode="labeled"
-
-        />
+        android:theme="@style/Widget.BottomNavigationView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

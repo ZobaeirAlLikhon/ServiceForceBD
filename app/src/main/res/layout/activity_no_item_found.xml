@@ -33,6 +33,7 @@
             android:gravity="center_vertical"
             android:text="Booking Information"
             android:textColor="@color/white"
+            android:fontFamily="@font/amaranth"
             android:textAppearance="@style/monospaceMediumBoldWhiteText"
             android:layout_toRightOf="@+id/backBtnn" />
 
