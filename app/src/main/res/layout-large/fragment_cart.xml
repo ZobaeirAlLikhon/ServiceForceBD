@@ -87,6 +87,7 @@
             android:layout_height="32dp"
             android:padding="1dp"
             android:text="Total Price="
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -96,6 +97,7 @@
             android:layout_height="32dp"
             android:layout_below="@+id/tottalPrice"
             android:padding="1dp"
+            android:fontFamily="@font/amaranth"
             android:text="Total Product="
             android:textColor="@color/black"
             android:textSize="20dp" />

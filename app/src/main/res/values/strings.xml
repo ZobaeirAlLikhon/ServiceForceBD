@@ -122,8 +122,8 @@
         <item> Disinfection Service For Virus</item>
         <item>Hire a Female Cleaner</item>
         <item>Hire a Male Cleaner</item>
-        <item>Water Tank Cleaning</item>
-        <item>Pipe Line Cleaning</item>
+        <item>Water Tank and pipeline Cleaning</item>
+<!--        <item>Pipe Line Cleaning</item>-->
         <item>Garden Cleaning</item>
         <item>Window Cleaning</item>
     </string-array>
@@ -252,6 +252,7 @@
         <item>Social Media Marketing</item>
         <item>SEO</item>
         <item>Monthly Subscription Package</item>
+        <item>Motion Graphics</item>
     </string-array>
 
     <string-array name="market_service">
@@ -271,13 +272,12 @@
         <item>Internship</item>
     </string-array>
 
-    <!-- test string for Event Management -->
+    <!--............................ Test string for Event Management.............. -->
     <string-array name="Birthday">
-        <item>test case B1</item>
-        <item>test case B2</item>
-        <item>test case B3</item>
-        <item>test case B3</item>
-        <item>test case B4</item>
+        <item>Couple package</item>
+        <item>Gold package</item>
+        <item>Diamond package</item>
+        <item>Platinum package</item>
     </string-array>
     <string-array name="Wedding_Management">
         <item>test case W1</item>
@@ -337,6 +337,7 @@
     <!--Medical starts-->
     <string-array name="serial_for_a_Doctor">
         <item>Heart</item>
+        <item>Medichine</item>
     </string-array>
 
 

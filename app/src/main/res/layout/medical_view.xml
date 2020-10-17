@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,7 +28,10 @@
             android:gravity="center"
             android:text="Doctor name"
             android:textColor="#FAFAFF"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:id="@+id/medical_Dec"
@@ -47,7 +51,8 @@
             android:textAppearance="@style/monospaceMediumText"
             android:textColor="#020202"
             tools:text="Lorem printer took a galley"
-            android:layout_marginLeft="91dp" />
+            android:layout_marginLeft="91dp"
+            android:fontFamily="@font/amaranth"/>
         <TextView
             android:textSize="20dp"
             android:id="@+id/MediPrice"
@@ -58,7 +63,9 @@
             android:layout_alignStart="@id/medical_Name"
             android:layout_alignEnd="@id/medical_Name"
             android:text="Price"
-            />
+            android:fontFamily="@font/amaranth"
+            android:layout_alignLeft="@id/medical_Name"
+            android:layout_alignRight="@id/medical_Name" />
         <Button
             android:id="@+id/medical_V"
             android:layout_width="match_parent"
@@ -69,7 +76,8 @@
             android:layout_marginTop="16dp"
             android:text="Booking"
             android:layout_alignLeft="@id/medical_Name"
-            android:layout_alignRight="@id/medical_Name" />
+            android:layout_alignRight="@id/medical_Name"
+            android:fontFamily="@font/amaranth"/>
         <Button
             android:id="@+id/callBTn"
             android:layout_width="match_parent"
@@ -80,7 +88,8 @@
             android:text="Call Now"
             android:layout_marginTop="16dp"
             android:layout_alignLeft="@id/medical_V"
-            android:layout_alignRight="@id/medical_V" />
+            android:layout_alignRight="@id/medical_V"
+            android:fontFamily="@font/amaranth"/>
 
 
     </RelativeLayout>

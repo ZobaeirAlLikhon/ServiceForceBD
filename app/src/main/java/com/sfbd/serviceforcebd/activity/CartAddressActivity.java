@@ -354,12 +354,15 @@ public class CartAddressActivity extends AppCompatActivity {
         };
 
         Calendar calendar = Calendar.getInstance();
-
+        calendar.add(Calendar.DATE, 0);
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, 1);
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, 1);
+//        datePickerDialog.show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
         datePickerDialog.show();
     }
 

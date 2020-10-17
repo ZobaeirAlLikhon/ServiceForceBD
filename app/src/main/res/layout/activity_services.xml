@@ -42,7 +42,8 @@
                 tools:text="@string/app_name"
                 android:gravity="center_vertical"
                 android:layout_toEndOf="@+id/backBtn"
-                android:layout_toRightOf="@+id/backBtn" />
+                android:layout_toRightOf="@+id/backBtn"
+                android:fontFamily="@font/amaranth"/>
 
         </RelativeLayout>
 

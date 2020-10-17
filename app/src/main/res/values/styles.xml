@@ -48,6 +48,12 @@
         <item name="android:typeface">sans</item>
     </style>
 
+
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/amaranth</item>
+    </style>
+
     <!-- custom clock design -->
 
 </resources>

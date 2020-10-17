@@ -32,6 +32,7 @@
             app:layout_constraintStart_toEndOf="@id/profileIV"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/full_names"
+            android:fontFamily="@font/amaranth"
             app:layout_constraintVertical_chainStyle="packed"
             />
 
@@ -44,7 +45,8 @@
             app:layout_constraintTop_toBottomOf="@id/nameTV"
             app:layout_constraintStart_toEndOf="@id/profileIV"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="@tools:sample/us_phones" />
+            tools:text="@tools:sample/us_phones"
+            android:fontFamily="@font/amaranth"/>
 
         <View
             android:layout_width="match_parent"
@@ -80,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update Information"
+            android:fontFamily="@font/amaranth"
             android:textAppearance="@style/monospaceMediumText"
             app:layout_constraintBottom_toBottomOf="@id/editp"
             app:layout_constraintStart_toEndOf="@+id/editp"
@@ -119,7 +122,8 @@
             app:layout_constraintBottom_toBottomOf="@id/feedBackIV"
             app:layout_constraintStart_toEndOf="@+id/feedBackIV"
             app:layout_constraintTop_toTopOf="@+id/feedBackIV"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:fontFamily="@font/amaranth"/>
 
         <View
             android:layout_width="match_parent"
@@ -159,7 +163,8 @@
             app:layout_constraintBottom_toBottomOf="@id/abIV"
             app:layout_constraintStart_toEndOf="@+id/abIV"
             app:layout_constraintTop_toTopOf="@+id/abIV"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:fontFamily="@font/amaranth"/>
 
         <View
             android:layout_width="match_parent"
@@ -199,7 +204,8 @@
             app:layout_constraintBottom_toBottomOf="@id/logoutIV"
             app:layout_constraintStart_toEndOf="@+id/logoutIV"
             app:layout_constraintTop_toTopOf="@+id/logoutIV"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:fontFamily="@font/amaranth"/>
 
         <View
             android:layout_width="match_parent"

@@ -48,6 +48,7 @@
             android:text="Car Wash &amp; polish"
             android:textColor="#006F77"
             android:textSize="20dp"
+            android:fontFamily="@font/amaranth"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iconeIV"
             app:layout_constraintTop_toTopOf="parent" />

@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="Zobaeir"
+                android:fontFamily="@font/amaranth"
                 android:textColor="#006F77"
                 android:textSize="25sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +109,9 @@
                     android:text="Point"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/amaranth"
+                    />
 
                 <TextView
                     android:id="@+id/proPointTV"
@@ -117,8 +120,8 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="0"
-
-                    android:textColor="#FFF706" />
+                    android:textColor="#FFF706"
+                    android:fontFamily="@font/amaranth"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -139,7 +142,8 @@
             android:layout_height="wrap_content"
             android:text="Email: SFBD2020@gmail.com"
             android:textSize="20sp"
-            android:textColor="#006F77"/>
+            android:textColor="#006F77"
+            android:fontFamily="@font/amaranth"/>
         <TextView
             android:id="@+id/proPhnTV"
             android:layout_marginTop="5dp"
@@ -148,7 +152,8 @@
             android:layout_height="wrap_content"
             android:text="Phone: 015xx-xxxxxx"
             android:textSize="20sp"
-            android:textColor="#006F77"/>
+            android:textColor="#006F77"
+            android:fontFamily="@font/amaranth"/>
         <TextView
             android:id="@+id/proAddressTV"
             android:layout_marginTop="5dp"
@@ -157,7 +162,8 @@
             android:layout_height="wrap_content"
             android:text="Address: XXXX,Bangladesh "
             android:textSize="20sp"
-            android:textColor="#006F77"/>
+            android:textColor="#006F77"
+            android:fontFamily="@font/amaranth"/>
         <TextView
             android:id="@+id/proDateOfBirthTV"
             android:layout_marginTop="5dp"
@@ -166,7 +172,8 @@
             android:layout_height="wrap_content"
             android:text="Date of Birth: XX-XX-XX"
             android:textSize="20sp"
-            android:textColor="#006F77"/>
+            android:textColor="#006F77"
+            android:fontFamily="@font/amaranth"/>
     </LinearLayout>
 
 
@@ -184,7 +191,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:fontFamily="@font/amaranth"/>
 
 
 

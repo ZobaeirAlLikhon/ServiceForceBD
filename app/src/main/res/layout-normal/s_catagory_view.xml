@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -33,7 +34,8 @@
                 <ImageView
                     android:id="@+id/proImg"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="155dp"
+                    android:padding="5dp"
                     android:src="@drawable/baner" />
 
                 <androidx.cardview.widget.CardView
@@ -59,6 +61,7 @@
                         android:textAppearance="@style/monospaceSmallText"
                         android:textColor="#006F77"
                         android:textSize="20dp"
+                        android:fontFamily="@font/amaranth"
                         android:padding="6dp"
                         android:textStyle="bold" />
 
@@ -72,6 +75,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:padding="2dp"
+                    android:fontFamily="@font/amaranth"
                     android:text="Car and bike wash,Car Exterior Premium Foam Wash,
                 Wheel Undercarriage Wash,Wheel Undercarriage Wash,
                     Wheel Undercarriage Wash Wheel  Undercarriage Wash"
@@ -95,6 +99,7 @@
                     android:textAlignment="textEnd"
                     android:textColor="#006F77"
                     android:textStyle="italic"
+                    android:fontFamily="@font/amaranth"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -117,7 +122,8 @@
                         android:gravity="center"
                         android:text="Details"
                         android:textColor="#006F77"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        android:fontFamily="@font/amaranth"/>
 
 
                 </RelativeLayout>

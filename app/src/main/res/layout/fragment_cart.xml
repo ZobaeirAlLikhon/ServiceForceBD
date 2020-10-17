@@ -54,6 +54,7 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:fontFamily="@font/amaranth"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -63,7 +64,8 @@
             android:padding="1dp"
             android:text="Total Price="
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"/>
 
         <TextView
             android:id="@+id/tottalProduct"
@@ -73,7 +75,8 @@
             android:padding="1dp"
             android:text="Total Product="
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/amaranth"/>
     </RelativeLayout>
 
     <com.airbnb.lottie.LottieAnimationView

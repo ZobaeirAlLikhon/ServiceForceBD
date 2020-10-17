@@ -48,6 +48,7 @@
         android:singleLine="true"
         android:textColor="#4d4e5b"
         android:textSize="18sp"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@+id/materialCardView"
         app:layout_constraintStart_toStartOf="@+id/materialCardView"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
@@ -60,6 +61,7 @@
         android:gravity="center"
         android:text="Already Have a Account? Sign In."
         android:textSize="18sp"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@+id/sb_phone"
         app:layout_constraintStart_toStartOf="@+id/sb_phone"
         app:layout_constraintTop_toBottomOf="@+id/sb_phone" />
@@ -74,6 +76,7 @@
         android:text="Skip"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sb_signup"
@@ -89,6 +92,7 @@
         android:text="Next"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sb_skip"

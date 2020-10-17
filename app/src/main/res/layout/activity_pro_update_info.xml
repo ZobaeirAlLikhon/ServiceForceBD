@@ -42,6 +42,7 @@
                 android:layout_toEndOf="@+id/backBtnPro"
                 android:gravity="center_vertical"
                 android:text="Booking Information"
+                android:fontFamily="@font/amaranth"
                 android:textAppearance="@style/monospaceMediumBoldWhiteText"
                 android:layout_toRightOf="@+id/backBtnPro" />
 
@@ -80,7 +81,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.876"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:fontFamily="@font/amaranth"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/upProName"
@@ -104,7 +106,8 @@
             android:hint="Name"
             android:imeOptions="actionNext"
             android:inputType="text|textCapWords|textMultiLine"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill"
+            android:fontFamily="@font/amaranth"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/upProPhn"
@@ -127,7 +130,8 @@
             android:hint="Phone Number"
             android:imeOptions="actionNext"
             android:inputType="text|textCapWords|textMultiLine"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill"
+            android:fontFamily="@font/amaranth"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/upAddress"
@@ -150,7 +154,8 @@
         android:hint="Address"
         android:imeOptions="actionNext"
         android:inputType="text|textCapWords|textMultiLine"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:fontFamily="@font/amaranth"/>
 </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/datePro"
@@ -174,7 +179,8 @@
         android:hint="dd/mm/yyyy"
         android:imeOptions="actionNext"
         android:inputType="date"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:fontFamily="@font/amaranth"/>
 </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -187,7 +193,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/datePro"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:fontFamily="@font/amaranth"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
