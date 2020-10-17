@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
@@ -10,7 +11,7 @@ android {
         minSdkVersion 16
 //        targetSdkVersion 16
         versionCode 4
-        versionName "1.1"
+        versionName "1.2"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -87,4 +88,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0-beta01'
     implementation 'com.codesgood:justifiedtextview:1.1.0'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
+    //apps update
+    implementation 'com.google.android.play:core:1.8.2'
+    implementation 'org.jsoup:jsoup:1.13.1'
 }

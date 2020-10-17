@@ -1,16 +1,20 @@
 package com.sfbd.serviceforcebd.fragment;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +31,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +45,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+import com.sfbd.serviceforcebd.BuildConfig;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.Goru;
 import com.sfbd.serviceforcebd.activity.ServicesActivity;
@@ -46,15 +56,17 @@ import com.sfbd.serviceforcebd.model.Sd;
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.ImageListener;
 
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EventListener;
 import java.util.List;
 import java.util.Queue;
 
+
 import static com.facebook.FacebookSdk.getApplicationContext;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -70,6 +82,8 @@ public class HomeFragment extends Fragment {
     private String p;
 
     SearchAdapter adapter;
+    private int RECQUST=11;
+    String sLetestVersion,sCurrentVersion;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -95,13 +109,14 @@ public class HomeFragment extends Fragment {
 //        name = getResources().getStringArray(R.array.cleaning_services);
         adapter=new SearchAdapter(context,name);
         binding.mainRecy.setAdapter(adapter);
+        new GetLatestVersion().execute();
+
         imageBanner();
         search();
         initView();
         init();
         findViewById();
         popularItem();
-
         return binding.getRoot();
     }
 
@@ -397,5 +412,62 @@ public class HomeFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         binding = null;
+    }
+
+
+    private class GetLatestVersion extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                sLetestVersion= Jsoup
+                        .connect("https://play.google.com/store/apps/details?id="
+                        + context.getPackageName())
+                        .timeout(3000)
+                        .get()
+                        .select("div.hAyfc:nth-child(4)>"+
+                                "span:nth-child(2)> div:nth-child(1)"+
+                                ">span:nth-child(1)")
+                        .first()
+                        .ownText();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return sLetestVersion;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            sCurrentVersion= BuildConfig.VERSION_NAME;
+            if(sLetestVersion!=null)
+            {
+                float cVersion=Float.parseFloat(sCurrentVersion);
+                float lVersion=Float.parseFloat(sLetestVersion);
+                if(lVersion>cVersion)
+                {
+                    UpdateAppsAlart(lVersion);
+                }
+            }
+        }
+    }
+
+    private void UpdateAppsAlart(float lV) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        builder.setTitle("Update Avalible");
+        builder.setMessage("Update Version is: "+lV);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(
+                        "market://details?id="+context.getPackageName()
+                )
+                ));
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
     }
 }
