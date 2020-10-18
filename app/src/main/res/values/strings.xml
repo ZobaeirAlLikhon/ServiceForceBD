@@ -280,11 +280,10 @@
         <item>Platinum package</item>
     </string-array>
     <string-array name="Wedding_Management">
-        <item>test case W1</item>
-        <item>test case W2</item>
-        <item>test case W3</item>
-        <item>test case W3</item>
-        <item>test case W4</item>
+        <item>Holud Sondha</item>
+        <item>Biye</item>
+        <item>Package 1</item>
+        <item>Package 2</item>
     </string-array>
 
     <string-array name="Marriage_Day">
