@@ -44,6 +44,7 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
     String num,price,name,s,su,des;
     private FirebaseUser firebaseUser;
     DatabaseReference dbRef;
+    private String testString;
     public SubCatagoryAdapter(Context c,ArrayList<Sd> s ,String cat)
     {
         context=c;
@@ -78,7 +79,8 @@ SubCatagoryAdapter extends RecyclerView.Adapter<SubCatagoryAdapter.MyViewHolder>
 
             holder.product_price.setText("Start from:"+sd.get(position).getPrice()+"Tk");
 //            holder.iviprice.setText("Start from:"+sd.get(position).getPrice()+"Tk");
-            holder.pro_des.setText(sd.get(position).getDes());
+//            holder.pro_des.setText(sd.get(position).getDes());
+            holder.pro_des.setText(des.replace("_b","\n"));
             holder.proNam.setText(sd.get(position).getName());
 //            Picasso.get().load(sd.get(position).getImage()).into(holder.pro_image);
         Glide.with(context).load(sd.get(position).getImage()).into(holder.pro_image);
