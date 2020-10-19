@@ -1,9 +1,11 @@
 package com.sfbd.serviceforcebd.fragment;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.OnSuccessListener;
+import com.google.android.play.core.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,6 +55,7 @@ public class MoreFragment extends Fragment {
     private FirebaseUser firebaseUser;
     Fragment fragment;
     ProgressDialog progressDialog;
+    private ReviewManager manager;
 
     public MoreFragment() {
         // Required empty public constructor
@@ -78,7 +86,8 @@ public class MoreFragment extends Fragment {
         binding.feedBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"FeedBack",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(),"FeedBack",Toast.LENGTH_SHORT).show();
+               askRatting();
             }
         });
         binding.about.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +108,25 @@ public class MoreFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+    private void askRatting() {
+        manager = ReviewManagerFactory.create(context);
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                ReviewInfo reviewInfo = task.getResult();
+                Task<Void> flow = manager.launchReviewFlow((Activity) context, reviewInfo);
+                flow.addOnCompleteListener(task2 -> {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName())));
+                });
+            } else {
+                // There was some problem, continue regardless of the result.
+            }
+        });
+    }
+
 
     private void rattingApps() {
         RatingFragment ratingFragment=new RatingFragment();
