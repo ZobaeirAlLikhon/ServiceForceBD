@@ -134,15 +134,15 @@
         <item>@drawable/office_cleanning</item>
         <item>@drawable/pest_control</item>
         <item>@drawable/mattress_cleaning</item>
-        <item>@drawable/sofa_cleaning</item>akash
-        <item>@drawable/deep_home_cleaning</item>
-        <item>@drawable/home_cleaning</item>
-        <item>@drawable/office_cleanning</item>
-        <item>@drawable/pest_control</item>
-        <item>@drawable/mattress_cleaning</item>
-
-        <item>@drawable/sofa_cleaning</item>akash
+        <item>@drawable/disinfection_service_for_virus</item>
+        <item>@drawable/hire_a_female_cleaner</item>
+        <item>@drawable/hire_a_male_cleaner</item>
+        <item>@drawable/water_tank_cleaning</item>
+        <item>@drawable/garden_cleaning</item>
+        <item>@drawable/window_cleaning</item>
     </integer-array>
+    <!--.................................................Cleaning er image & list view......................-->
+
 
     <string-array name="appliance_repair_services">
         <item>Ac Repair Services</item>
@@ -153,6 +153,14 @@
         <item>IPS Repair Services</item>
         <!--        <item> Gas stove/Burnner Repair Services</item>-->
     </string-array>
+    <integer-array name="appliance_repair_servicesIMG">
+        <item>@drawable/ac_repair_service</item>
+        <item>@drawable/microwave_repair</item>
+        <item>@drawable/refigerator_repair</item>
+        <item>@drawable/washing_machine_repair</item>
+        <item>@drawable/ips_repair_service</item>
+    </integer-array>
+
 
     <string-array name="beauty_services">
         <item>Packages</item>
