@@ -1,101 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
-    >
-    <RelativeLayout
-        android:id="@+id/medical_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:outlineSpotShadowColor="@color/black"
-        android:padding="10dp">
+    android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/medical_Name"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/round_shape_green"
-            android:gravity="center"
-            android:text="Doctor name"
-            android:textColor="#FAFAFF"
-            android:textSize="20dp"
-            android:fontFamily="@font/amaranth"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/medical_Dec"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/medical_Name"
-            android:layout_alignStart="@+id/medical_Name"
-            android:layout_alignLeft="@+id/medical_Name"
-            android:layout_alignEnd="@+id/medical_Name"
-            android:layout_alignRight="@+id/medical_Name"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:justificationMode="inter_word"
-            android:padding="5dp"
-            android:textAppearance="@style/monospaceMediumText"
-            android:textColor="#020202"
-            tools:text="Lorem printer took a galley"
-            android:layout_marginLeft="91dp"
-            android:fontFamily="@font/amaranth"/>
-        <TextView
-            android:textSize="20dp"
-            android:id="@+id/MediPrice"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_below="@+id/medical_Dec"
-            android:layout_marginTop="16dp"
-            android:layout_alignStart="@id/medical_Name"
-            android:layout_alignEnd="@id/medical_Name"
-            android:text="Price"
-            android:fontFamily="@font/amaranth"
-            android:layout_alignLeft="@id/medical_Name"
-            android:layout_alignRight="@id/medical_Name" />
-        <Button
-            android:id="@+id/medical_V"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/MediPrice"
-            android:layout_alignStart="@id/medical_Name"
-            android:layout_alignEnd="@id/medical_Name"
-            android:layout_marginTop="16dp"
-            android:text="Booking"
-            android:layout_alignLeft="@id/medical_Name"
-            android:layout_alignRight="@id/medical_Name"
-            android:fontFamily="@font/amaranth"/>
-        <Button
-            android:id="@+id/callBTn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/medical_V"
-            android:layout_alignStart="@id/medical_V"
-            android:layout_alignEnd="@id/medical_V"
-            android:text="Call Now"
-            android:layout_marginTop="16dp"
-            android:layout_alignLeft="@id/medical_V"
-            android:layout_alignRight="@id/medical_V"
-            android:fontFamily="@font/amaranth"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/ic_launcher"
+                app:civ_border_color="@color/primaryColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/medical_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amaranth"
+                android:text="Doctor's Name"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/circleImageView"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView"
+                app:layout_constraintVertical_bias="0.100000024" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/amaranth"
+                android:text="Doctor's Description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/medical_Name"
+                app:layout_constraintStart_toStartOf="@+id/medical_Name"
+                app:layout_constraintTop_toBottomOf="@+id/medical_Name"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/medical_Dec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/amaranth"
+                android:text="Lorem printer took a galley"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/circleImageView"
+                app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/MediPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/amaranth"
+                android:text="price shows here"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/medical_Dec"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/medical_Dec"
+                app:layout_constraintTop_toBottomOf="@+id/medical_Dec"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MediPrice">
+
+                <Button
+                    android:id="@+id/medical_V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Booking" />
+
+                <Button
+                    android:id="@+id/callBTn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Call Now" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 
-    </RelativeLayout>
 
-
-
-
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

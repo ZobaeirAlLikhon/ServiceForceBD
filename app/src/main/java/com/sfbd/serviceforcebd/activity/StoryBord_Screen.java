@@ -15,8 +15,8 @@ import com.sfbd.serviceforcebd.fragment.storyBord.Frist_SlideFragment;
 public class StoryBord_Screen extends AppCompatActivity {
     private ViewPager viewPager;
    // private LinearLayout dot;
-    private StoryAdapter storyAdapter;
-    private TextView[] mDot;
+    //private StoryAdapter storyAdapter;
+    //private TextView[] mDot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
