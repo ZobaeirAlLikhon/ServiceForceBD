@@ -160,6 +160,7 @@
         <item>@drawable/washing_machine_repair</item>
         <item>@drawable/ips_repair_service</item>
     </integer-array>
+    <!--........................................appliance_repair er image & list view......................-->
 
 
     <string-array name="beauty_services">
@@ -217,6 +218,13 @@
         <!--        <item>Bike repair &amp; Servicing</item>-->
         <item>Monthly Subscription Package</item>
     </string-array>
+    <integer-array name="car_care_servicesImg">
+        <item>@drawable/car_wash_polish</item>
+        <item>@drawable/bike_wash_polish</item>
+        <item>@drawable/monthly_subscription</item>
+
+        
+    </integer-array>
 
     <string-array name="electronic_gadgets">
         <item>Desktop service</item>
@@ -344,8 +352,9 @@
 
     <!--Medical starts-->
     <string-array name="serial_for_a_Doctor">
+        <item>Choose a Catagory</item>
         <item>Heart</item>
-        <item>Medichine</item>
+        <item>Medicine</item>
     </string-array>
 
 

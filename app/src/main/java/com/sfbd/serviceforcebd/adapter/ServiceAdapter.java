@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MedicalHealthDetails;
+import com.sfbd.serviceforcebd.activity.NewMedicalDetail;
 import com.sfbd.serviceforcebd.activity.ServicesActivity;
 import com.sfbd.serviceforcebd.activity.Silk;
 import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
@@ -136,14 +137,14 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
             } else if (serviceList[position].equals("Consult with a Doctor") || serviceList[position].equals("Psychiatrist/mental health")
                     || serviceList[position].equals("Pathology test") || serviceList[position].equals("Heart")
-                    || serviceList[position].equals("Medicine Home Delivery") || serviceList[position].equals("Emergency Service")) {
+                     || serviceList[position].equals("Emergency Service")) {
                 Intent intent = new Intent(context, MedicalHealthDetails.class);
                 intent.putExtra("service_name", service);
                 intent.putExtra("category", serviceList[position]);
                 context.startActivity(intent);
             }
-            else if((serviceList[position].equals("Serial for a Doctor"))){
-                Intent intent = new Intent(context, ServicesActivity.class);
+            else if((serviceList[position].equals("Serial for a Doctor"))|| serviceList[position].equals("Medicine Home Delivery")){
+                Intent intent = new Intent(context, NewMedicalDetail.class);
                 myString = holder.binding.itemTV.getText().toString();
                 intent.putExtra("service", myString);
                 context.startActivity(intent);

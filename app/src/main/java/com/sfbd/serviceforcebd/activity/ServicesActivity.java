@@ -68,7 +68,9 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Car & Bike Care")){
                 serviceList = getResources().getStringArray(R.array.car_care_services);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.car_care_servicesImg);
+
+                initRecyclerViewImg();
 
             }else if(service.equals("Electronics & Gadgets")){
                 serviceList = getResources().getStringArray(R.array.electronic_gadgets);
@@ -137,10 +139,10 @@ public class ServicesActivity extends AppCompatActivity {
                 initRecyclerView();
             }
             //todo modified code to generate subcatagory.to MediCAL
-            else if (service.equals("Serial for a Doctor")){
-                serviceList=getResources().getStringArray(R.array.serial_for_a_Doctor);
-                initRecyclerView();
-            }
+//            else if (service.equals("Serial for a Doctor")){
+//                serviceList=getResources().getStringArray(R.array.serial_for_a_Doctor);
+//                initRecyclerView();
+//            }
 
 
 
