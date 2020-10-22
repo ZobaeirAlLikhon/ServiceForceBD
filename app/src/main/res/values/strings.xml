@@ -357,7 +357,7 @@
 
     <!--Medical starts-->
     <string-array name="serial_for_a_Doctor">
-        <item>Choose a Catagory</item>
+        <item>Choose a Category</item>
         <item>Heart</item>
         <item>Medicine</item>
     </string-array>
