@@ -183,6 +183,11 @@
         <item>Washing Servicing</item>
         <item>Others</item>
     </string-array>
+    <integer-array name="laundry_servicesImg">
+        <item>@drawable/monthly_subscription</item>
+
+
+    </integer-array>
 
     <string-array name="shifting_services">
         <item>House Shifting service</item>
