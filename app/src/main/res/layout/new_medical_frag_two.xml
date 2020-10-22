@@ -5,7 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -16,101 +19,107 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Serial For a Doctor"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_edit_tex"
-                android:drawableLeft="@drawable/person_vector"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/amaranth"
-                android:hint="Patient's Name"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="@color/colorPrimary">
 
+                <com.google.android.material.textfield.TextInputEditText
 
-            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Patient's Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    tools:ignore="Autofill"
+                    android:fontFamily="@font/amaranth"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pphone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_edit_tex"
-                android:drawableLeft="@drawable/phone_contact"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/amaranth"
-                android:hint="Phone Number"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp" />
-            <EditText
-                android:id="@+id/dname"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Patient's Phone Number"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    tools:ignore="Autofill"
+                    android:fontFamily="@font/amaranth"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:hintTextColor="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Doctor's Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        tools:ignore="Autofill"
+                        android:fontFamily="@font/amaranth"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_edit_tex"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/amaranth"
-                android:drawableLeft="@drawable/ic_baseline_local_hospital_24"
-                android:hint="Doctor's Name"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#4d4e5b"
-                android:textSize="18sp" />
-
-
-
-
-          <Spinner
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/spinner"
-              android:layout_margin="15dp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
                 android:orientation="horizontal"
                 android:padding="4dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
                 android:weightSum="2">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_baseline_send_24"
                     android:drawablePadding="2dp"
-                    android:text="send" />
+                    android:text="send now" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -118,7 +127,6 @@
                     android:drawableLeft="@drawable/ic_baseline_call_24"
                     android:text="call now" />
             </LinearLayout>
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

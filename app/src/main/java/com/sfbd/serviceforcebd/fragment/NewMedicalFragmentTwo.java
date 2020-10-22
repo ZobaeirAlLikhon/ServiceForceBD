@@ -1,5 +1,6 @@
 package com.sfbd.serviceforcebd.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.sfbd.serviceforcebd.R;
+import com.sfbd.serviceforcebd.activity.ServicesActivity;
 import com.sfbd.serviceforcebd.databinding.NewMedicalFragTwoBinding;
 
 public class NewMedicalFragmentTwo extends Fragment{
     private Spinner spinner;
     private  static String item;
+    private NewMedicalFragTwoBinding binding;
     public NewMedicalFragmentTwo() {
     }
 
@@ -52,7 +55,9 @@ public class NewMedicalFragmentTwo extends Fragment{
             }
         });
 
+
         return view;
     }
+
 
 }
