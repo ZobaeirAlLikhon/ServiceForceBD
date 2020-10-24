@@ -1,6 +1,7 @@
 package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,9 +47,7 @@ public class NewMedicalFragmentTwo extends Fragment{
         calbtn = view.findViewById(R.id.calbtnsfd);
 
         //GET VALUE FROM FIELD
-        name = textInputLayout1.getEditText().getText().toString();
-        phone = textInputLayout2.getEditText().getText().toString();
-        docname = textInputLayout3.getEditText().getText().toString();
+
 
         //spinner adapter to populate spinner item
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),R.array.serial_for_a_Doctor, android.R.layout.simple_spinner_item);
@@ -72,6 +71,10 @@ public class NewMedicalFragmentTwo extends Fragment{
 
     sendbtn.setOnClickListener(v -> {
 
+        name = textInputLayout1.getEditText().getText().toString();
+        phone = textInputLayout2.getEditText().getText().toString();
+        docname = textInputLayout3.getEditText().getText().toString();
+
         if (name.length()==0){
             textInputLayout1.setError("Please Enter Your Name!");
         }
@@ -87,9 +90,14 @@ public class NewMedicalFragmentTwo extends Fragment{
         else{
             ///here use model and firebase database to insert data on database...
             String test = name + " "+phone + " "+ docname + " "+item;
-            Toast.makeText(getContext(), item, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), test, Toast.LENGTH_SHORT).show();
         }
 
+    });
+    calbtn.setOnClickListener(v ->{
+                Intent intent =new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01707071417"));
+                getContext().startActivity(intent);
     });
 
 
