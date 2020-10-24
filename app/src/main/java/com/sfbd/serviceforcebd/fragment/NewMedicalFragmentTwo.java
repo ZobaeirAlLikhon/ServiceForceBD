@@ -1,6 +1,7 @@
 package com.sfbd.serviceforcebd.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,6 +93,11 @@ public class NewMedicalFragmentTwo extends Fragment{
             Toast.makeText(getContext(), test, Toast.LENGTH_SHORT).show();
         }
 
+    });
+    calbtn.setOnClickListener(v ->{
+                Intent intent =new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01707071417"));
+                getContext().startActivity(intent);
     });
 
 
