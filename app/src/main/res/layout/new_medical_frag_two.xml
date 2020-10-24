@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/img_logo_su"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="24dp"
+        android:src="@drawable/ic_service_force_logo_final"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <androidx.cardview.widget.CardView
@@ -14,23 +31,27 @@
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/img_logo_su"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Serial For a Doctor"
-                android:textSize="24sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/amaranth"
-                android:textColor="@color/primaryColor"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+                android:text="Serial for a Doctor"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pname"
@@ -55,6 +76,7 @@
                     tools:ignore="Autofill" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pphone"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -76,6 +98,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="phone"
                     tools:ignore="Autofill" />
+            </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/dname"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -100,7 +124,8 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
@@ -119,7 +144,7 @@
                 android:weightSum="2">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/sendnowbtn"
+                    android:id="@+id/sendbtn_sfd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -129,7 +154,7 @@
                     android:text="send now" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/callnaowbtn"
+                    android:id="@+id/calbtnsfd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -139,5 +164,9 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
