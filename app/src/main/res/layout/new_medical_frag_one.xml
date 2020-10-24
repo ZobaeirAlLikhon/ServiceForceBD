@@ -51,6 +51,7 @@
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/imgpres"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -58,6 +59,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/camerabtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -78,6 +80,7 @@
                 android:text="OR" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/medbox"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,6 +113,7 @@
                 android:weightSum="2">
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendbtnmed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
@@ -119,6 +123,7 @@
                     android:text="send now" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/callbtnmsed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
