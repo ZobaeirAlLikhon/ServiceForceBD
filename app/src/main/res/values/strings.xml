@@ -228,7 +228,7 @@
         <item>@drawable/bike_wash_polish</item>
         <item>@drawable/monthly_subscription</item>
 
-        
+
     </integer-array>
 
     <string-array name="electronic_gadgets">

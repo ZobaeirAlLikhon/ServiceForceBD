@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.AddressActivity;
+import com.sfbd.serviceforcebd.activity.MediAddressActivity;
 import com.sfbd.serviceforcebd.model.MedicalModel;
 import com.sfbd.serviceforcebd.model.Sd;
 
@@ -47,7 +48,7 @@ public class MedicalAdapter extends RecyclerView.Adapter<MedicalAdapter.MediView
             public void onClick(View v) {
                 String name1=list.get(position).getName().toString().trim();
                 String priceM=list.get(position).getPrice().toString().trim();
-                Intent intent=new Intent(context, AddressActivity.class);
+                Intent intent=new Intent(context, MediAddressActivity.class);
                 intent.putExtra("category",cata);
                 intent.putExtra("proName",name1);
                 intent.putExtra("price",priceM);

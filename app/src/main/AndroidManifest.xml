@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.NewMedicalDetail"></activity>
+        <activity android:name=".activity.MediAddressActivity"></activity>
+        <activity android:name=".activity.NewMedicalDetail" />
         <activity android:name=".activity.OrderDetails" />
         <activity android:name=".activity.About_sfbd" />
         <activity android:name=".activity.PorfileInfo" />
