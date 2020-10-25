@@ -1,59 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        tools:context=".activity.ServicesActivity">
-
-
-        <androidx.appcompat.widget.Toolbar
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_above="@+id/recyclerView"
+        android:background="@color/primaryColor"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/toolbar"
-            android:layout_above="@+id/recyclerView"
-            android:background="@color/primaryColor"
+            android:layout_height="match_parent"
             >
-            <RelativeLayout
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/toolbarTV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                >
+                android:textAppearance="@style/monospaceLargeBoldWhiteText"
+                tools:text="@string/app_name"
+                android:gravity="center_vertical"
+                android:layout_toEndOf="@+id/backBtn"
+                android:layout_toRightOf="@+id/backBtn"
+                android:fontFamily="@font/amaranth"/>
 
-                <ImageView
-                    android:id="@+id/backBtn"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_arrow_back_black_24dp" />
+        </RelativeLayout>
 
-                <TextView
-                    android:layout_marginLeft="15dp"
-                    android:id="@+id/toolbarTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="@style/monospaceLargeBoldWhiteText"
-                    tools:text="@string/app_name"
-                    android:gravity="center_vertical"
-                    android:layout_toEndOf="@+id/backBtn"
-                    android:layout_toRightOf="@+id/backBtn"
-                    android:fontFamily="@font/amaranth"/>
-
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="10dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="4dp"
         tools:listitem="@layout/rv_service_item" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
