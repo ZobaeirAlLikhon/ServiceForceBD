@@ -321,6 +321,9 @@
         <item>Silk</item>
         <item>Cosmetics</item>
     </string-array>
+    <integer-array name="market_serviceImg">
+        <item>@drawable/groceriesa</item>
+    </integer-array>
 
     <string-array name="tuition_service">
         <item>Get a Tutor</item>
