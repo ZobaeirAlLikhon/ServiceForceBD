@@ -105,7 +105,8 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Market Service")){
                 serviceList = getResources().getStringArray(R.array.market_service);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.market_serviceImg);
+                initRecyclerViewImg();
 
             }else if(service.equals("Tuition Service")){
                 serviceList = getResources().getStringArray(R.array.tuition_service);
@@ -144,6 +145,12 @@ public class ServicesActivity extends AppCompatActivity {
             }
             else if (service.equals("Painting")){
                 serviceList = getResources().getStringArray(R.array.Painting);
+                initRecyclerView();
+            }
+
+            //Todo modified of Landry service//
+            else if (service.equals("Ironing_service")){
+                serviceList = getResources().getStringArray(R.array.Ironing_service);
                 initRecyclerView();
             }
             //todo modified code to generate subcatagory.to MediCAL

@@ -318,11 +318,15 @@
         <item>Fresh Bazar</item>
         <item>Health &amp; Hygiene</item>
         <item>Covid-19 Safety Kits</item>
-        <item>Silk</item>
+<!--        <item>Silk</item>-->
         <item>Cosmetics</item>
     </string-array>
     <integer-array name="market_serviceImg">
         <item>@drawable/groceriesa</item>
+        <item>@drawable/fresh_bazar</item>
+        <item>@drawable/health_hygiene</item>
+        <item>@drawable/covid_19_safety_kits</item>
+        <item>@drawable/cosmetics</item>
     </integer-array>
 
     <string-array name="tuition_service">
