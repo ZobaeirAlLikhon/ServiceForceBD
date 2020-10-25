@@ -67,8 +67,7 @@ public class NewMedicalFragmentOne extends Fragment {
             Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
         });
-
-
+      //database push goes here
 
 
         return view;
