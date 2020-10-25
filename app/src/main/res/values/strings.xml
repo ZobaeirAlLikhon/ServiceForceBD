@@ -185,20 +185,34 @@
     </string-array>
     <integer-array name="laundry_servicesImg">
         <item>@drawable/monthly_subscription</item>
-
-
+        <item>@drawable/ironing_service</item>
+        <item>@drawable/washing_service</item>
+        <item>@drawable/others</item>
     </integer-array>
-
+    <!--........................................shifting_services er image & list view......................-->
     <string-array name="shifting_services">
         <item>House Shifting service</item>
         <item>Office Shifting service</item>
         <item>Transport for shifting</item>
     </string-array>
+    <integer-array name="shifting_servicesImg">
+        <item>@drawable/house_shifting</item>
+        <item>@drawable/office_shifting_service</item>
+        <item>@drawable/transport_for_shifting</item>
+    </integer-array>
+    <!--........................................shifting_services image & list view......................-->
 
+
+    <!--........................................plumbing_services image & list view......................-->
     <string-array name="plumbing_services">
         <item>Plumbing and sanitary Service</item>
         <item>Electronics for Electrical Service</item>
     </string-array>
+    <integer-array name="plumbing_servicesImg">
+        <item>@drawable/plumbing_sanitary_service</item>
+        <item>@drawable/electronics_for_electrical_service</item>
+    </integer-array>
+    <!--........................................plumbing_services image & list view......................-->
 
     <string-array name="painting_renovation_services">
         <item>Home Interior</item>
@@ -213,6 +227,7 @@
         <item>Painting Service</item>
     </string-array>
 
+    <!--........................................car_care_services image & list view......................-->
     <string-array name="car_care_services">
         <item>Car wash &amp; polish</item>
         <!--        <item>Car painting &amp;  Decoration</item>-->
@@ -227,9 +242,9 @@
         <item>@drawable/car_wash_polish</item>
         <item>@drawable/bike_wash_polish</item>
         <item>@drawable/monthly_subscription</item>
-
-        
     </integer-array>
+    <!--........................................car_care_services image & list view......................-->
+
 
     <string-array name="electronic_gadgets">
         <item>Desktop service</item>
@@ -237,6 +252,13 @@
         <item>CCTV camera service</item>
         <item>Smartphone Repair</item>
     </string-array>
+    <integer-array name="electronic_gadgetsImg">
+        <item>@drawable/desktop_service</item>
+        <item>@drawable/laptop_service</item>
+        <item>@drawable/cc_camera_service</item>
+        <item>@drawable/smart_phone_repair</item>
+    </integer-array>
+    <!--........................................electronic_gadgets image & list view......................-->
 
 
     <string-array name="medical_services">
@@ -248,11 +270,15 @@
         <item>Emergency Service</item>
         <!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
     </string-array>
-    <integer-array name="random_imgs">
-        <item>@drawable/medi_guide</item>
-        <item>@drawable/medi_appi</item>
-        <item>@drawable/medical_equip</item>
+    <integer-array name="medical_servicesImg">
+        <item>@drawable/consult_doctor</item>
+        <item>@drawable/mental</item>
+        <item>@drawable/pathology_test</item>
+        <item>@drawable/serial_doctor</item>
+        <item>@drawable/medicine_home_delivery</item>
+        <item>@drawable/emergency_service</item>
     </integer-array>
+    <!--........................................medical_services image & list view......................-->
 
     <string-array name="event_management">
         <item>Wedding Management</item>
@@ -276,6 +302,16 @@
         <item>Monthly Subscription Package</item>
         <item>Motion Graphics</item>
     </string-array>
+    <integer-array name="it_supportImg">
+        <item>@drawable/website_development</item>
+        <item>@drawable/mobile_application</item>
+        <item>@drawable/graphics_design</item>
+        <item>@drawable/software_build</item>
+        <item>@drawable/social_media_marketing</item>
+        <item>@drawable/seo</item>
+        <item>@drawable/monthly_subscription_pacakge</item>
+        <item>@drawable/motion_graphics</item>
+    </integer-array>
 
     <string-array name="market_service">
         <item>Groceriesa)</item>
@@ -293,6 +329,15 @@
         <item>Training Course IT</item>
         <item>Internship</item>
     </string-array>
+    <integer-array name="tuition_serviceImg">
+
+        <item>@drawable/get_tuitor</item>
+        <item>@drawable/get_tution</item>
+        <item>@drawable/admission_batch</item>
+        <item>@drawable/training_course_it</item>
+        <item>@drawable/internship</item>
+    </integer-array>
+
 
     <!--............................ Test string for Event Management.............. -->
     <string-array name="Birthday">
@@ -360,6 +405,11 @@
         <item>Choose a Category</item>
         <item>Heart</item>
         <item>Medicine</item>
+    </string-array>
+
+    <string-array name="Ironing_service">
+        <item>Men</item>
+        <item>Women</item>
     </string-array>
 
 

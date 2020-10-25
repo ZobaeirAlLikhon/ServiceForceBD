@@ -171,6 +171,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 context.startActivity(intent);
 
             }
+            //new Landry view for Landry service
+            else if (serviceList[position].equals("Ironing_service")){
+
+                myString = holder.binding.itemTV.getText().toString();
+                Intent intent = new Intent(context, ServicesActivity.class);
+                intent.putExtra("service", myString);
+
+                context.startActivity(intent);
+            }
+
 
             else {
                 //Toast.makeText(context,holder.binding.itemTV.getText().toString(),Toast.LENGTH_SHORT).show();
@@ -180,6 +190,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
                 context.startActivity(intent);
             }
+
 
 
 
