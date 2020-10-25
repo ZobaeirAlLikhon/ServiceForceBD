@@ -149,7 +149,7 @@ public class ServicesActivity extends AppCompatActivity {
             }
 
             //Todo modified of Landry service//
-            else if (service.equals("Ironing_service")){
+            else if (service.equals("Ironing service")){
                 serviceList = getResources().getStringArray(R.array.Ironing_service);
                 initRecyclerView();
             }
