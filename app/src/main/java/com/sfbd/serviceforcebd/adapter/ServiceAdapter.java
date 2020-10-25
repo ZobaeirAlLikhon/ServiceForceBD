@@ -167,19 +167,27 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                 myString = holder.binding.itemTV.getText().toString();
                 Intent intent = new Intent(context, ServicesActivity.class);
                 intent.putExtra("service", myString);
-
                 context.startActivity(intent);
 
             }
+            //new Landry view for Landry service
+            else if (serviceList[position].equals("Ironing service")){
+
+                myString = holder.binding.itemTV.getText().toString();
+                Intent intent = new Intent(context, ServicesActivity.class);
+                intent.putExtra("service", myString);
+                context.startActivity(intent);
+            }
+
 
             else {
                 //Toast.makeText(context,holder.binding.itemTV.getText().toString(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SubCatagoryDetails.class);
                 intent.putExtra("service_name", service);
                 intent.putExtra("category", serviceList[position]);
-
                 context.startActivity(intent);
             }
+
 
 
 
