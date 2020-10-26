@@ -86,9 +86,9 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Shifting")){
                 serviceList = getResources().getStringArray(R.array.shifting_services);
-//                img = getResources().obtainTypedArray(R.array.shifting_servicesImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+               img = getResources().obtainTypedArray(R.array.shifting_servicesImg);
+               initRecyclerViewImg();
+               // initRecyclerView();
 
             }else if(service.equals("Medical")){
                 serviceList = getResources().getStringArray(R.array.medical_services);
