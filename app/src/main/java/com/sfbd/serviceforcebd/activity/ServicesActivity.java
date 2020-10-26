@@ -62,7 +62,7 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Electric & Plumbing Serviecs")){
                 serviceList = getResources().getStringArray(R.array.plumbing_services);
-                img = getResources().obtainTypedArray(R.array.plumbing_servicesImg);
+                img = getResources().obtainTypedArray(R.array.plumbing_serviceImg);
                 initRecyclerViewImg();
 
             }else if(service.equals("Painting & Renovation Serviecs")){
@@ -72,13 +72,13 @@ public class ServicesActivity extends AppCompatActivity {
             }else if(service.equals("Car & Bike Care")){
                 serviceList = getResources().getStringArray(R.array.car_care_services);
                 img = getResources().obtainTypedArray(R.array.car_care_servicesImg);
-
                 initRecyclerViewImg();
 
             }else if(service.equals("Electronics & Gadgets")){
                 serviceList = getResources().getStringArray(R.array.electronic_gadgets);
-                img = getResources().obtainTypedArray(R.array.electronic_gadgetsImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.electronic_gadgetsImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }else if(service.equals("Beauty Services")){
                 serviceList = getResources().getStringArray(R.array.beauty_services);
@@ -86,13 +86,15 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Shifting")){
                 serviceList = getResources().getStringArray(R.array.shifting_services);
-                img = getResources().obtainTypedArray(R.array.shifting_servicesImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.shifting_servicesImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }else if(service.equals("Medical")){
                 serviceList = getResources().getStringArray(R.array.medical_services);
-                img = getResources().obtainTypedArray(R.array.medical_servicesImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.medical_servicesImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }else if(service.equals("Event Management")){
                 serviceList = getResources().getStringArray(R.array.event_management);
@@ -100,18 +102,21 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("IT Support")){
                 serviceList = getResources().getStringArray(R.array.it_support);
-                img = getResources().obtainTypedArray(R.array.it_supportImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.it_supportImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }else if(service.equals("Market Service")){
                 serviceList = getResources().getStringArray(R.array.market_service);
-                img = getResources().obtainTypedArray(R.array.market_serviceImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.market_serviceImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }else if(service.equals("Tuition Service")){
                 serviceList = getResources().getStringArray(R.array.tuition_service);
-                img = getResources().obtainTypedArray(R.array.tuition_serviceImg);
-                initRecyclerViewImg();
+//                img = getResources().obtainTypedArray(R.array.tuition_serviceImg);
+//                initRecyclerViewImg();
+                initRecyclerView();
 
             }
             //todo modified code to generate subcatagory...
