@@ -9,12 +9,7 @@
         android:id="@+id/img_logo_su"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:padding="24dp"
+        android:padding="25dp"
         android:src="@drawable/ic_service_force_logo_final"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,8 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo_su"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo_su">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,8 +47,8 @@
 
             <ImageView
                 android:id="@+id/imgpres"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:src="@mipmap/ic_launcher" />
@@ -93,10 +88,56 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="70dp"
                     android:fontFamily="@font/amaranth"
                     android:gravity="start"
                     android:hint="Enter Your Medicine Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textCapWords|textMultiLine"
+                    tools:ignore="Autofill" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mc_useraddress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:gravity="start"
+                    android:hint="Enter Your Address"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textCapWords|textMultiLine"
+                    tools:ignore="Autofill" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mc_phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:gravity="start"
+                    android:hint="Enter Your Phone Number"
                     android:imeOptions="actionNext"
                     android:inputType="text|textCapWords|textMultiLine"
                     tools:ignore="Autofill" />
@@ -130,13 +171,8 @@
                     android:layout_weight="1"
                     android:drawableLeft="@drawable/ic_baseline_call_24"
                     android:text="call now" />
-
-
             </LinearLayout>
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

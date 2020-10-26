@@ -13,6 +13,7 @@
     <color name="viewColor">#e0e0e0</color>
     <color name="nevi_blue">#006F77</color>
     <color name="gray">#A0A0A0</color>
+    <color name="cart_order">#0feb64</color>
 
 
 </resources>
