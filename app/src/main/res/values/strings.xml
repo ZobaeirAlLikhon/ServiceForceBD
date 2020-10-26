@@ -176,6 +176,8 @@
         <item>Groom up package for men</item>
     </string-array>
 
+    <!--........................................shifting_services er image & list view......................-->
+
     <string-array name="laundry_services">
         <item>Monthly subscription packages</item>
         <!--        <item>Dry cleaning</item>-->
@@ -185,16 +187,29 @@
     </string-array>
     <integer-array name="laundry_servicesImg">
         <item>@drawable/monthly_subscription</item>
-
-
+        <item>@drawable/ironing_service</item>
+        <item>@drawable/washing_service</item>
+        <item>@drawable/others</item>
     </integer-array>
+    <!--........................................shifting_services er image & list view......................-->
 
+
+    <!--........................................shifting_services er image & list view......................-->
     <string-array name="shifting_services">
         <item>House Shifting service</item>
         <item>Office Shifting service</item>
         <item>Transport for shifting</item>
     </string-array>
+    <string-array name="shifting_servicesImg">
+        <item>@drawable/house_shifting</item>
+        <item>@drawable/office_shifting_service</item>
+        <item>@drawable/transport_for_shifting</item>
+    </string-array>
+    <!--........................................shifting_services er image & list view......................-->
 
+
+
+    <!--........................................plumbing_services er image & list view......................-->
     <string-array name="plumbing_services">
         <item>Plumbing and sanitary Service</item>
         <item>Electronics for Electrical Service</item>
@@ -203,6 +218,8 @@
         <item>@drawable/plumbing_sanitary_service</item>
         <item>@drawable/electronics_for_electrical_service</item>
     </string-array>
+    <!--........................................plumbing_services er image & list view......................-->
+
 
     <string-array name="painting_renovation_services">
         <item>Home Interior</item>
