@@ -176,6 +176,8 @@
         <item>Groom up package for men</item>
     </string-array>
 
+    <!--........................................shifting_services er image & list view......................-->
+
     <string-array name="laundry_services">
         <item>Monthly subscription packages</item>
         <!--        <item>Dry cleaning</item>-->
@@ -185,9 +187,12 @@
     </string-array>
     <integer-array name="laundry_servicesImg">
         <item>@drawable/monthly_subscription</item>
-
-
+        <item>@drawable/ironing_service</item>
+        <item>@drawable/washing_service</item>
+        <item>@drawable/others</item>
     </integer-array>
+    <!--........................................shifting_services er image & list view......................-->
+
 
     <!--........................................shifting_services er image & list view......................-->
     <string-array name="shifting_services">
