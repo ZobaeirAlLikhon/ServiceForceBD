@@ -399,7 +399,7 @@ public class MediAddressActivity extends AppCompatActivity {
         order.setOrderId(pushId);
         orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                orderRef.child("Medical").child(userId).child(pushId).setValue(order).addOnCompleteListener(task1 -> {
+                orderRef.child("Health Care").child(userId).child(pushId).setValue(order).addOnCompleteListener(task1 -> {
                     if (task1.isSuccessful()){
 
                         Toast.makeText(this, "Your order Placed!", Toast.LENGTH_SHORT).show();

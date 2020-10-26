@@ -33,7 +33,10 @@ public class NewMedicalDetail extends AppCompatActivity {
         });
 
         if (service.equals("Serial for a Doctor"))
-        {getSupportFragmentManager().beginTransaction().add(R.id.medical_frag,new NewMedicalFragmentTwo()).commit();}
+        {
+            getSupportFragmentManager().beginTransaction().add(R.id.medical_frag,new NewMedicalFragmentTwo()).commit();
+
+        }
         else if(service.equals("Medicine Home Delivery")){
             getSupportFragmentManager().beginTransaction().add(R.id.medical_frag,new NewMedicalFragmentOne()).commit();
         }
