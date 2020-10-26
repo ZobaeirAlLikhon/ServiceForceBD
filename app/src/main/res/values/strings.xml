@@ -176,7 +176,7 @@
         <item>Groom up package for men</item>
     </string-array>
 
-    <!--........................................shifting_services er image & list view......................-->
+    <!--........................................laundry_serviceser image & list view......................-->
 
     <string-array name="laundry_services">
         <item>Monthly subscription packages</item>
@@ -191,7 +191,7 @@
         <item>@drawable/washing_service</item>
         <item>@drawable/others</item>
     </integer-array>
-    <!--........................................shifting_services er image & list view......................-->
+    <!--........................................laundry_services er image & list view......................-->
 
 
     <!--........................................shifting_services er image & list view......................-->
@@ -221,19 +221,23 @@
     <!--........................................plumbing_services er image & list view......................-->
 
 
+    <!--........................................painting_renovation_services er image & list view......................-->
     <string-array name="painting_renovation_services">
         <item>Home Interior</item>
         <item>Office Interior</item>
-        <item>Renovation &amp;amp; Décor</item>
-        <item>Interior Design</item>
-        <item>Interior Design Consultancy Service</item>
+<!--        <item>Renovation &amp;amp; Décor</item>-->
+<!--        <item>Interior Design</item>-->
+<!--        <item>Interior Design Consultancy Service</item>-->
         <item>Thai, Glass &amp; Drill work Service</item>
         <item>Partex work Service</item>
         <item>Wood work Service</item>
-        <item>Carpentry Service</item>
+<!--        <item>Carpentry Service</item>-->
         <item>Painting Service</item>
     </string-array>
+    <!--........................................painting_renovation_services er image & list view......................-->
 
+
+    <!--........................................car_care_services er image & list view......................-->
     <string-array name="car_care_services">
         <item>Car wash &amp; polish</item>
         <!--        <item>Car painting &amp;  Decoration</item>-->
@@ -248,18 +252,26 @@
         <item>@drawable/car_wash_polish</item>
         <item>@drawable/bike_wash_polish</item>
         <item>@drawable/monthly_subscription</item>
-
-
     </integer-array>
+    <!--........................................car_care_services er image & list view......................-->
 
+
+    <!--........................................electronic_gadgets er image & list view......................-->
     <string-array name="electronic_gadgets">
         <item>Desktop service</item>
         <item>Laptop service</item>
         <item>CCTV camera service</item>
         <item>Smartphone Repair</item>
     </string-array>
+    <integer-array name="electronic_gadgetsImg">
+        <item>@drawable/desktop_service</item>
+        <item>@drawable/laptop_service</item>
+        <item>@drawable/cc_camera_service</item>
+        <item>@drawable/smart_phone_repair</item>
+    </integer-array>
+    <!--........................................electronic_gadgets er image & list view......................-->
 
-
+    <!--........................................medical_services er image & list view........................-->
     <string-array name="medical_services">
         <item>Consult with a Doctor</item>
         <item>Psychiatrist/mental health</item>
@@ -269,6 +281,7 @@
         <item>Emergency Service</item>
         <!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
     </string-array>
+    <!--........................................medical_services er image & list view........................-->
     <integer-array name="random_imgs">
         <item>@drawable/medi_guide</item>
         <item>@drawable/medi_appi</item>
