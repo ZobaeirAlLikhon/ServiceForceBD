@@ -315,6 +315,7 @@
         <item>Painting</item>
     </string-array>
 
+    <!--........................................it_support er image & list view........................-->
     <string-array name="it_support">
         <item>Website Development</item>
         <item>Mobile Application</item>
@@ -325,23 +326,52 @@
         <item>Monthly Subscription Package</item>
         <item>Motion Graphics</item>
     </string-array>
+    <integer-array name="it_supportImg">
+        <item>@drawable/website_development</item>
+        <item>@drawable/mobile_application</item>
+        <item>@drawable/graphics_design</item>
+        <item>@drawable/software_build</item>
+        <item>@drawable/social_media_marketing</item>
+        <item>@drawable/seo</item>
+        <item>@drawable/monthly_subscription_pacakge</item>
+        <item>@drawable/motion_graphics</item>
 
+    </integer-array>
+    <!--........................................it_support er image & list view........................-->
+
+
+    <!--........................................market_service er image & list view........................-->
     <string-array name="market_service">
-        <item>Groceriesa)</item>
+        <item>Groceries)</item>
         <item>Fresh Bazar</item>
         <item>Health &amp; Hygiene</item>
-        <item>Covid-19 Safety Kits</item>
-        <item>Silk</item>
+<!--        <item>Covid-19 Safety Kits</item>-->
         <item>Cosmetics</item>
     </string-array>
+    <integer-array name="market_serviceImg">
+        <item>@drawable/groceriesa</item>
+        <item>@drawable/fresh_bazar</item>
+        <item>@drawable/health_hygiene</item>
+        <item>@drawable/cosmetics</item>
+    </integer-array>
+    <!--........................................market_service er image & list view........................-->
 
+
+    <!--........................................tuition_service er image & list view........................-->
     <string-array name="tuition_service">
         <item>Get a Tutor</item>
         <item>Get a Tuition</item>
-        <item>Admission for Batch</item>
+<!--        <item>Admission for Batch</item>-->
         <item>Training Course IT</item>
         <item>Internship</item>
     </string-array>
+    <integer-array name="tuition_serviceImg">
+        <item>@drawable/get_tuitor</item>
+        <item>@drawable/get_tution</item>
+        <item>@drawable/training_course_it</item>
+        <item>@drawable/internship</item>
+    </integer-array>
+    <!--........................................tuition_service er image & list view........................-->
 
     <!--............................ Test string for Event Management.............. -->
     <string-array name="Birthday">

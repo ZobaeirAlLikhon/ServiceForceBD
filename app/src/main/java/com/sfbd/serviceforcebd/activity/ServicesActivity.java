@@ -102,23 +102,23 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("IT Support")){
                 serviceList = getResources().getStringArray(R.array.it_support);
-//                img = getResources().obtainTypedArray(R.array.it_supportImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.it_supportImg);
+                initRecyclerViewImg();
+
 
             }else if(service.equals("Market Service")){
                 serviceList = getResources().getStringArray(R.array.market_service);
-//                img = getResources().obtainTypedArray(R.array.market_serviceImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.market_serviceImg);
+                initRecyclerViewImg();
 
             }else if(service.equals("Tuition Service")){
                 serviceList = getResources().getStringArray(R.array.tuition_service);
-//                img = getResources().obtainTypedArray(R.array.tuition_serviceImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.tuition_serviceImg);
+                initRecyclerViewImg();
+
 
             }
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
             //todo modified code to generate subcatagory...
             else if (service.equals("Birthday")){
                 serviceList = getResources().getStringArray(R.array.Birthday);
