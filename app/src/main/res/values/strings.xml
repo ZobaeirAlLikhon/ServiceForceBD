@@ -234,6 +234,14 @@
 <!--        <item>Carpentry Service</item>-->
         <item>Painting Service</item>
     </string-array>
+    <integer-array name="painting_renovation_serviceImg">
+        <item>@drawable/home_interior</item>
+        <item>@drawable/office_interior</item>
+        <item>@drawable/thai_glass_gril</item>
+        <item>@drawable/partex_work_service</item>
+        <item>@drawable/wood_work_service</item>
+        <item>@drawable/painting</item>
+    </integer-array>
     <!--........................................painting_renovation_services er image & list view......................-->
 
 
@@ -271,16 +279,23 @@
     </integer-array>
     <!--........................................electronic_gadgets er image & list view......................-->
 
+
     <!--........................................medical_services er image & list view........................-->
     <string-array name="medical_services">
         <item>Consult with a Doctor</item>
-        <item>Psychiatrist/mental health</item>
+<!--        <item>Psychiatrist/mental health</item>-->
         <item>Pathology test</item>
         <item>Serial for a Doctor</item>
         <item>Medicine Home Delivery</item>
-        <item>Emergency Service</item>
+<!--        <item>Emergency Service</item>-->
         <!--        <item>Medical Equipment(Local &amp; Foreign)</item>-->
     </string-array>
+    <integer-array name="medical_serviceImg">
+        <item>@drawable/consult_doctor</item>
+        <item>@drawable/pathology_test</item>
+        <item>@drawable/serial_doctor</item>
+        <item>@drawable/medicine_home_delivery</item>
+    </integer-array>
     <!--........................................medical_services er image & list view........................-->
     <integer-array name="random_imgs">
         <item>@drawable/medi_guide</item>
@@ -292,7 +307,7 @@
         <item>Wedding Management</item>
         <item>Birthday</item>
         <item>Marriage Day</item>
-        <item>Political Function</item>
+<!--        <item>Political Function</item>-->
         <item>Social Function</item>
         <item>Get Together</item>
         <item>Photography</item>

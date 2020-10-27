@@ -76,9 +76,9 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Electronics & Gadgets")){
                 serviceList = getResources().getStringArray(R.array.electronic_gadgets);
-//                img = getResources().obtainTypedArray(R.array.electronic_gadgetsImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.electronic_gadgetsImg);
+               initRecyclerViewImg();
+//                initRecyclerView();
 
             }else if(service.equals("Beauty Services")){
                 serviceList = getResources().getStringArray(R.array.beauty_services);
@@ -92,9 +92,9 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Medical")){
                 serviceList = getResources().getStringArray(R.array.medical_services);
-//                img = getResources().obtainTypedArray(R.array.medical_servicesImg);
-//                initRecyclerViewImg();
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.medical_serviceImg);
+                initRecyclerViewImg();
+
 
             }else if(service.equals("Event Management")){
                 serviceList = getResources().getStringArray(R.array.event_management);
