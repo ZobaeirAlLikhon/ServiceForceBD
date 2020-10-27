@@ -191,16 +191,16 @@ public class NewMedicalFragmentOne extends Fragment {
                     permissionToken.continuePermissionRequest();
                 }
             }).check();
-            //------------------camera permission------------finish here
+            //------------------camera permission------------finish here//
 
         });
-//------------------check location -------------------start here
+        //------------------check location -------------------start here//
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getLastLocation();
         } else {
             askLocationPermission();
         }
-        //----------------------finish here-----------------
+        //----------------------check location --finish here-----------------//
 
         return view;
     }
@@ -214,7 +214,7 @@ public class NewMedicalFragmentOne extends Fragment {
 
         }
     }
-//---------------------------location-------------------------------start here
+         //---------------------------location-------------------------------start here
     private void getLastLocation() {
 
         Task<Location> locationTask = fusedLocationProviderClient.getLastLocation();
@@ -288,7 +288,7 @@ public class NewMedicalFragmentOne extends Fragment {
         }
         return strAdd;
     }
-//-----------------------------location ----------------------finish here
+    //-----------------------------location ----------------------finish here
 
 
 
@@ -316,5 +316,6 @@ public class NewMedicalFragmentOne extends Fragment {
                         });
 
     }
+    //------------upload image ----------- finish here
 }
 
