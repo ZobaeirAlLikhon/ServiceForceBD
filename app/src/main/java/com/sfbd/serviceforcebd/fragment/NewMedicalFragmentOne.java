@@ -11,6 +11,7 @@ import android.location.Location;
 import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -43,6 +47,9 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -57,12 +64,14 @@ public class NewMedicalFragmentOne extends Fragment {
     private TextInputLayout textInputLayout, textInputLayout1, textInputLayout2;
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
-    String med_name, address, contact,cDate,cTime,address_string;
+    String med_name, address, contact,cDate,cTime,address_string,image_name;
     private static final String TAG = "getContext()";
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private DatabaseReference dref;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Uri filepath;
+    private Bitmap photo;
+    private StorageReference storageReference;
 
     public NewMedicalFragmentOne() {
 
@@ -89,6 +98,11 @@ public class NewMedicalFragmentOne extends Fragment {
         //initialize image view
         imageView = view.findViewById(R.id.imgpres);
 
+
+        //storage reference------
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
         //location provider
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
 
@@ -113,8 +127,14 @@ public class NewMedicalFragmentOne extends Fragment {
                 textInputLayout2.setError("Please Enter Your Phone Number!");
             }
             dref = FirebaseDatabase.getInstance().getReference().child("orders").child("Medical").child("Medicine Corner");
-
+            try {
+                uploadImage();
+            }
+            catch (Exception e){
+                image_name = "user Does not capture prescription";
+            }
             HashMap<String,Object> medCorner = new HashMap<>();
+            medCorner.put("prescription Image",image_name);
             medCorner.put("Medicine Name",med_name);
             medCorner.put("Address",address);
             medCorner.put("Contact Number",contact);
@@ -168,9 +188,9 @@ public class NewMedicalFragmentOne extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-            filepath = data.getData();
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
+                photo = (Bitmap) data.getExtras().get("data");
+                imageView.setImageBitmap(photo);
+
         }
     }
 //---------------------------location-------------------------------start here
@@ -251,5 +271,29 @@ public class NewMedicalFragmentOne extends Fragment {
 
 
 
+    //---------------upload photo function---------------
+
+    private void uploadImage() {
+
+        ByteArrayOutputStream baos =new ByteArrayOutputStream();
+        photo.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        image_name = textInputLayout.getEditText().getText().toString()+"_"+textInputLayout2.getEditText().getText().toString();
+        StorageReference ref = storageReference.child("prescriptions/"+image_name);
+        byte [] b = baos.toByteArray();
+        ref.putBytes(b)
+                       .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                           @Override
+                           public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                               //do nothing
+                           }
+                       })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                            }
+                        });
+
+    }
 }
 
