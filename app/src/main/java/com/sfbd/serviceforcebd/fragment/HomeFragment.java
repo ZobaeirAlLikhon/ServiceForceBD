@@ -73,7 +73,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    int[] sampleImages = {R.drawable.l1,R.drawable.l2,R.drawable.l3,R.drawable.l4,R.drawable.l5,R.drawable.l6};
+    int[] sampleImages = {R.drawable.new_car,R.drawable.new_it,R.drawable.l3,R.drawable.l4,R.drawable.l5,R.drawable.l6};
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
