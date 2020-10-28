@@ -156,7 +156,13 @@ public class ServicesActivity extends AppCompatActivity {
             //Todo modified of Landry service//
             else if (service.equals("Ironing service")){
                 serviceList = getResources().getStringArray(R.array.Ironing_service);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.Ironing_serviceImg);
+                initRecyclerViewImg();
+            }
+            else if (service.equals("Washing Service")){
+                serviceList = getResources().getStringArray(R.array.washing_service);
+                img = getResources().obtainTypedArray(R.array.washing_serviceImg);
+                initRecyclerViewImg();
             }
             //todo modified code to generate subcatagory.to MediCAL
 //            else if (service.equals("Serial for a Doctor")){

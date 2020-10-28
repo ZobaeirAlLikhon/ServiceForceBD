@@ -171,7 +171,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
             }
             //new Landry view for Landry service
-            else if (serviceList[position].equals("Ironing service")){
+            else if (serviceList[position].equals("Ironing service")|| serviceList[position].equals("Washing Service")){
 
                 myString = holder.binding.itemTV.getText().toString();
                 Intent intent = new Intent(context, ServicesActivity.class);

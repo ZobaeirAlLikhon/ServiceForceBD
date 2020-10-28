@@ -182,7 +182,7 @@
         <item>Monthly subscription packages</item>
         <!--        <item>Dry cleaning</item>-->
         <item>Ironing service</item>
-        <item>Washing Servicing</item>
+        <item>Washing Service</item>
         <item>Others</item>
     </string-array>
     <integer-array name="laundry_servicesImg">
@@ -440,11 +440,28 @@
         <item>Heart</item>
         <item>Medicine</item>
     </string-array>
-
+    <!--........................................Ironing_service er image & list view........................-->
     <string-array name="Ironing_service">
         <item>Men</item>
         <item>Women</item>
     </string-array>
+    <integer-array name="Ironing_serviceImg">
+        <item>@drawable/men_ironing_service</item>
+        <item>@drawable/women_ironing_service</item>
+    </integer-array>
+    <!--........................................Ironing_service er image & list view........................-->
+
+
+    <!--........................................washing_service er image & list view........................-->
+    <string-array name="washing_service">
+        <item>Men</item>
+        <item>Women</item>
+    </string-array>
+    <integer-array name="washing_serviceImg">
+        <item>@drawable/men_washinging_service</item>
+        <item>@drawable/women_clothing_service</item>
+    </integer-array>
+    <!--........................................washing_service er image & list view........................-->
 
 
     <!-- TODO: Remove or change this placeholder text -->
