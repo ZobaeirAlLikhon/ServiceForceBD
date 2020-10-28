@@ -68,7 +68,7 @@ public class Frist_SlideFragment extends Fragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mainIntent = new Intent(getContext(), SignUpActivity.class);
+                Intent mainIntent = new Intent(getContext(), SignInActivity.class);
                 startActivity(mainIntent);
 
 

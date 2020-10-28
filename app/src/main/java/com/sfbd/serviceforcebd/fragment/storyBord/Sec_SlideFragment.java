@@ -70,7 +70,7 @@ public class Sec_SlideFragment extends Fragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), SignUpActivity.class));
+                startActivity(new Intent(getContext(), SignInActivity.class));
             }
         });
         tx_s_signin.setOnClickListener(new View.OnClickListener() {

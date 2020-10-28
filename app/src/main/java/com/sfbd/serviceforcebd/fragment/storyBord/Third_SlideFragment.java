@@ -79,7 +79,7 @@ public class Third_SlideFragment extends Fragment {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), SignUpActivity.class));
+                startActivity(new Intent(getContext(), SignInActivity.class));
             }
         });
 

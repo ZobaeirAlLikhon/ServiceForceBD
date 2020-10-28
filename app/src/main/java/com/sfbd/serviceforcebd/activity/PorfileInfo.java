@@ -39,6 +39,9 @@ public class PorfileInfo extends AppCompatActivity {
         storageReference= FirebaseStorage.getInstance().getReference().child("Pro");
         initInfo();
         editPro();
+        binding.proBtnBack.setOnClickListener(v -> {
+            onBackPressed();
+        });
     }
 
     private void editPro() {
@@ -89,4 +92,6 @@ public class PorfileInfo extends AppCompatActivity {
             }
         });
     }
+
+
 }
