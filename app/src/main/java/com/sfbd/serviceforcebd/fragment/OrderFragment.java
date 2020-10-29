@@ -189,7 +189,8 @@ public class OrderFragment extends Fragment {
                 }
             };
             recyclerView.setAdapter(adapter);
-            adapter.startListening();
+
+        adapter.startListening();
         orderRef.addValueEventListener(new ValueEventListener() {
     @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

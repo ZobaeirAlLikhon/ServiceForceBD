@@ -295,7 +295,7 @@ dbToken.addValueEventListener(new ValueEventListener() {
 
 
 
-            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,tk,nop,currentDate,currentTime);
+            Order order = new Order(userId, name, address, contact, orderItem, date, time, isPlaced,pname,tP,nop,currentDate,currentTime);
             String pushId = orderRef.push().getKey();
             order.setOrderId(pushId);
             orderRef.child("Admin").child("newOrder").child(pushId).setValue(order).addOnCompleteListener(task -> {
