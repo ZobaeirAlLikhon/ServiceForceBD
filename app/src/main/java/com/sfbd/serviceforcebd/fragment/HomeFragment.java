@@ -105,6 +105,7 @@ public class HomeFragment extends Fragment {
 
         dbre1= FirebaseDatabase.getInstance().getReference().child("product");
         name=Arrays.asList(getResources().getStringArray(R.array.search_service));
+
         binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
 //        name = getResources().getStringArray(R.array.cleaning_services);
         adapter=new SearchAdapter(context,name);

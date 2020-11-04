@@ -33,7 +33,7 @@
             android:id="@+id/iconeIV"
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:src="@drawable/car_wash"
+            android:src="@mipmap/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
