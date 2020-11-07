@@ -82,7 +82,7 @@ public class SubCatagoryDetails extends AppCompatActivity {
         if(!ConnectionManager.connection(SubCatagoryDetails.this))
         {
             progressDialog.dismiss();
-            new AlertDialog.Builder(SubCatagoryDetails.this)
+           AlertDialog d = new AlertDialog.Builder(SubCatagoryDetails.this)
                     .setTitle("No Internet Connection!!")
                     .setMessage("please turn on your data connection")
                     .setCancelable(false)
@@ -93,6 +93,9 @@ public class SubCatagoryDetails extends AppCompatActivity {
                             startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
                         }
                     }).show();
+           d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+
+
 
             Toast.makeText(SubCatagoryDetails.this,"No internet",Toast.LENGTH_LONG).show();
         }

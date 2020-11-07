@@ -2,9 +2,11 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
@@ -28,6 +31,7 @@ import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
 import com.sfbd.serviceforcebd.activity.MediAddressActivity;
 import com.sfbd.serviceforcebd.activity.ServicesActivity;
+import com.sfbd.serviceforcebd.connection.ConnectionManager;
 import com.sfbd.serviceforcebd.databinding.NewMedicalFragTwoBinding;
 import com.sfbd.serviceforcebd.util.SDF;
 
@@ -107,53 +111,67 @@ public class NewMedicalFragmentTwo extends Fragment{
         });
 //        send btn
     sendbtn.setOnClickListener(v -> {
+        if (!ConnectionManager.connection(getContext())) {
 
-        name = textInputLayout1.getEditText().getText().toString();
-        phone = textInputLayout2.getEditText().getText().toString();
-        docname = textInputLayout3.getEditText().getText().toString();
-        serialDate = textInputLayout4.getEditText().getText().toString();
-        serialTime = textInputLayout5.getEditText().getText().toString();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
-        CTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()).toString();
-        CDate = sdf.format(new Date());
-        if (name.length()==0){
-            textInputLayout1.setError("Please Enter Your Name!");
-        }
-        else if (phone.length()==0 || phone.length()<11){
-            textInputLayout2.setError("Please Enter Valid Phone Number!");
-        }
-        else if (docname.length()==0){
-            textInputLayout3.setError("Please Enter Doctor's name!");
-        }
-        else if (serialDate.length()==0){
-            textInputLayout3.setError("Please Enter Serial Date!");
-        }
-        else if (serialTime.length()==0){
-            textInputLayout3.setError("Please Enter Serial Time!");
-        }
-        else if (item.equals("Choose a Category")){
-            Toast.makeText(getContext(),"Please Enter a Category",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            ///here use model and firebase database to insert data on database...
-            databaseReference= FirebaseDatabase.getInstance().getReference().child("orders").child("Medical").child("Serial for a Doctor");
-            String pushId = databaseReference.push().getKey();
-            HashMap<String,Object> serial=new HashMap<>();
-            serial.put("Patient's Name",name);
-            serial.put("Patient's Phone Number",phone);
-            serial.put("Doctor's Name",docname);
-            serial.put("Doctor Category",item);
-            serial.put("Serial_Date",serialDate);
-            serial.put("Serial_Time",serialTime);
-            databaseReference.child(CDate).child(CTime).updateChildren(serial);
+            AlertDialog d = new AlertDialog.Builder(getContext())
+                    .setTitle("No Internet Connection!!")
+                    .setMessage("please turn on your data connection")
+                    .setCancelable(false)
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Whatever...
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    }).show();
+            d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+
+
+            Toast.makeText(getContext(), "No internet", Toast.LENGTH_LONG).show();
+        } else {
+
+
+            name = textInputLayout1.getEditText().getText().toString();
+            phone = textInputLayout2.getEditText().getText().toString();
+            docname = textInputLayout3.getEditText().getText().toString();
+            serialDate = textInputLayout4.getEditText().getText().toString();
+            serialTime = textInputLayout5.getEditText().getText().toString();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+            CTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()).toString();
+            CDate = sdf.format(new Date());
+            if (name.length() == 0) {
+                textInputLayout1.setError("Please Enter Your Name!");
+            } else if (phone.length() == 0 || phone.length() < 11) {
+                textInputLayout2.setError("Please Enter Valid Phone Number!");
+            } else if (docname.length() == 0) {
+                textInputLayout3.setError("Please Enter Doctor's name!");
+            } else if (serialDate.length() == 0) {
+                textInputLayout3.setError("Please Enter Serial Date!");
+            } else if (serialTime.length() == 0) {
+                textInputLayout3.setError("Please Enter Serial Time!");
+            } else if (item.equals("Choose a Category")) {
+                Toast.makeText(getContext(), "Please Enter a Category", Toast.LENGTH_SHORT).show();
+            } else {
+                ///here use model and firebase database to insert data on database...
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("orders").child("Medical").child("Serial for a Doctor");
+                String pushId = databaseReference.push().getKey();
+                HashMap<String, Object> serial = new HashMap<>();
+                serial.put("Patient's Name", name);
+                serial.put("Patient's Phone Number", phone);
+                serial.put("Doctor's Name", docname);
+                serial.put("Doctor Category", item);
+                serial.put("Serial_Date", serialDate);
+                serial.put("Serial_Time", serialTime);
+                databaseReference.child(CDate).child(CTime).updateChildren(serial);
 //            String test = name + " "+phone + " "+ docname + " "+item;
-            Toast.makeText(getContext(), "Serial Done!!!", Toast.LENGTH_SHORT).show();
-            Intent intent=new Intent(getActivity(), MainActivity.class);
-            startActivity(intent);
+                Toast.makeText(getContext(), "Serial Done!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
 
+            }
         }
-
     });
+
     calbtn.setOnClickListener(v ->{
                 Intent intent =new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:01707071417"));

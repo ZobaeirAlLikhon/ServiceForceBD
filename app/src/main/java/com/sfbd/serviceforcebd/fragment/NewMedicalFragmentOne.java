@@ -2,6 +2,7 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -51,6 +54,8 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.MainActivity;
+import com.sfbd.serviceforcebd.activity.SubCatagoryDetails;
+import com.sfbd.serviceforcebd.connection.ConnectionManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -131,43 +136,62 @@ public class NewMedicalFragmentOne extends Fragment {
             getContext().startActivity(intent);
         });
         send_btn.setOnClickListener(v -> {
-            med_name = textInputLayout.getEditText().getText().toString();
-            address = textInputLayout1.getEditText().getText().toString();
-            contact = textInputLayout2.getEditText().getText().toString();
+            if(!ConnectionManager.connection(getContext()))
+            {
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
-            cTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()).toString();
-            cDate = sdf.format(new Date());
-            if (med_name.length() == 0) {
-                textInputLayout.setError("Please Enter Your Medicine Name!");
-            } else if (address.length() == 0) {
-                textInputLayout1.setError("Please Enter Your Address!");
-            } else if (contact.length() == 0 || contact.length() < 11) {
-                textInputLayout2.setError("Please Enter Your Phone Number!");
+                AlertDialog d = new AlertDialog.Builder(getContext())
+                        .setTitle("No Internet Connection!!")
+                        .setMessage("please turn on your data connection")
+                        .setCancelable(false)
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Whatever...
+                                startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                            }
+                        }).show();
+                d.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.colorPrimary));
+
+
+
+                Toast.makeText(getContext(),"No internet",Toast.LENGTH_LONG).show();
             }
-           else {
-                dref = FirebaseDatabase.getInstance().getReference().child("orders").child("Medical").child("Medicine Corner");
-                try {
-                    uploadImage();
-                }
-                catch (Exception e){
-                    image_name = "user Does not capture prescription";
-                }
-                HashMap<String,Object> medCorner = new HashMap<>();
-                medCorner.put("Image Name",image_name);
-                medCorner.put("Medicine Name",med_name);
-                medCorner.put("Address",address);
-                medCorner.put("Contact Number",contact);
-                medCorner.put("Order Date",cDate);
-                medCorner.put("Order Time",cTime);
-                dref.child(cDate).child(cTime).updateChildren(medCorner);
+            else {
+                med_name = textInputLayout.getEditText().getText().toString();
+                address = textInputLayout1.getEditText().getText().toString();
+                contact = textInputLayout2.getEditText().getText().toString();
 
-                Toast.makeText(getContext(), "Oder Placed. You will be Contacted Shortly!", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+                cTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date()).toString();
+                cDate = sdf.format(new Date());
+                if (med_name.length() == 0) {
+                    textInputLayout.setError("Please Enter Your Medicine Name!");
+                } else if (address.length() == 0) {
+                    textInputLayout1.setError("Please Enter Your Address!");
+                } else if (contact.length() == 0 || contact.length() < 11) {
+                    textInputLayout2.setError("Please Enter Your Phone Number!");
+                } else {
+                    dref = FirebaseDatabase.getInstance().getReference().child("orders").child("Medical").child("Medicine Corner");
+                    try {
+                        uploadImage();
+                    } catch (Exception e) {
+                        image_name = "user Does not capture prescription";
+                    }
+                    HashMap<String, Object> medCorner = new HashMap<>();
+                    medCorner.put("Image Name", image_name);
+                    medCorner.put("Medicine Name", med_name);
+                    medCorner.put("Address", address);
+                    medCorner.put("Contact Number", contact);
+                    medCorner.put("Order Date", cDate);
+                    medCorner.put("Order Time", cTime);
+                    dref.child(cDate).child(cTime).updateChildren(medCorner);
+
+                    Toast.makeText(getContext(), "Oder Placed. You will be Contacted Shortly!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                }
+
             }
-
-
 
         });
 
