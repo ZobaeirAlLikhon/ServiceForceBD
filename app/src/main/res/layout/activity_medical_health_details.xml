@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MedicalHealthDetails">
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MedicalHealthDetails">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/relaLay"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toTopOf="@+id/relaLay1">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
@@ -47,33 +35,16 @@
                     android:gravity="center_vertical"
                     android:text="Booking Information"
                     android:fontFamily="@font/amaranth"
-                    android:textAppearance="@style/monospaceMediumBoldWhiteText"
-                    android:layout_toRightOf="@+id/MbackBtn" />
-
+                    android:textAppearance="@style/monospaceMediumBoldWhiteText" />
             </RelativeLayout>
-
         </androidx.appcompat.widget.Toolbar>
-    </RelativeLayout>
-    <RelativeLayout
-        app:layout_constraintBottom_toBottomOf="@+id/relaLay"
-        android:id="@+id/relaLay1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        >
 
-        <androidx.recyclerview.widget.RecyclerView
-
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/MrecyclerView1111"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@id/toolbar1"
+            android:layout_marginTop="10dp"
             tools:listitem="@layout/medical_view" />
+</RelativeLayout>
 
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

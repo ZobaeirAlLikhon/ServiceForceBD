@@ -1,127 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ptoductlistV"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-    <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".activity.SubCatagoryDetails">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.SubCatagoryDetails"
-        android:id="@+id/ptoductlistV"
-        >
-
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/relaLay"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintBottom_toTopOf="@+id/relaLay1">
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar1"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/backBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:src="@drawable/ic_arrow_back_black_24dp"
-                        tools:ignore="ContentDescription" />
-
-                    <TextView
-                        app:layout_constraintStart_toEndOf="@+id/backBtn"
-                        android:id="@+id/toolbarTV"
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Booking Information"
-                        android:textAppearance="@style/monospaceMediumBoldWhiteText"
-                        android:fontFamily="@font/amaranth"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-
-                        app:layout_constraintEnd_toEndOf="parent">
-
-                        <ImageView
-                            android:id="@+id/toolbarIVcart"
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="1dp"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_shopping_cart" />
-
-                        <TextView
-                            android:id="@+id/countTV"
-                            android:layout_width="24dp"
-                            android:layout_height="18dp"
-                            android:layout_alignEnd="@+id/toolbarIVcart"
-                            android:layout_alignRight="@+id/toolbarIVcart"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginBottom="0dp"
-                            android:gravity="center"
-                            android:text="0" />
-                    </RelativeLayout>
-
-
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.appcompat.widget.Toolbar>
-        </RelativeLayout>
-
-        <RelativeLayout
-            app:layout_constraintBottom_toBottomOf="@+id/relaLay"
-            android:id="@+id/relaLay1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            >
+            android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-
-                android:id="@+id/recyclerView1111"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:nestedScrollingEnabled="false"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/s_catagory_view" />
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/toolbarTV"
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center_vertical"
+                android:layout_toEndOf="@id/backBtn"
+                android:text="Booking Information"
+                android:textAppearance="@style/monospaceMediumBoldWhiteText" />
+            <ImageView
+                android:id="@+id/toolbarIVcart"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_shopping_cart" />
 
+            <TextView
+                android:id="@+id/countTV"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="0"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white" />
         </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
-        <FrameLayout
-            android:id="@+id/FragmentContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.58"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView1111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar1"
+        android:layout_marginTop="10dp"
+        android:nestedScrollingEnabled="false"
+        tools:listitem="@layout/s_catagory_view" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+
+</RelativeLayout>
