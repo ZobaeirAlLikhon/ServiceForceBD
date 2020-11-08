@@ -75,7 +75,6 @@ public class NewMedicalFragmentOne extends Fragment {
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
     String med_name, address, contact,cDate,cTime,address_string,image_name,user_name;
-    private static final String TAG = "getContext()";
     private DatabaseReference dref,dref_one;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Uri filepath;
@@ -92,7 +91,6 @@ public class NewMedicalFragmentOne extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.new_medical_frag_one, container, false);
-
         //initialize button with id
         send_btn = view.findViewById(R.id.sendbtnmed);
         call_btn = view.findViewById(R.id.callbtnmed);
