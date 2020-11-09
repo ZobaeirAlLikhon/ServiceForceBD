@@ -1,61 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            <TextView
+                android:id="@+id/toolbarTV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/backBtn"
+                android:layout_toRightOf="@+id/backBtn"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center_vertical"
+                android:text="Booking Information"
+                android:textAppearance="@style/monospaceMediumBoldWhiteText" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".activity.AddressActivity">
-
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/backBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_arrow_back_black_24dp"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/toolbarTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toEndOf="@+id/backBtn"
-                    android:layout_toRightOf="@+id/backBtn"
-                    android:fontFamily="@font/amaranth"
-                    android:gravity="center_vertical"
-                    android:text="Booking Information"
-                    android:textAppearance="@style/monospaceMediumBoldWhiteText" />
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
+        android:layout_below="@id/toolbar"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
             tools:ignore="MissingConstraints">
 
             <com.airbnb.lottie.LottieAnimationView
@@ -64,9 +53,6 @@
                 android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="booking.json"
                 app:lottie_loop="true"
@@ -76,8 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -99,11 +85,11 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/amaranth"
                             android:hint="Address"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
-                            tools:ignore="Autofill"
-                            android:fontFamily="@font/amaranth"/>
+                            tools:ignore="Autofill"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,12 +109,12 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/amaranth"
                             android:hint="Contact"
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             android:maxLines="1"
-                            tools:ignore="Autofill"
-                            android:fontFamily="@font/amaranth"/>
+                            tools:ignore="Autofill"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,11 +137,11 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:focusable="false"
+                            android:fontFamily="@font/amaranth"
                             android:hint="dd/mm/yyy"
                             android:imeOptions="actionNext"
                             android:inputType="date"
-                            tools:ignore="Autofill"
-                            android:fontFamily="@font/amaranth"/>
+                            tools:ignore="Autofill"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,13 +163,13 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:focusable="false"
+                            android:fontFamily="@font/amaranth"
                             android:hint="hh:mm:aa"
                             android:imeOptions="actionNext"
                             android:inputType="time|text"
                             android:maxLines="1"
                             android:timePickerMode="spinner"
-                            tools:ignore="Autofill"
-                            android:fontFamily="@font/amaranth"/>
+                            tools:ignore="Autofill"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -194,8 +180,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -246,7 +232,6 @@
                         android:paddingLeft="10dp"
                         android:text="No Of Product"
                         android:textColor="#f123"
-
                         android:textSize="16dp" />
 
                     <TextView
@@ -263,7 +248,6 @@
                         android:paddingLeft="10dp"
                         android:text="Price"
                         android:textColor="#f123"
-
                         android:textSize="16dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -280,9 +264,6 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/primaryColor"
                 app:cardCornerRadius="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuponCode"
                 app:cardElevation="10dp">
 
                 <TextView
@@ -297,21 +278,17 @@
                     android:textColorHighlight="@color/white"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
-
-
         </LinearLayout>
+    </ScrollView>
 
-        <ProgressBar
-            android:id="@+id/progressBarId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+    <ProgressBar
+        android:id="@+id/progressBarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        tools:visibility="visible" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</RelativeLayout>

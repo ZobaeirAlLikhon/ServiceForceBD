@@ -1,61 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/toolbarTV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/backBtn"
+                android:layout_toRightOf="@+id/backBtn"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center_vertical"
+                android:text="Booking Information"
+                android:textAppearance="@style/monospaceMediumBoldWhiteText" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".activity.AddressActivity">
-
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/backBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_arrow_back_black_24dp"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/toolbarTV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toEndOf="@+id/backBtn"
-                    android:layout_toRightOf="@+id/backBtn"
-                    android:fontFamily="@font/amaranth"
-                    android:gravity="center_vertical"
-                    android:text="Booking Information"
-                    android:textAppearance="@style/monospaceMediumBoldWhiteText" />
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-
+        android:layout_below="@id/toolbar"
+        android:padding="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
             tools:ignore="MissingConstraints">
 
             <com.airbnb.lottie.LottieAnimationView
@@ -64,131 +54,128 @@
                 android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="booking.json"
                 app:lottie_loop="true"
                 tools:ignore="MissingConstraints" />
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="10dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/addressET"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:helperText="You can change your address!"
-            app:hintTextColor="@color/colorPrimary">
-
-            <com.google.android.material.textfield.TextInputEditText
-
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Address"
-                android:imeOptions="actionNext"
-                android:inputType="text|textCapWords|textMultiLine"
-                tools:ignore="Autofill"
-                android:fontFamily="@font/amaranth"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/contactET"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:helperText="You can change contact number!"
-            app:hintTextColor="@color/colorPrimary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contact"
-                android:imeOptions="actionNext"
-                android:inputType="text|phone"
-                android:maxLines="1"
-                tools:ignore="Autofill"
-                android:fontFamily="@font/amaranth"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dateET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:hintTextColor="@color/colorPrimary">
-
-                <EditText
+                android:layout_margin="10dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:hint="dd/mm/yyy"
-                    android:imeOptions="actionNext"
-                    android:inputType="date"
-                    tools:ignore="Autofill"
-                    android:fontFamily="@font/amaranth"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/addressET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:helperText="You can change your address!"
+                        app:hintTextColor="@color/colorPrimary">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Address"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|textCapWords|textMultiLine"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/contactET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:helperText="You can change contact number!"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|phone"
+                            android:maxLines="1"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/timeET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:hintTextColor="@color/colorPrimary">
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:hint="hh:mm:aa"
-                    android:imeOptions="actionNext"
-                    android:inputType="time|text"
-                    android:maxLines="1"
-                    android:timePickerMode="spinner"
-                    tools:ignore="Autofill"
-                    android:fontFamily="@font/amaranth"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/dateET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@color/colorPrimary">
 
-            </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:hint="dd/mm/yyy"
+                            android:imeOptions="actionNext"
+                            android:inputType="date"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
 
-</androidx.cardview.widget.CardView>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/timeET"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:hintTextColor="@color/colorPrimary">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:hint="hh:mm:aa"
+                            android:imeOptions="actionNext"
+                            android:inputType="time|text"
+                            android:maxLines="1"
+                            android:timePickerMode="spinner"
+                            tools:ignore="Autofill"
+                            android:fontFamily="@font/amaranth"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -266,86 +253,85 @@
 
                         android:textSize="16dp" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cuponCode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintTop_toBottomOf="@+id/nOp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/voucher"
-                        android:layout_width="240dp"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/amaranth"
-                        android:hint="Enter Voucher Code"
-                        android:padding="5dp"/>
-
-                    <Button
-                        android:id="@+id/btn_apply"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cuponCode"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/amaranth"
-                        android:gravity="center"
-                        android:text="Apply"
-                        android:textAllCaps="false"
-                        android:textSize="15dp"
-                        android:padding="5dp"
-                        android:background="@color/primaryColor"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        app:cardElevation="5dp">
 
-                </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/voucher"
+                                android:layout_width="240dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/amaranth"
+                                android:hint="Enter Voucher Code"
+                                android:padding="5dp"/>
+
+                            <Button
+                                android:id="@+id/btn_apply"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/amaranth"
+                                android:gravity="center"
+                                android:text="Apply"
+                                android:textAllCaps="false"
+                                android:textSize="15dp"
+                                android:padding="5dp"
+                                android:background="@color/primaryColor"/>
+
+                        </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="8dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="8dp"
+                        android:orientation="horizontal">
 
-                <TextView
+                        <TextView
 
-                    android:id="@+id/tottalPrice"
-                    android:layout_width="252dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:fontFamily="@font/amaranth"
-                    android:gravity="start|center"
-                    android:paddingLeft="10dp"
-                    android:text="Tottal Price: "
-                    android:textColor="#f123"
-                    android:textSize="16dp" />
+                            android:id="@+id/tottalPrice"
+                            android:layout_width="252dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/amaranth"
+                            android:gravity="start|center"
+                            android:paddingLeft="10dp"
+                            android:text="Tottal Price: "
+                            android:textColor="#f123"
+                            android:textSize="16dp" />
 
-                <TextView
-                    android:id="@+id/discount"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="2dp"
-                    android:fontFamily="@font/amaranth"
-                    android:gravity="end|center"
-                    android:text="0% off"
-                    android:textColor="#f123"
-                    android:textSize="16dp" />
-            </LinearLayout>
+                        <TextView
+                            android:id="@+id/discount"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/amaranth"
+                            android:gravity="end|center"
+                            android:text="0% off"
+                            android:textColor="#f123"
+                            android:textSize="16dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -361,9 +347,6 @@
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/primaryColor"
                 app:cardCornerRadius="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cuponCode"
                 app:cardElevation="10dp">
 
                 <TextView
@@ -382,17 +365,16 @@
 
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBarId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+    </ScrollView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        tools:visibility="visible" />
+
+</RelativeLayout>
