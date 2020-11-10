@@ -2,9 +2,11 @@ package com.sfbd.serviceforcebd.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +24,13 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHolder> {
     Context context;
     List<String> name;
+    private TypedArray img;
 
 
     public SearchAdapter(Context context, List<String> name) {
         this.context = context;
         this.name = name;
+
     }
 
     @NonNull
@@ -38,6 +42,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHold
     @Override
     public void onBindViewHolder(@NonNull SearchHolder holder, int position) {
         holder.textView.setText(name.get(position));
+        holder.textView1.setVisibility(View.INVISIBLE);
+        holder.imageView1.setVisibility(View.INVISIBLE);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -214,10 +221,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchHold
     }
 
     public class SearchHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView textView,textView1;
+        ImageView imageView,imageView1;
+
         public SearchHolder(@NonNull View itemView) {
             super(itemView);
             textView=itemView.findViewById(R.id.itemTV);
+            imageView=itemView.findViewById(R.id.iconeIV);
+            textView1=itemView.findViewById(R.id.countLike);
+            imageView1=itemView.findViewById(R.id.likeIV);
 
         }
     }

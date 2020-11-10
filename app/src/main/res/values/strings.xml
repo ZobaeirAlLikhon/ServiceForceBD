@@ -14,7 +14,9 @@
         <item>Hire a Female Cleaner</item>
         <item>Hire a Male Cleaner</item>
         <item>Water Tank Cleaning</item>
-        <item>Pipe Line cleaning</item>
+<!--        <item>Pipe Line cleaning</item>-->
+
+
         <!--..........appliance_repair_services ...............-->
         <item>Ac Repair Services</item>
         <item>Microwave Repair Services</item>
@@ -164,17 +166,23 @@
 
 
     <string-array name="beauty_services">
-        <item>Packages</item>
-        <item>Eid Festival offer</item>
         <item>Personal Beuty Care</item>
-        <item>Body spa &amp; Massage</item>
-        <item>Machover for women</item>
-        <item>Mehedi design</item>
-        <item>Mehendi Design</item>
+        <item>Packages</item>
+<!--        <item>Body spa &amp; Massage</item>-->
+<!--        <item>Machover for women</item>-->
+        <item>Mehedi Design</item>
         <item>Bridal makcup</item>
         <item>salon service for man</item>
-        <item>Groom up package for men</item>
+<!--        <item>Groom up package for men</item>-->
+        <!--        <item>Eid Festival offer</item>-->
     </string-array>
+    <integer-array name="beauty_servicesImg">
+        <item>@drawable/personal_beauty_care</item>
+        <item>@drawable/package_beauty</item>
+        <item>@drawable/mehedi_design</item>
+        <item>@drawable/bridal_makup</item>
+        <item>@drawable/salon_man</item>
+    </integer-array>
 
     <!--........................................laundry_serviceser image & list view......................-->
 
@@ -308,12 +316,17 @@
         <item>Birthday</item>
         <item>Marriage Day</item>
 <!--        <item>Political Function</item>-->
-        <item>Social Function</item>
-        <item>Get Together</item>
-        <item>Photography</item>
-        <item>Interior Decoration</item>
-        <item>Painting</item>
+<!--        <item>Social Function</item>-->
+<!--        <item>Get Together</item>-->
+<!--        <item>Photography</item>-->
+<!--        <item>Interior Decoration</item>-->
+<!--        <item>Painting</item>-->
     </string-array>
+    <integer-array name="event_managementImg">
+        <item>@drawable/wedding</item>
+        <item>@drawable/birthday</item>
+        <item>@drawable/marriage</item>
+    </integer-array>
 
     <!--........................................it_support er image & list view........................-->
     <string-array name="it_support">
@@ -373,19 +386,38 @@
     </integer-array>
     <!--........................................tuition_service er image & list view........................-->
 
-    <!--............................ Test string for Event Management.............. -->
+
+
+    <!--......................................... Test string for Event Management.............. -->
+    <!--........................... Birthday.............. -->
+
     <string-array name="Birthday">
         <item>Couple package</item>
         <item>Gold package</item>
         <item>Diamond package</item>
         <item>Platinum package</item>
     </string-array>
+    <integer-array name="BirthdayImg">
+        <item>@drawable/couple_package</item>
+        <item>@drawable/gold_package</item>
+        <item>@drawable/diamond_package</item>
+        <item>@drawable/platinum_package</item>
+    </integer-array>
+    <!--.............................Birthday.............. -->
+
     <string-array name="Wedding_Management">
         <item>Holud Sondha</item>
         <item>Biye</item>
         <item>Package 1</item>
         <item>Package 2</item>
     </string-array>
+    <integer-array name="Wedding_ManagementImg">
+        <item>@drawable/holud_sondha</item>
+        <item>@drawable/biye</item>
+        <item>@drawable/pakage_01</item>
+        <item>@drawable/pakage_02</item>
+    </integer-array>
+    <!--.............................Wedding_Management.............. -->
 
     <string-array name="Marriage_Day">
         <item>test case M1</item>
