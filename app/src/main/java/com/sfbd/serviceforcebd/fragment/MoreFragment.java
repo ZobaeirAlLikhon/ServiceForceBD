@@ -100,10 +100,10 @@ public class MoreFragment extends Fragment {
         initLogout();
         initFireBase();
         SharedPreferences preferences=this.getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
-        boolean fristTime=preferences.getBoolean("fristTime",true);
+        boolean fristTime=preferences.getBoolean("fristTime",false);
         if(fristTime)
         {
-            rattingApps();
+//            rattingApps();
         }
 
         return binding.getRoot();

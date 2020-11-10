@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="0dp"
+
     tools:layout_editor_absoluteY="0dp">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -67,21 +68,6 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarAbout"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintGuide_end="377dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAbout" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="70dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/about_akash"
@@ -220,15 +206,7 @@
             tools:ignore="MissingConstraints" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="542dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintGuide_begin="130dp"
-        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/about_jony"
@@ -383,11 +361,6 @@ It Services, Tution Services etc."
         app:layout_constraintTop_toTopOf="@+id/sfbd1"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="52dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
