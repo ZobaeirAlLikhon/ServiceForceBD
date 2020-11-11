@@ -31,7 +31,7 @@
         android:layout_width="310dp"
         android:layout_height="180dp"
         android:foregroundGravity="center"
-        android:src="@drawable/logo1"
+        android:src="@drawable/sfltd_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

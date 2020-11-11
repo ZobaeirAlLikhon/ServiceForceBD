@@ -129,7 +129,8 @@ public class ServicesActivity extends AppCompatActivity {
             }
             else if (service.equals("Marriage Day")){
                 serviceList = getResources().getStringArray(R.array.Marriage_Day);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.Marriage_DayImg);
+                initRecyclerViewImg();
             }
             else if (service.equals("Wedding Management")){
                 serviceList = getResources().getStringArray(R.array.Wedding_Management);

@@ -417,15 +417,19 @@
         <item>@drawable/pakage_01</item>
         <item>@drawable/pakage_02</item>
     </integer-array>
-    <!--.............................Wedding_Management.............. -->
+    <!--.............................Marriage_Day.............. -->
 
     <string-array name="Marriage_Day">
-        <item>test case M1</item>
-        <item>test case M2</item>
-        <item>test case M3</item>
-        <item>test case M3</item>
-        <item>test case M4</item>
+        <item>Wedding Anniversary</item>
+<!--        <item>test case M2</item>-->
+<!--        <item>test case M3</item>-->
+<!--        <item>test case M3</item>-->
+<!--        <item>test case M4</item>-->
     </string-array>
+    <integer-array name="Marriage_DayImg">
+        <item>@drawable/aniversary</item>
+    </integer-array>
+    <!--.............................Marriage_Day.............. -->
 
     <string-array name="Social_Function">
         <item>test case SF1</item>
