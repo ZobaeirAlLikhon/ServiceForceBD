@@ -12,8 +12,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MediAddressActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarmediAdd"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtnMA"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/toolbarTVPro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/backBtnMA"
+                android:layout_toRightOf="@+id/backBtnMA"
+                android:gravity="center_vertical"
+                android:text="Booking Information"
+                android:fontFamily="@font/amaranth"
+                android:textAppearance="@style/monospaceMediumBoldWhiteText" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
+        app:layout_constraintTop_toBottomOf="@+id/toolbarmediAdd"
         android:id="@+id/mediIV"
         android:layout_width="match_parent"
         android:layout_height="200dp"

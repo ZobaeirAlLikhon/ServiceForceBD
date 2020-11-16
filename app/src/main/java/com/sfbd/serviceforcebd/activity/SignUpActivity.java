@@ -148,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
                                         user.updateProfile(profileUpdates);
                                         HashMap<String, Object> cupon = new HashMap<>();
-                                        cupon.put("cupon_ID","SFBD-2020");
+                                        cupon.put("cupon_ID","SFLTD-2020");
 //                  cupon.put("cupon","0");
                                         userRef.child(userId).updateChildren(cupon);
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
