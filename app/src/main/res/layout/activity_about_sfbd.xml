@@ -128,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service force Ltd"
+            android:text="Work in Service Force Ltd"
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />
@@ -192,7 +192,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service force Ltd"
+            android:text="Work in Service Force Ltd"
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />
@@ -258,7 +258,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service force Ltd"
+            android:text="Work in Service Force Ltd"
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />
@@ -293,7 +293,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="18dp"
+        android:layout_width="15dp"
         android:layout_height="147dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_shape2"
@@ -323,7 +323,7 @@
         android:id="@+id/view3"
         android:layout_width="50dp"
         android:layout_height="10dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="33dp"
         android:layout_marginLeft="52dp"
         android:background="@drawable/custom_shape2"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
@@ -337,7 +337,7 @@
         android:id="@+id/sfbd1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="12dp"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/amaranth"
@@ -353,7 +353,7 @@ It Services, Tution Services etc."
         android:id="@+id/view4"
         android:layout_width="50dp"
         android:layout_height="10dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="33dp"
         android:layout_marginLeft="52dp"
         android:background="@drawable/custom_shape2"
         app:layout_constraintBottom_toBottomOf="@+id/sfbd1"

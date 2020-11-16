@@ -15,7 +15,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:padding="24dp"
-            android:src="@drawable/ic_service_force_logo_final" />
+            android:src="@drawable/ic_sf_logo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

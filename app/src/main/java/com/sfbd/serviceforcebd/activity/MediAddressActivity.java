@@ -70,7 +70,7 @@ public class MediAddressActivity extends AppCompatActivity {
         docVisit=bundle.getString("price");
         catagory=bundle.getString("category");
         binding.dName.setText("Doctor Name: "+docName);
-        binding.dVisit.setText("Doctor Name: "+docVisit);
+        binding.dVisit.setText("Doctor Visit: "+docVisit);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getLastLocation();

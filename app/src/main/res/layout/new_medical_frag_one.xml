@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:padding="25dp"
-        android:src="@drawable/ic_service_force_logo_final"
+        android:src="@drawable/ic_sf_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

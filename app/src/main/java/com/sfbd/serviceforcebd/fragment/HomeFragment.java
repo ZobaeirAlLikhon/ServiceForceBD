@@ -73,8 +73,8 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    int[] sampleImages = {R.drawable.new_car,R.drawable.new_it,R.drawable.baner_medi,R.drawable.baner_shifting,
-    R.drawable.baner_clean,R.drawable.baner_visiting};
+    int[] sampleImages = {R.drawable.baner_car_bike,R.drawable.baner_cleaning,R.drawable.baner_medical,
+            R.drawable.baner_pes_control,R.drawable.baner_shifting,R.drawable.baner_visi_card};
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
@@ -154,11 +154,11 @@ public class HomeFragment extends Fragment {
                 String service = "Medical";
                 initService(service);
             }
-        });binding.homePV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,"Service not avalible",Toast.LENGTH_SHORT).show();
-            }
+//        });binding.homePV.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context,"Service not avalible",Toast.LENGTH_SHORT).show();
+//            }
         });binding.shiftingPV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

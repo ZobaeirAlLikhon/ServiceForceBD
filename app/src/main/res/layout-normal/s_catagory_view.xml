@@ -9,13 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="290dp"
+        android:layout_height="320dp"
 
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="290dp"
             android:layout_margin="10dp"
             android:layout_marginTop="2dp"
             android:outlineSpotShadowColor="#FFFF00"
@@ -27,7 +27,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/relativeTop"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="290dp">
 
 
                 <ImageView
@@ -70,7 +70,7 @@
                 <TextView
                     android:id="@+id/productDec"
                     android:layout_width="297dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="8dp"
                     android:gravity="start"
                     android:padding="2dp"
@@ -92,13 +92,14 @@
                     android:id="@+id/price11"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_marginRight="55dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginRight="60dp"
+                    android:fontFamily="@font/amaranth"
                     android:gravity="end"
                     android:text="price: 1000 Tk"
                     android:textAlignment="textEnd"
                     android:textColor="#006F77"
                     android:textStyle="italic"
-                    android:fontFamily="@font/amaranth"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -130,17 +131,22 @@
                 <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                     android:id="@+id/eligantbutton"
                     android:layout_width="120dp"
+                    android:padding="1dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginLeft="56dp"
-                    android:layout_marginTop="215dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/ractangel_shape"
-                    android:scaleX="1"
-                    android:scaleY=".7"
-                    app:backGroundColor="@color/white"
+                    android:scaleX=".8"
+                    android:scaleY=".6"
+                    app:backGroundColor="#FFFFFF"
+
                     app:initialNumber="1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/productDec"
                     app:textColor="@color/black"
                     app:textSize="8dp"
                     tools:ignore="MissingConstraints">
@@ -157,8 +163,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="235dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
@@ -166,38 +172,42 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/booking"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="42dp"
             android:background="@drawable/round_shape"
-            android:elevation="2dp"
             android:backgroundTint="@color/cart_order"
+            android:elevation="2dp"
             android:src="@drawable/arrow_forward_24" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout3"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="235dp"
         android:background="@drawable/outline_shado"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/addToCart"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:background="@drawable/round_shape"
             android:elevation="2dp"
             android:src="@drawable/cart_sfbd" />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
