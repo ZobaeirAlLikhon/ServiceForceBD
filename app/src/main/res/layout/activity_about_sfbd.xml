@@ -128,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service Force Ltd"
+            android:text="Work in Service Force Ltd."
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />
@@ -192,7 +192,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service Force Ltd"
+            android:text="Work in Service Force Ltd."
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />
@@ -258,7 +258,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Work in Service Force Ltd"
+            android:text="Work in Service Force Ltd."
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:ignore="MissingConstraints" />

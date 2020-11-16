@@ -20,7 +20,7 @@
         <!--..........appliance_repair_services ...............-->
         <item>Ac Repair Services</item>
         <item>Microwave Repair Services</item>
-        <item>Refigerator Repair Services</item>
+        <item>Refrigerator Repair Services</item>
         <item>Washing Machine Repair Services</item>
         <item>IPS Repair Services</item>
         <!--..........laundry_services ...............-->
@@ -29,37 +29,24 @@
         <item>Washing Servicing</item>
         <item>Others</item>
         <!--..........beauty_services ...............-->
-        <item>Eid Festival offer</item>
         <item>Personal Beuty Care</item>
-        <item>Body spa &amp; Massage</item>
-        <item>Machover for women</item>
-        <item>Mehedi design</item>
-        <item>Mehendi Design</item>
-        <item>Bridal makcup</item>
+        <item>Packages</item>
+        <item>Mehadi Design</item>
+        <item>Bridal makeup</item>
         <item>salon service for man</item>
-        <item>Groom up package for men</item>
         <!--..........Electric & Plumbing Serviecs ...............-->
         <item>Plumbing and sanitary Service</item>
         <item>Electronics for Electrical Service</item>
         <!--..........Painting & Renovation Serviecs ...............-->
         <item>Home Interior</item>
         <item>Office Interior</item>
-        <item>Renovation &amp;amp; Décor</item>
-        <item>Interior Design</item>
-        <item>Interior Design Consultancy Service</item>
         <item>Thai, Glass &amp; Drill work Service</item>
         <item>Partex work Service</item>
         <item>Wood work Service</item>
-        <item>Carpentry Service</item>
         <item>Painting Service</item>
         <!--..........Care & Bike Care ...............-->
         <item>Car wash &amp; polish</item>
-        <!--        <item>Car painting &amp;  Decoration</item>-->
-        <!--        <item>Car repair &amp; Servicing</item>-->
-        <!--        <item>Emergency Car Service</item>-->
         <item>Bike wash &amp; polish</item>
-        <!--        <item>Bike painting &amp; Decoration</item>-->
-        <!--        <item>Bike repair &amp; Servicing</item>-->
         <item>Monthly Subscription Package</item>
         <!--..........Electronics & Gadgets ...............-->
         <item>Desktop service</item>
@@ -97,7 +84,7 @@
         <item>Monthly Subscription Package</item>
 
         <!--..........market_service ...............-->
-        <item>Groceriesa)</item>
+        <item>Grocery</item>
         <item>Fresh Bazar</item>
         <item>Health &amp; Hygiene</item>
         <item>Covid-19 Safety Kits</item>
@@ -150,7 +137,7 @@
         <item>Ac Repair Services</item>
         <item>Microwave Repair Services</item>
         <!--        <item>Tv Repair Services</item>-->
-        <item>Refigerator Repair Services</item>
+        <item>Refrigerator Repair Services</item>
         <item>Washing Machine Repair Services</item>
         <item>IPS Repair Services</item>
         <!--        <item> Gas stove/Burnner Repair Services</item>-->
@@ -170,8 +157,8 @@
         <item>Packages</item>
 <!--        <item>Body spa &amp; Massage</item>-->
 <!--        <item>Machover for women</item>-->
-        <item>Mehedi Design</item>
-        <item>Bridal makcup</item>
+        <item>Mehadi Design</item>
+        <item>Bridal makeup</item>
         <item>salon service for man</item>
 <!--        <item>Groom up package for men</item>-->
         <!--        <item>Eid Festival offer</item>-->
@@ -355,7 +342,7 @@
 
     <!--........................................market_service er image & list view........................-->
     <string-array name="market_service">
-        <item>Groceries)</item>
+        <item>Grocery</item>
         <item>Fresh Bazar</item>
         <item>Health &amp; Hygiene</item>
 <!--        <item>Covid-19 Safety Kits</item>-->
