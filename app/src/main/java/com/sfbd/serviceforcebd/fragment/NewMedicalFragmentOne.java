@@ -70,7 +70,7 @@ public class NewMedicalFragmentOne extends Fragment {
 
     private MaterialButton send_btn, call_btn;
     private TextView camera_btn;
-    private static final int LOCATION_REQUEST_CODE = 1001;
+    private static final int MY_PERMISSION_CONSTANT = 5;
     private TextInputLayout textInputLayout, textInputLayout1, textInputLayout2;
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
@@ -195,37 +195,35 @@ public class NewMedicalFragmentOne extends Fragment {
 
         camera_btn.setOnClickListener(v -> {
 
-            //---------------camera permission ------------------
-            Dexter.withContext(getContext()).withPermission(Manifest.permission.CAMERA).withListener(new PermissionListener() {
-                @Override
-                public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                if (ContextCompat.checkSelfPermission(getContext(),Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED) {
                     Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 }
-
-                @Override
-                public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
+                else {
+                    askPermission();
                 }
 
-                @Override
-                public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                    permissionToken.continuePermissionRequest();
-                }
-            }).check();
-            //------------------camera permission------------finish here//
 
         });
+
+
+
         //------------------check location -------------------start here//
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if ((ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
             getLastLocation();
         } else {
-            askLocationPermission();
+            askPermission();
         }
-        //----------------------check location --finish here-----------------//
+
 
         return view;
     }
+
+
+
+
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -236,6 +234,9 @@ public class NewMedicalFragmentOne extends Fragment {
 
         }
     }
+
+
+
          //---------------------------location-------------------------------start here
     private void getLastLocation() {
 
@@ -262,30 +263,7 @@ public class NewMedicalFragmentOne extends Fragment {
     }
 
 
-    private void askLocationPermission() {
 
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
-                Toast.makeText(getContext(), "You should give the permission!", Toast.LENGTH_SHORT).show();
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            }
-            /* First time user use this application*/
-            else {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            }
-        }
-    }
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == LOCATION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                /*Permission Granted*/
-                getLastLocation();
-            } else {
-                /*Permission Denied*/
-
-            }
-        }
-    }
 
     private String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
         String strAdd = "";
@@ -333,11 +311,67 @@ public class NewMedicalFragmentOne extends Fragment {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-
+                                e.printStackTrace();
                             }
                         });
 
     }
     //------------upload image ----------- finish here
+
+
+    private void askPermission() {
+
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+
+                ||
+
+                ContextCompat.checkSelfPermission(getContext(),
+                        Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+        {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+
+                    ||
+
+                    ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                            Manifest.permission.CAMERA))
+            {
+
+                Toast.makeText(getContext(), "You should give the permission!", Toast.LENGTH_SHORT).show();
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA},MY_PERMISSION_CONSTANT);
+
+            }
+
+            /* First time user use this application*/
+            else {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA}, MY_PERMISSION_CONSTANT);
+            }
+        }
+    }
+
+
+
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MY_PERMISSION_CONSTANT) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                /*Permission Granted*/
+                getLastLocation();
+            }
+            else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+            else {
+                /*Permission Denied*/
+                Toast.makeText(getContext(), " permission denied, boo! Disable the functionality that depends on this permission.", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    }
+
+
+
+
 }
 
