@@ -4,17 +4,22 @@ apply plugin: 'com.google.gms.google-services'
 android {
 
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.sfbd.serviceforcebd"
         minSdkVersion 16
-//        targetSdkVersion 16
-        versionCode 4
-        versionName "1.2"
+        targetSdkVersion 29
+        versionCode 6
+        versionName "1.3"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+
+        checkReleaseBuilds false
+
     }
 
     buildTypes {
