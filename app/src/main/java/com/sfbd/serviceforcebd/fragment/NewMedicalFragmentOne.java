@@ -2,6 +2,8 @@ package com.sfbd.serviceforcebd.fragment;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -44,6 +46,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.sfbd.serviceforcebd.R;
@@ -66,13 +69,13 @@ public class NewMedicalFragmentOne extends Fragment {
     private TextView camera_btn;
     private static final int MY_PERMISSION_CONSTANT = 5;
     private TextInputLayout textInputLayout, textInputLayout1, textInputLayout2;
-    private static final int CAMERA_REQUEST = 1888;
+    private static final int PICK_IMAGE_REQUEST = 1888;
     private ImageView imageView;
     String med_name, address, contact,cDate,cTime,address_string,image_name,user_name;
     private DatabaseReference dref,dref_one;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Uri filepath;
-    private Bitmap photo;
+    //private Bitmap photo;
     private StorageReference storageReference;
     private FirebaseAuth mAuth;
 
@@ -189,9 +192,10 @@ public class NewMedicalFragmentOne extends Fragment {
 
         camera_btn.setOnClickListener(v -> {
 
-                if (ContextCompat.checkSelfPermission(getContext(),Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED) {
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                if (ContextCompat.checkSelfPermission(getContext(),Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED) {
+//                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    selectImage();
                 }
                 else {
                     askPermission();
@@ -213,18 +217,30 @@ public class NewMedicalFragmentOne extends Fragment {
         return view;
     }
 
-
-
-
-
+    private void selectImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."),PICK_IMAGE_REQUEST);
+    }
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-                photo = (Bitmap) data.getExtras().get("data");
-                imageView.setImageBitmap(photo);
+        if (requestCode == PICK_IMAGE_REQUEST
+                && resultCode == Activity.RESULT_OK
+                && data !=null
+                && data.getData() !=null){
+//                photo = (Bitmap) data.getExtras().get("data");
+//                imageView.setImageBitmap(photo);
+            filepath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplicationContext().getContentResolver(),filepath);
+                imageView.setImageBitmap(bitmap);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
 
         }
     }
@@ -252,6 +268,7 @@ public class NewMedicalFragmentOne extends Fragment {
         locationTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -289,25 +306,38 @@ public class NewMedicalFragmentOne extends Fragment {
     //---------------upload photo function---------------
 
     private void uploadImage() {
+        if (filepath !=null){
+            ProgressDialog progressDialog
+                    = new ProgressDialog(getContext());
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            image_name = user_name+"_"+textInputLayout2.getEditText().getText().toString();
+            StorageReference ref = storageReference.child("prescriptions/"+image_name);
+            ref.putFile(filepath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            //do nothing
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(),"Image Uploaded!!", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(), "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress
+                            = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                    progressDialog.setMessage("Uploaded " + (int)progress + "%");
+                }
+            });
+        }
 
-        ByteArrayOutputStream baos =new ByteArrayOutputStream();
-        photo.compress(Bitmap.CompressFormat.JPEG,100,baos);
-        image_name = user_name+"_"+textInputLayout2.getEditText().getText().toString();
-        StorageReference ref = storageReference.child("prescriptions/"+image_name);
-        byte [] b = baos.toByteArray();
-        ref.putBytes(b)
-                       .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                           @Override
-                           public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                               //do nothing
-                           }
-                       })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                e.printStackTrace();
-                            }
-                        });
 
     }
     //------------upload image ----------- finish here
@@ -321,7 +351,7 @@ public class NewMedicalFragmentOne extends Fragment {
                 ||
 
                 ContextCompat.checkSelfPermission(getContext(),
-                        Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                        Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
         {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     Manifest.permission.ACCESS_FINE_LOCATION)
@@ -329,17 +359,17 @@ public class NewMedicalFragmentOne extends Fragment {
                     ||
 
                     ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                            Manifest.permission.CAMERA))
+                            Manifest.permission.READ_EXTERNAL_STORAGE))
             {
 
                 Toast.makeText(getContext(), "You should give the permission!", Toast.LENGTH_SHORT).show();
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA},MY_PERMISSION_CONSTANT);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.READ_EXTERNAL_STORAGE},MY_PERMISSION_CONSTANT);
 
             }
 
             /* First time user use this application*/
             else {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA}, MY_PERMISSION_CONSTANT);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSION_CONSTANT);
             }
         }
     }
@@ -352,9 +382,11 @@ public class NewMedicalFragmentOne extends Fragment {
                 /*Permission Granted*/
                 getLastLocation();
             }
-            else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            else if (grantResults.length > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Image from here..."),PICK_IMAGE_REQUEST);
             }
             else {
                 /*Permission Denied*/

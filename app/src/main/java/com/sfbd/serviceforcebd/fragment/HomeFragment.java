@@ -406,6 +406,7 @@ public class HomeFragment extends Fragment {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
             imageView.setCropToPadding(false);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageView.setImageResource(sampleImages[position]);
         }
     };
