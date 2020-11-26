@@ -29,6 +29,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -47,6 +49,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
 import com.sfbd.serviceforcebd.BuildConfig;
 import com.sfbd.serviceforcebd.R;
 import com.sfbd.serviceforcebd.activity.Goru;
@@ -66,6 +69,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EventListener;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
 
@@ -77,17 +81,13 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class HomeFragment<val> extends Fragment {
 
     private FragmentHomeBinding binding;
-//    int[] sampleImages = {R.drawable.new_car,R.drawable.new_it,R.drawable.baner_medi,R.drawable.baner_shifting,
-//    R.drawable.baner_clean,R.drawable.baner_visiting};
-    int[] sampleImages;
-
+    String imgOne,imgTwo,imgThree,imgFour,imgFive,imgSix;
     private Context context;
     private Button Call_btn;
     private static final int REQUEST_CALL=1;
-    DatabaseReference dbre,dbre1,imageSlideDb;
+    DatabaseReference dbre,dbre1,slider,imageSlideDb;
     private List<String> name=new ArrayList<>();
     private String p;
-
     SearchAdapter adapter;
     private int RECQUST=11;
     String sLetestVersion,sCurrentVersion;
@@ -105,86 +105,23 @@ public class HomeFragment<val> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-
-
+        final List<SlideModel> remoteImages=new ArrayList<>();
         dbre1= FirebaseDatabase.getInstance().getReference().child("product");
         imageSlideDb=FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("image_slider");
         name=Arrays.asList(getResources().getStringArray(R.array.search_service));
-
-        binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
-//        name = getResources().getStringArray(R.array.cleaning_services);
-        adapter=new SearchAdapter(context,name);
-        binding.mainRecy.setAdapter(adapter);
-        new GetLatestVersion().execute();
-        imageSlider();
-        imageBanner();
-        search();
-        initView();
-//        init();
-        findViewById();
-        popularItem();
-        return binding.getRoot();
-    }
-
-    private void imageSlider() {
-        binding.imageSlider.setIndicatorAnimation(SliderLayout.Animations.DROP);
-        binding.imageSlider.setScrollTimeInSec(2);
-        ArrayList<SlideModel> imageList = new ArrayList<SlideModel>();
-
-        setSliderViews();
-    }
-
-    private void setSliderViews() {
-        int i = 0;
-        dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("image_slider");
-
-        dbre.addValueEventListener(new ValueEventListener() {
+        slider= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("image_slider");
+        slider.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String imagOne=  snapshot.child("imageOne").getValue(String.class);
-                    String imgTwo=  snapshot.child("imageTwo").getValue(String.class);
-                    String imgThree=  snapshot.child("imageThree").getValue(String.class);
-                    String imgFour=  snapshot.child("imageFore").getValue(String.class);
-                    String imgFive=  snapshot.child("imageFive").getValue(String.class);
-                    String imgSix=  snapshot.child("imageSix").getValue(String.class);
-                for (int i = 0; i < 6; i++) {
-                    SliderView sliderView = new SliderView(getApplicationContext());
-                    switch (i) {
-                        case 0:
-                            sliderView.setImageUrl(imagOne);
-                            break;
-                        case 1:
-                            sliderView.setImageUrl(imgTwo);
-                            break;
-                        case 2:
-                            sliderView.setImageUrl(imgThree);
-                            break;
-                        case 3:
-                            sliderView.setImageUrl(imgFour);
-                            break;
-
-                        case 4:
-                            sliderView.setImageUrl(imgFive);
-                            break;
-                        case 5:
-                            sliderView.setImageUrl(imgSix);
-                            break;
-                    }
-                    sliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
-                    binding.imageSlider.addSliderView(sliderView);
-                }
-
-
-
-
-
-
-//                String imagOne=  snapshot.child("imageone").getValue(String.class);
-
-
+                remoteImages.add(new SlideModel(snapshot.child("imageOne").getValue().toString(),ScaleTypes.FIT));
+                remoteImages.add(new SlideModel(snapshot.child("imageTwo").getValue().toString(),ScaleTypes.FIT));
+                remoteImages.add(new SlideModel(snapshot.child("imageThree").getValue().toString(),ScaleTypes.FIT));
+                remoteImages.add(new SlideModel(snapshot.child("imageFore").getValue().toString(),ScaleTypes.FIT));
+                remoteImages.add(new SlideModel(snapshot.child("imageFive").getValue().toString(),ScaleTypes.FIT));
+                remoteImages.add(new SlideModel(snapshot.child("imageSix").getValue().toString(),ScaleTypes.FIT));
+                binding.imageSlider.setImageList(remoteImages);
             }
 
             @Override
@@ -193,10 +130,19 @@ public class HomeFragment<val> extends Fragment {
             }
         });
 
-
-
-
+        binding.mainRecy.setLayoutManager(new LinearLayoutManager(context));
+//        name = getResources().getStringArray(R.array.cleaning_services);
+        adapter=new SearchAdapter(context,name);
+        binding.mainRecy.setAdapter(adapter);
+        new GetLatestVersion().execute();
+        imageBanner();
+        search();
+        initView();
+        findViewById();
+        popularItem();
+        return binding.getRoot();
     }
+
 
     private void popularItem() {
         binding.carBikePV.setOnClickListener(new View.OnClickListener() {
@@ -253,28 +199,17 @@ public class HomeFragment<val> extends Fragment {
 
     private void imageBanner() {
         dbre= FirebaseDatabase.getInstance().getReference().child("dashboard_banner").child("middle");
-
         dbre.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists())
                 {
-
-
                     p=snapshot.child("image").getValue(String.class);
-
-
                     try {
-//                        Picasso.get().load(p).into(binding.bannerMiddle);
-//                        Picasso.get().load(p).into(binding.bannerMiddle);
                         Glide.with(context).load(p).into(binding.bannerMiddle);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-
-
-
-
 
                 }
 
@@ -465,8 +400,8 @@ public class HomeFragment<val> extends Fragment {
 
 //    private void init() {
 //
-//        binding.carouselView.setPageCount(sampleImages.length);
-//        binding.carouselView.setImageListener(imageListener);
+//        binding.imageSlider.setPageCount(url.length);
+//        binding.imageSlider.setImageListener(imageListener);
 //
 //
 //    }
@@ -477,14 +412,8 @@ public class HomeFragment<val> extends Fragment {
         startActivity(intent);
 
     }
-//
-//    ImageListener imageListener = new ImageListener() {
-//        @Override
-//        public void setImageForPosition(int position, ImageView imageView) {
-//            imageView.setCropToPadding(false);
-//            imageView.setImageResource(sampleImages[position]);
-//        }
-//    };
+
+
 
     @Override
     public void onDestroy() {
