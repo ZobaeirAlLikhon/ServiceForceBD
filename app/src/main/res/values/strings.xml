@@ -230,7 +230,7 @@
         <item>Painting Service</item>
     </string-array>
     <integer-array name="painting_renovation_serviceImg">
-        <item>@drawable/home_interior</item>
+        <item>@drawable/home_intorio</item>
         <item>@drawable/office_interior</item>
         <item>@drawable/thai_glass_gril</item>
         <item>@drawable/partex_work_service</item>

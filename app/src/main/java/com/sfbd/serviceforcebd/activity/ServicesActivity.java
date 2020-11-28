@@ -67,7 +67,8 @@ public class ServicesActivity extends AppCompatActivity {
 
             }else if(service.equals("Painting & Renovation Serviecs")){
                 serviceList = getResources().getStringArray(R.array.painting_renovation_services);
-                initRecyclerView();
+                img = getResources().obtainTypedArray(R.array.painting_renovation_serviceImg);
+                initRecyclerViewImg();
 
             }else if(service.equals("Car & Bike Care")){
                 serviceList = getResources().getStringArray(R.array.car_care_services);
